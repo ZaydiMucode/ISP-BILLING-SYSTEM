@@ -37,6 +37,7 @@ class PackageController extends Controller
         $package = \App\Models\Package::create($validated);
 
         // Sync PPPoE profile to Mikrotik if profile name provided
+        $mikrotikMessage = '';
         if (!empty($validated['pppoe_profile'])) {
             try {
                 $mikrotik = app(MikrotikService::class);
@@ -44,18 +45,27 @@ class PackageController extends Controller
                     // Parse speed for rate limit (e.g., "10M/10M" or "10 Mbps")
                     $rateLimit = $this->parseSpeedToRateLimit($validated['speed'] ?? '');
                     
-                    $mikrotik->createPPPoEProfile([
+                    $result = $mikrotik->createPPPoEProfile([
                         'name' => $validated['pppoe_profile'],
                         'rate_limit' => $rateLimit,
                     ]);
+                    
+                    if ($result) {
+                        $mikrotikMessage = ' PPPoE Profile berhasil dibuat di Mikrotik.';
+                    } else {
+                        $mikrotikMessage = ' (Warning: Gagal membuat PPPoE Profile di Mikrotik)';
+                    }
+                } else {
+                    $mikrotikMessage = ' (Warning: Mikrotik tidak terkoneksi, profile tidak dibuat)';
                 }
             } catch (\Exception $e) {
                 \Log::warning('Mikrotik profile sync failed: ' . $e->getMessage());
+                $mikrotikMessage = ' (Warning: ' . $e->getMessage() . ')';
             }
         }
 
         return redirect()->route('admin.packages.index')
-            ->with('success', 'Package created successfully!');
+            ->with('success', 'Package created successfully!' . $mikrotikMessage);
     }
 
     /**

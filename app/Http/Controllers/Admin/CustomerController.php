@@ -67,27 +67,35 @@ class CustomerController extends Controller
         $customer = \App\Models\Customer::create($validated);
 
         // Sync to Mikrotik if PPPoE credentials provided
+        $mikrotikMessage = '';
         if (!empty($validated['pppoe_username']) && $validated['status'] === 'active') {
             try {
                 $mikrotik = app(MikrotikService::class);
                 if ($mikrotik->isConnected()) {
                     $package = $customer->package;
-                    $mikrotik->createPPPoESecret([
+                    $result = $mikrotik->createPPPoESecret([
                         'username' => $validated['pppoe_username'],
                         'password' => $validated['pppoe_password'] ?? $validated['pppoe_username'],
                         'profile' => $package->pppoe_profile ?? 'default',
                         'comment' => "Customer: {$customer->name} (ID: {$customer->id})",
                     ]);
+                    
+                    if ($result) {
+                        $mikrotikMessage = ' PPPoE Secret berhasil dibuat di Mikrotik.';
+                    } else {
+                        $mikrotikMessage = ' (Warning: Gagal membuat PPPoE Secret di Mikrotik)';
+                    }
+                } else {
+                    $mikrotikMessage = ' (Warning: Mikrotik tidak terkoneksi, PPPoE tidak dibuat)';
                 }
             } catch (\Exception $e) {
                 \Log::warning('Mikrotik sync failed on customer create: ' . $e->getMessage());
-                return redirect()->route('admin.customers.index')
-                    ->with('warning', 'Customer created but Mikrotik sync failed: ' . $e->getMessage());
+                $mikrotikMessage = ' (Warning: Mikrotik error - ' . $e->getMessage() . ')';
             }
         }
 
         return redirect()->route('admin.customers.index')
-            ->with('success', 'Customer created successfully!');
+            ->with('success', 'Customer created successfully!' . $mikrotikMessage);
     }
 
     public function show(\App\Models\Customer $customer)
