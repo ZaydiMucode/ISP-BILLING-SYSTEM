@@ -59,6 +59,23 @@
             <span>Network Map</span>
         </a>
         
+        <!-- Divider -->
+        <div class="border-t border-cyan-500/20 my-4"></div>
+        <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Integration</p>
+        
+        <a href="{{ route('admin.mikrotik.index') }}" class="flex items-center px-4 py-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.mikrotik.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+            <i class="fas fa-server mr-3"></i>
+            <span>Mikrotik</span>
+        </a>
+        
+        <a href="{{ route('admin.cpe.index') }}" class="flex items-center px-4 py-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.cpe.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+            <i class="fas fa-router mr-3"></i>
+            <span>CPE Management</span>
+        </a>
+        
+        <!-- Divider -->
+        <div class="border-t border-cyan-500/20 my-4"></div>
+        
         <a href="{{ route('admin.settings') }}" class="flex items-center px-4 py-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.settings') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-cog mr-3"></i>
             <span>Settings</span>

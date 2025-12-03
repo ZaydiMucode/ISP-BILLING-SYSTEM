@@ -419,7 +419,7 @@ Terima kasih kepada:
 ## 📞 Contact
 
 **Developer**: Rizky Lab  
-**Email**: rizkylab@example.com  
+**Email**: rizkylab@gmail.com 
 **GitHub**: [@rizkylab](https://github.com/rizkylab)
 
 ---
