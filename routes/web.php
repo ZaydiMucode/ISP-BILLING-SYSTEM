@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CollectorController;
 use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\OdpController;
+use App\Http\Controllers\Admin\TicketController;
 
 // Public Routes
 Route::get('/', function () {
@@ -89,6 +90,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/map', [OdpController::class, 'map'])->name('map');
         });
         
+        // Tickets
+        Route::prefix('tickets')->name('tickets.')->group(function () {
+            Route::get('/', [TicketController::class, 'index'])->name('index');
+            Route::get('/create', [TicketController::class, 'create'])->name('create');
+            Route::post('/', [TicketController::class, 'store'])->name('store');
+            Route::get('/{ticket}', [TicketController::class, 'show'])->name('show');
+            Route::post('/{ticket}/reply', [TicketController::class, 'reply'])->name('reply');
+            Route::post('/{ticket}/assign', [TicketController::class, 'assign'])->name('assign');
+            Route::post('/{ticket}/status', [TicketController::class, 'updateStatus'])->name('status');
+            Route::delete('/{ticket}', [TicketController::class, 'destroy'])->name('destroy');
+        });
+
         // Settings
         Route::get('/settings', [SettingController::class, 'index'])->name('settings');
         Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
