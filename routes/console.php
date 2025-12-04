@@ -38,6 +38,30 @@ Schedule::command('billing:suspend-overdue --days=7')
     ->withoutOverlapping()
     ->appendOutputTo(storage_path('logs/suspension.log'));
 
+// Reactivate customers who have paid at 02:00
+Schedule::command('billing:reactivate-paid')
+    ->dailyAt('02:00')
+    ->withoutOverlapping()
+    ->appendOutputTo(storage_path('logs/reactivation.log'));
+
+// Send daily billing report at 18:00
+Schedule::command('billing:report --period=daily --send')
+    ->dailyAt('18:00')
+    ->withoutOverlapping()
+    ->appendOutputTo(storage_path('logs/reports.log'));
+
+// Send weekly billing report on Monday at 08:00
+Schedule::command('billing:report --period=weekly --send')
+    ->weeklyOn(1, '08:00')
+    ->withoutOverlapping()
+    ->appendOutputTo(storage_path('logs/reports.log'));
+
+// Send monthly billing report on the 1st at 08:00
+Schedule::command('billing:report --period=monthly --send')
+    ->monthlyOn(1, '08:00')
+    ->withoutOverlapping()
+    ->appendOutputTo(storage_path('logs/reports.log'));
+
 // Sync Mikrotik users every hour
 Schedule::command('mikrotik:sync-users --update')
     ->hourly()

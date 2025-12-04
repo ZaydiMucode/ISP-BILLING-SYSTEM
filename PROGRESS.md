@@ -181,7 +181,13 @@
   - ✅ Generate monthly invoices (1st of month)
   - ✅ Send payment reminders (3 days & 1 day before due)
   - ✅ Auto-suspend overdue customers (7 days after due)
+  - ✅ Auto-reactivate paid customers (daily at 02:00)
   - ✅ Sync Mikrotik users (hourly)
+- ✅ **Billing Reports**:
+  - ✅ Daily billing report (18:00)
+  - ✅ Weekly billing report (Monday 08:00)
+  - ✅ Monthly billing report (1st at 08:00)
+  - ✅ WhatsApp report delivery to admin
 - ✅ **Events & Listeners**:
   - ✅ InvoicePaid → Activate customer, send confirmation
   - ✅ CustomerSuspended → Disconnect PPPoE, send notice
@@ -195,7 +201,11 @@
 - ✅ Top packages ranking
 - ✅ Collector performance
 - ✅ Agent performance
-- ✅ CSV export functionality
+- ✅ **Daily Report**: Per-day payment breakdown
+- ✅ **Monthly Report**: Daily revenue chart, collection rate
+- ✅ **Export Options**:
+  - ✅ CSV export (summary, revenue, customers, invoices, packages, collectors)
+  - ✅ JSON export for API integration
 
 ### 17. **Multi-Portal System** ✅ 100%
 - ✅ **Customer Portal**:
@@ -203,6 +213,8 @@
   - ✅ Invoice list & payment
   - ✅ Profile management
   - ✅ Support ticket system
+  - ✅ Usage monitoring page
+  - ✅ My tickets page
 - ✅ **Agent Portal**:
   - ✅ Dashboard with sales stats
   - ✅ Voucher selling interface
@@ -353,6 +365,14 @@ php artisan billing:send-reminders --days=3
 # Suspend overdue customers (7 days after due)
 php artisan billing:suspend-overdue --days=7
 
+# Reactivate customers who have paid
+php artisan billing:reactivate-paid
+
+# Generate billing report
+php artisan billing:report --period=daily
+php artisan billing:report --period=weekly --send
+php artisan billing:report --period=monthly --send
+
 # Sync Mikrotik users
 php artisan mikrotik:sync-users --create
 php artisan mikrotik:sync-users --update
@@ -367,6 +387,28 @@ php artisan mikrotik:sync-users --update
 ### WhatsApp
 - `POST /api/whatsapp/send` - Send WhatsApp message
 - `GET /api/whatsapp/status` - Check gateway status
+
+### Customer API (Bearer Token Auth)
+- `GET /api/customer/profile` - Get customer profile
+- `GET /api/customer/invoices` - List invoices
+- `GET /api/customer/invoices/{id}` - Invoice detail
+- `GET /api/customer/payments` - Payment history
+- `POST /api/customer/tickets` - Create support ticket
+- `GET /api/customer/tickets` - List tickets
+- `GET /api/customer/usage` - Usage statistics
+
+### Admin API (Bearer Token Auth)
+- `GET /api/admin/customers` - List customers
+- `POST /api/admin/customers` - Create customer
+- `GET /api/admin/customers/{id}` - Customer detail
+- `PUT /api/admin/customers/{id}` - Update customer
+- `DELETE /api/admin/customers/{id}` - Delete customer
+- `GET /api/admin/packages` - List packages
+- `GET /api/admin/invoices` - List invoices
+- `POST /api/admin/invoices` - Create invoice
+- `POST /api/admin/invoices/{id}/pay` - Mark as paid
+- `GET /api/admin/reports/summary` - Report summary
+- `GET /api/admin/reports/revenue` - Revenue report
 
 ---
 

@@ -147,9 +147,19 @@
         <div class="border-t border-cyan-500/20 my-3"></div>
         <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">System</p>
         
-        <a href="{{ route('admin.reports.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.reports.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+        <a href="{{ route('admin.reports.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.reports.index') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-chart-bar w-5 mr-3"></i>
             <span>Reports</span>
+        </a>
+        
+        <a href="{{ route('admin.reports.daily') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.reports.daily') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+            <i class="fas fa-calendar-day w-5 mr-3"></i>
+            <span>Daily Report</span>
+        </a>
+        
+        <a href="{{ route('admin.reports.monthly') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.reports.monthly') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+            <i class="fas fa-calendar-alt w-5 mr-3"></i>
+            <span>Monthly Report</span>
         </a>
         
         <a href="{{ route('admin.tickets.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.tickets.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
@@ -165,6 +175,11 @@
             @if($openTickets > 0)
             <span class="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">{{ $openTickets }}</span>
             @endif
+        </a>
+        
+        <a href="{{ route('admin.api-docs') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.api-docs') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+            <i class="fas fa-code w-5 mr-3"></i>
+            <span>API Docs</span>
         </a>
         
         <a href="{{ route('admin.settings') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.settings') ? 'bg-white bg-opacity-20 text-white' : '' }}">

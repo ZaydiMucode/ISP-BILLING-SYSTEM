@@ -17,16 +17,41 @@
                         <h1 class="text-2xl font-bold text-gray-800">Laporan & Analitik</h1>
                         <p class="text-gray-500">Ringkasan data bisnis ISP Anda</p>
                     </div>
-                    <div class="mt-4 md:mt-0 flex space-x-3">
+                    <div class="mt-4 md:mt-0 flex flex-wrap gap-2">
                         <select id="period" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
                             <option value="today">Hari Ini</option>
                             <option value="week">Minggu Ini</option>
                             <option value="month" selected>Bulan Ini</option>
                             <option value="year">Tahun Ini</option>
                         </select>
-                        <button onclick="exportReport()" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
-                            <i class="fas fa-file-excel mr-2"></i>Export
-                        </button>
+                        <select id="exportType" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
+                            <option value="summary">Ringkasan</option>
+                            <option value="revenue">Pendapatan</option>
+                            <option value="customers">Pelanggan</option>
+                            <option value="invoices">Invoice</option>
+                            <option value="packages">Paket</option>
+                            <option value="collectors">Kolektor</option>
+                        </select>
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = !open" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition flex items-center">
+                                <i class="fas fa-download mr-2"></i>Export
+                                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                            </button>
+                            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border z-10">
+                                <button onclick="exportReport('csv')" class="w-full px-4 py-2 text-left hover:bg-gray-100 rounded-t-lg">
+                                    <i class="fas fa-file-csv mr-2 text-green-600"></i>CSV
+                                </button>
+                                <button onclick="exportReport('json')" class="w-full px-4 py-2 text-left hover:bg-gray-100 rounded-b-lg">
+                                    <i class="fas fa-file-code mr-2 text-blue-600"></i>JSON
+                                </button>
+                            </div>
+                        </div>
+                        <a href="{{ route('admin.reports.daily') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-calendar-day mr-2"></i>Harian
+                        </a>
+                        <a href="{{ route('admin.reports.monthly') }}" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+                            <i class="fas fa-calendar-alt mr-2"></i>Bulanan
+                        </a>
                     </div>
                 </div>
 
@@ -354,9 +379,10 @@ new Chart(invoiceCtx, {
     }
 });
 
-function exportReport() {
+function exportReport(format = 'csv') {
     const period = document.getElementById('period').value;
-    window.location.href = `/admin/reports/export?period=${period}`;
+    const type = document.getElementById('exportType').value;
+    window.location.href = `/admin/reports/export?period=${period}&type=${type}&format=${format}`;
 }
 </script>
             </div>

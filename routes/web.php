@@ -109,6 +109,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/settings', [SettingController::class, 'index'])->name('settings');
         Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
         
+        // API Documentation
+        Route::get('/api-docs', function () {
+            return view('admin.api-docs');
+        })->name('api-docs');
+        
         // Change Password
         Route::get('/change-password', [DashboardController::class, 'changePassword'])->name('change-password');
         Route::post('/change-password', [DashboardController::class, 'updatePassword'])->name('change-password.update');
@@ -163,6 +168,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Reports
         Route::prefix('reports')->name('reports.')->group(function () {
             Route::get('/', [\App\Http\Controllers\Admin\ReportController::class, 'index'])->name('index');
+            Route::get('/daily', [\App\Http\Controllers\Admin\ReportController::class, 'daily'])->name('daily');
+            Route::get('/monthly', [\App\Http\Controllers\Admin\ReportController::class, 'monthly'])->name('monthly');
             Route::get('/export', [\App\Http\Controllers\Admin\ReportController::class, 'export'])->name('export');
         });
         
@@ -292,6 +299,8 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::post('/profile', [\App\Http\Controllers\Portal\CustomerController::class, 'updateProfile'])->name('profile.update');
         Route::get('/support', [\App\Http\Controllers\Portal\CustomerController::class, 'support'])->name('support');
         Route::post('/support', [\App\Http\Controllers\Portal\CustomerController::class, 'submitTicket'])->name('support.submit');
+        Route::get('/tickets', [\App\Http\Controllers\Portal\CustomerController::class, 'tickets'])->name('tickets');
+        Route::get('/usage', [\App\Http\Controllers\Portal\CustomerController::class, 'usage'])->name('usage');
     });
 });
 

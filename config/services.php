@@ -60,6 +60,7 @@ return [
         'api_url' => env('WHATSAPP_API_URL', 'http://localhost:3000'),
         'api_key' => env('WHATSAPP_API_KEY', ''),
         'sender' => env('WHATSAPP_SENDER', ''),
+        'admin_phone' => env('WHATSAPP_ADMIN_PHONE', ''),
     ],
 
     'midtrans' => [

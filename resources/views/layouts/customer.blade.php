@@ -44,6 +44,14 @@
                 <i class="fas fa-credit-card w-5 mr-3"></i>
                 <span>Pembayaran</span>
             </a>
+            <a href="{{ route('customer.usage') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.usage*') ? 'bg-slate-700 text-white' : '' }}">
+                <i class="fas fa-chart-line w-5 mr-3"></i>
+                <span>Pemakaian</span>
+            </a>
+            <a href="{{ route('customer.tickets') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.tickets*') ? 'bg-slate-700 text-white' : '' }}">
+                <i class="fas fa-ticket-alt w-5 mr-3"></i>
+                <span>Tiket Saya</span>
+            </a>
             <a href="{{ route('customer.profile') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.profile*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-user-cog w-5 mr-3"></i>
                 <span>Profil</span>

@@ -205,13 +205,52 @@ class CustomerController extends Controller
 
     public function submitTicket(Request $request)
     {
+        $customer = $this->getCustomer();
+        if (!$customer) {
+            return redirect()->route('customer.login');
+        }
+
         $request->validate([
-            'subject' => 'required',
-            'message' => 'required',
+            'subject' => 'required|string|max:255',
+            'category' => 'required|in:billing,technical,general,complaint',
+            'priority' => 'in:low,medium,high',
+            'message' => 'required|string',
         ]);
 
-        // TODO: Create support ticket model and save
+        \App\Models\Ticket::create([
+            'ticket_number' => 'TKT-' . date('Ymd') . '-' . str_pad(\App\Models\Ticket::whereDate('created_at', today())->count() + 1, 4, '0', STR_PAD_LEFT),
+            'customer_id' => $customer->id,
+            'subject' => $request->subject,
+            'category' => $request->category,
+            'priority' => $request->priority ?? 'medium',
+            'status' => 'open',
+            'message' => $request->message,
+        ]);
         
         return back()->with('success', 'Tiket berhasil dikirim. Tim kami akan segera menghubungi Anda.');
+    }
+
+    public function tickets()
+    {
+        $customer = $this->getCustomer();
+        if (!$customer) {
+            return redirect()->route('customer.login');
+        }
+        
+        $tickets = \App\Models\Ticket::where('customer_id', $customer->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('customer.tickets', compact('customer', 'tickets'));
+    }
+
+    public function usage()
+    {
+        $customer = $this->getCustomer();
+        if (!$customer) {
+            return redirect()->route('customer.login');
+        }
+        
+        return view('customer.usage', compact('customer'));
     }
 }
