@@ -13,7 +13,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="mt-4 px-4 space-y-1 overflow-y-auto" style="max-height: calc(100vh - 140px);">
+    <nav class="mt-4 px-4 space-y-1 overflow-y-auto" style="max-height: calc(100vh - 180px);">
         
         <!-- Main Menu -->
         <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2 mt-2">Main Menu</p>
@@ -41,19 +41,13 @@
         <a href="{{ route('admin.orders.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.orders.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-shopping-cart w-5 mr-3"></i>
             <span>Orders</span>
-            @php 
-                try {
-                    $pendingOrders = \App\Models\Order::where('status', 'pending')->count();
-                } catch (\Exception $e) {
-                    $pendingOrders = 0;
-                }
-            @endphp
+            @php $pendingOrders = \App\Models\Order::where('status', 'pending')->count() ?? 0; @endphp
             @if($pendingOrders > 0)
             <span class="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">{{ $pendingOrders }}</span>
             @endif
         </a>
-        
-        <!-- Staff Management -->
+
+        <!-- Staff -->
         <div class="border-t border-cyan-500/20 my-3"></div>
         <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Staff</p>
         
@@ -72,7 +66,7 @@
             <span>Agents</span>
         </a>
         
-        <!-- Network & Voucher -->
+        <!-- Network -->
         <div class="border-t border-cyan-500/20 my-3"></div>
         <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Network</p>
         
@@ -91,65 +85,47 @@
             <span>Network Map</span>
         </a>
         
-        <!-- Integration Services -->
+        <!-- Services -->
         <div class="border-t border-cyan-500/20 my-3"></div>
-        <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Integration</p>
+        <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Services</p>
         
         <a href="{{ route('admin.mikrotik.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.mikrotik.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-server w-5 mr-3"></i>
             <span>Mikrotik</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-cyan-500/30 text-cyan-300 rounded">PPPoE</span>
         </a>
         
         <a href="{{ route('admin.radius.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.radius.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-shield-alt w-5 mr-3"></i>
             <span>RADIUS</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-purple-500/30 text-purple-300 rounded">Auth</span>
+        </a>
+        
+        <a href="{{ route('admin.cpe.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.cpe.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+            <i class="fas fa-wifi w-5 mr-3"></i>
+            <span>CPE / ONU</span>
         </a>
         
         <a href="{{ route('admin.snmp.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.snmp.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-chart-line w-5 mr-3"></i>
             <span>SNMP Monitor</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-orange-500/30 text-orange-300 rounded">Live</span>
-        </a>
-        
-        <a href="{{ route('admin.cpe.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.cpe.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
-            <i class="fas fa-router w-5 mr-3"></i>
-            <span>CPE / ONU</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-blue-500/30 text-blue-300 rounded">TR-069</span>
         </a>
         
         <a href="{{ route('admin.whatsapp.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.whatsapp.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fab fa-whatsapp w-5 mr-3"></i>
             <span>WhatsApp</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-green-500/30 text-green-300 rounded">Gateway</span>
         </a>
         
         <a href="{{ route('admin.payment.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.payment.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-credit-card w-5 mr-3"></i>
-            <span>Payment</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-yellow-500/30 text-yellow-300 rounded">Gateway</span>
+            <span>Payment Gateway</span>
         </a>
-        
-        <a href="{{ route('admin.integration.crm') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.integration.crm*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
-            <i class="fas fa-users-cog w-5 mr-3"></i>
-            <span>CRM</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-pink-500/30 text-pink-300 rounded">Sync</span>
-        </a>
-        
-        <a href="{{ route('admin.integration.accounting') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.integration.accounting*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
-            <i class="fas fa-calculator w-5 mr-3"></i>
-            <span>Accounting</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-emerald-500/30 text-emerald-300 rounded">Sync</span>
-        </a>
-        
-        <!-- Settings -->
+
+        <!-- Reports -->
         <div class="border-t border-cyan-500/20 my-3"></div>
-        <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">System</p>
+        <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Reports</p>
         
         <a href="{{ route('admin.reports.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.reports.index') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-chart-bar w-5 mr-3"></i>
-            <span>Reports</span>
+            <span>Overview</span>
         </a>
         
         <a href="{{ route('admin.reports.daily') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.reports.daily') ? 'bg-white bg-opacity-20 text-white' : '' }}">
@@ -162,19 +138,26 @@
             <span>Monthly Report</span>
         </a>
         
+        <!-- Support -->
+        <div class="border-t border-cyan-500/20 my-3"></div>
+        <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Support</p>
+        
         <a href="{{ route('admin.tickets.index') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.tickets.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-headset w-5 mr-3"></i>
             <span>Tickets</span>
-            @php 
-                try {
-                    $openTickets = \App\Models\Ticket::whereIn('status', ['open', 'in_progress'])->count();
-                } catch (\Exception $e) {
-                    $openTickets = 0;
-                }
-            @endphp
+            @php $openTickets = \App\Models\Ticket::whereIn('status', ['open', 'in_progress'])->count() ?? 0; @endphp
             @if($openTickets > 0)
             <span class="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">{{ $openTickets }}</span>
             @endif
+        </a>
+        
+        <!-- Settings -->
+        <div class="border-t border-cyan-500/20 my-3"></div>
+        <p class="px-4 text-xs text-cyan-300/60 uppercase tracking-wider mb-2">Settings</p>
+        
+        <a href="{{ route('admin.settings.integrations') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.settings.integrations') || request()->routeIs('admin.settings.mikrotik*') || request()->routeIs('admin.settings.radius*') || request()->routeIs('admin.settings.genieacs*') || request()->routeIs('admin.settings.whatsapp*') || request()->routeIs('admin.settings.midtrans*') || request()->routeIs('admin.settings.xendit*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+            <i class="fas fa-plug w-5 mr-3"></i>
+            <span>Integrasi</span>
         </a>
         
         <a href="{{ route('admin.api-docs') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.api-docs') ? 'bg-white bg-opacity-20 text-white' : '' }}">
@@ -182,31 +165,33 @@
             <span>API Docs</span>
         </a>
         
-        <a href="{{ route('admin.settings.integrations') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.settings.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
-            <i class="fas fa-plug w-5 mr-3"></i>
-            <span>Integrasi</span>
-            <span class="ml-auto text-xs px-2 py-0.5 bg-cyan-500/30 text-cyan-300 rounded">GUI</span>
-        </a>
-        
-        <a href="{{ route('admin.settings') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.settings') && !request()->routeIs('admin.settings.*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
+        <a href="{{ route('admin.settings') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.settings') && !request()->is('admin/settings/*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-cog w-5 mr-3"></i>
-            <span>Settings</span>
-        </a>
-        
-        <a href="{{ route('admin.change-password') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.change-password') ? 'bg-white bg-opacity-20 text-white' : '' }}">
-            <i class="fas fa-key w-5 mr-3"></i>
-            <span>Ganti Password</span>
+            <span>General</span>
         </a>
     </nav>
 
-    <!-- Logout -->
+    <!-- User Info & Logout -->
     <div class="absolute bottom-0 w-full p-4 bg-gradient-to-t from-slate-900 to-transparent">
-        <form action="{{ route('admin.logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="flex items-center w-full px-4 py-2.5 text-gray-300 hover:bg-red-600 hover:text-white rounded-lg transition">
-                <i class="fas fa-sign-out-alt w-5 mr-3"></i>
-                <span>Logout</span>
-            </button>
-        </form>
+        <div class="flex items-center space-x-3 px-4 py-2 mb-2">
+            <div class="h-10 w-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-bold shadow-lg">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-white truncate">{{ auth()->user()->name }}</p>
+                <p class="text-xs text-cyan-300">Administrator</p>
+            </div>
+        </div>
+        <div class="flex space-x-2">
+            <a href="{{ route('admin.change-password') }}" class="flex-1 flex items-center justify-center px-3 py-2 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition text-sm">
+                <i class="fas fa-key mr-2"></i>Password
+            </a>
+            <form action="{{ route('admin.logout') }}" method="POST" class="flex-1">
+                @csrf
+                <button type="submit" class="w-full flex items-center justify-center px-3 py-2 text-gray-300 hover:bg-red-600 hover:text-white rounded-lg transition text-sm">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </form>
+        </div>
     </div>
 </div>
