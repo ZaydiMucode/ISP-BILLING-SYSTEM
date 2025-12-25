@@ -33,7 +33,7 @@
                 </div>
             </div>
             <p class="text-xs text-gray-400 mt-2">
-                <i class="fas fa-ethernet mr-1"></i>{{ Onu::count() }} ONUs
+                <i class="fas fa-ethernet mr-1"></i>{{ \App\Models\Onu::count() }} ONUs
             </p>
         </div>
 
