@@ -221,7 +221,7 @@ jobs:
           DB_DATABASE: testing
           DB_USERNAME: root
           DB_PASSWORD: password
-        run: php artisan test --parallel
+        run: php artisan test
 
   # ============================================
   # Security Gate - All checks must pass
