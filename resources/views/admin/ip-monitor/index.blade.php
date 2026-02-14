@@ -14,7 +14,7 @@
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-white">IP Monitor</h1>
-                    <p class="text-gray-400">Monitoring IP Static Pelanggan</p>
+                    <p class="text-gray-400">Monitoring Customer Static IPs</p>
                 </div>
                 <div class="mt-4 md:mt-0 flex space-x-3">
                     <button onclick="pingAll()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">
@@ -23,11 +23,11 @@
                     <form action="{{ route('admin.ip-monitor.import-customers') }}" method="POST" class="inline">
                         @csrf
                         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
-                            <i class="fas fa-download mr-2"></i>Import dari Customer
+                            <i class="fas fa-download mr-2"></i>Import from Customers
                         </button>
                     </form>
                     <a href="{{ route('admin.ip-monitor.create') }}" class="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg transition">
-                        <i class="fas fa-plus mr-2"></i>Tambah IP
+                        <i class="fas fa-plus mr-2"></i>Add IP
                     </a>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-gray-400 text-sm">Total Monitor</p>
+                            <p class="text-gray-400 text-sm">Total Monitors</p>
                             <p class="text-2xl font-bold text-white">{{ $stats['total'] }}</p>
                         </div>
                         <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
@@ -84,17 +84,17 @@
             <div class="bg-gray-800 rounded-xl p-4 mb-6 border border-gray-700">
                 <form method="GET" class="flex flex-wrap gap-4">
                     <div class="flex-1 min-w-[200px]">
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari IP atau nama..." 
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search IP or name..." 
                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-cyan-500">
                     </div>
                     <select name="status" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
-                        <option value="">Semua Status</option>
+                        <option value="">All Status</option>
                         <option value="up" {{ request('status') == 'up' ? 'selected' : '' }}>UP</option>
                         <option value="down" {{ request('status') == 'down' ? 'selected' : '' }}>DOWN</option>
                         <option value="unknown" {{ request('status') == 'unknown' ? 'selected' : '' }}>Unknown</option>
                     </select>
                     <select name="active" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
-                        <option value="">Semua</option>
+                        <option value="">All</option>
                         <option value="yes" {{ request('active') == 'yes' ? 'selected' : '' }}>Active</option>
                         <option value="no" {{ request('active') == 'no' ? 'selected' : '' }}>Inactive</option>
                     </select>
@@ -112,7 +112,7 @@
                             <tr>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Status</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">IP Address</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Nama</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Name</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Customer</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Latency</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Uptime</th>
@@ -181,14 +181,14 @@
                                         </a>
                                         <form action="{{ route('admin.ip-monitor.toggle', $monitor) }}" method="POST" class="inline">
                                             @csrf
-                                            <button type="submit" class="text-{{ $monitor->is_active ? 'gray' : 'blue' }}-400 hover:text-{{ $monitor->is_active ? 'gray' : 'blue' }}-300" title="{{ $monitor->is_active ? 'Nonaktifkan' : 'Aktifkan' }}">
+                                            <button type="submit" class="text-{{ $monitor->is_active ? 'gray' : 'blue' }}-400 hover:text-{{ $monitor->is_active ? 'gray' : 'blue' }}-300" title="{{ $monitor->is_active ? 'Disable' : 'Enable' }}">
                                                 <i class="fas fa-{{ $monitor->is_active ? 'pause' : 'play' }}"></i>
                                             </button>
                                         </form>
-                                        <form action="{{ route('admin.ip-monitor.destroy', $monitor) }}" method="POST" class="inline" onsubmit="return confirm('Hapus monitor ini?')">
+                                        <form action="{{ route('admin.ip-monitor.destroy', $monitor) }}" method="POST" class="inline" onsubmit="return confirm('Delete this monitor?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-red-400 hover:text-red-300" title="Hapus">
+                                            <button type="submit" class="text-red-400 hover:text-red-300" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
@@ -199,7 +199,7 @@
                             <tr>
                                 <td colspan="8" class="px-4 py-8 text-center text-gray-400">
                                     <i class="fas fa-network-wired text-4xl mb-3 opacity-50"></i>
-                                    <p>Belum ada IP yang dimonitor</p>
+                                    <p>No IPs being monitored yet</p>
                                 </td>
                             </tr>
                             @endforelse
@@ -239,7 +239,7 @@
                     @endforeach
                 </div>
                 <a href="{{ route('admin.ip-monitor.alerts') }}" class="block mt-3 text-center text-cyan-400 hover:underline text-sm">
-                    Lihat semua alerts →
+                    View all alerts →
                 </a>
             </div>
             @endif
@@ -269,12 +269,12 @@ function pingMonitor(id) {
     })
     .catch(() => {
         btn.classList.remove('fa-spin');
-        alert('Gagal melakukan ping');
+        alert('Failed to perform ping');
     });
 }
 
 function pingAll() {
-    if (!confirm('Ping semua IP yang aktif?')) return;
+    if (!confirm('Ping all active IPs?')) return;
     
     fetch('{{ route("admin.ip-monitor.ping-all") }}', {
         method: 'POST',
@@ -285,10 +285,10 @@ function pingAll() {
     })
     .then(r => r.json())
     .then(data => {
-        alert(`Berhasil ping ${data.checked} IP`);
+        alert(`Successfully pinged ${data.checked} IPs`);
         location.reload();
     })
-    .catch(() => alert('Gagal melakukan ping'));
+    .catch(() => alert('Failed to perform ping'));
 }
 </script>
 @endsection

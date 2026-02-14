@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">Accounting Integration</h1>
-                    <p class="text-gray-600">Integrasi dengan software akuntansi</p>
+                    <p class="text-gray-600">Integration with accounting software</p>
                 </div>
                 <a href="{{ route('admin.integration.crm') }}" class="text-blue-600 hover:text-blue-800">
                     <i class="fas fa-users-cog mr-2"></i>CRM Integration
@@ -25,8 +25,8 @@
                 <div class="flex">
                     <i class="fas fa-exclamation-triangle text-yellow-400 mr-3 mt-1"></i>
                     <div>
-                        <h3 class="text-yellow-800 font-medium">Accounting Tidak Aktif</h3>
-                        <p class="text-yellow-700 text-sm mt-1">Aktifkan Accounting dengan mengatur variabel berikut di file .env:</p>
+                        <h3 class="text-yellow-800 font-medium">Accounting Inactive</h3>
+                        <p class="text-yellow-700 text-sm mt-1">Enable Accounting by setting the following variables in your .env file:</p>
                         <pre class="mt-2 bg-yellow-100 p-2 rounded text-xs">ACCOUNTING_ENABLED=true
 ACCOUNTING_PROVIDER=accurate
 ACCOUNTING_API_KEY=your_api_key
@@ -60,7 +60,7 @@ ACCOUNTING_COMPANY_ID=your_company_id</pre>
                     <form action="{{ route('admin.integration.accounting.sync-customer') }}" method="POST">
                         @csrf
                         <select name="customer_id" required class="w-full rounded-lg border-gray-300 shadow-sm mb-4">
-                            <option value="">-- Pilih Customer --</option>
+                            <option value="">-- Select Customer --</option>
                             @foreach(\App\Models\Customer::orderBy('name')->get() as $customer)
                             <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                             @endforeach
@@ -76,7 +76,7 @@ ACCOUNTING_COMPANY_ID=your_company_id</pre>
                     <form action="{{ route('admin.integration.accounting.sync-invoice') }}" method="POST">
                         @csrf
                         <select name="invoice_id" required class="w-full rounded-lg border-gray-300 shadow-sm mb-4">
-                            <option value="">-- Pilih Invoice --</option>
+                            <option value="">-- Select Invoice --</option>
                             @foreach(\App\Models\Invoice::with('customer')->latest()->limit(50)->get() as $invoice)
                             <option value="{{ $invoice->id }}">{{ $invoice->invoice_number }} - {{ $invoice->customer->name }}</option>
                             @endforeach
@@ -89,7 +89,7 @@ ACCOUNTING_COMPANY_ID=your_company_id</pre>
 
                 <div class="bg-white rounded-xl shadow p-6">
                     <h3 class="font-bold text-gray-800 mb-4"><i class="fas fa-cogs text-purple-500 mr-2"></i>Test Connection</h3>
-                    <p class="text-sm text-gray-500 mb-4">Test koneksi ke accounting provider.</p>
+                    <p class="text-sm text-gray-500 mb-4">Test the connection to the accounting provider.</p>
                     <button onclick="testAccountingConnection()" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">
                         <i class="fas fa-plug mr-2"></i>Test Connection
                     </button>
@@ -103,7 +103,7 @@ ACCOUNTING_COMPANY_ID=your_company_id</pre>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="p-4 border rounded-lg {{ $provider == 'accurate' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200' }}">
                         <h4 class="font-bold">Accurate Online</h4>
-                        <p class="text-sm text-gray-500">Software akuntansi populer di Indonesia</p>
+                        <p class="text-sm text-gray-500">Popular accounting software in Phillipines</p>
                     </div>
                     <div class="p-4 border rounded-lg {{ $provider == 'jurnal' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200' }}">
                         <h4 class="font-bold">Jurnal.id</h4>
@@ -111,7 +111,7 @@ ACCOUNTING_COMPANY_ID=your_company_id</pre>
                     </div>
                     <div class="p-4 border rounded-lg {{ $provider == 'zahir' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200' }}">
                         <h4 class="font-bold">Zahir</h4>
-                        <p class="text-sm text-gray-500">Software akuntansi lokal</p>
+                        <p class="text-sm text-gray-500">Local accounting software</p>
                     </div>
                 </div>
             </div>

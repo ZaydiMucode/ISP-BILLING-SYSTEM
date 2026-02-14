@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">Network Dashboard</h1>
-                    <p class="text-gray-600">Status perangkat jaringan</p>
+                    <p class="text-gray-600">Network device status</p>
                 </div>
                 <a href="{{ route('admin.snmp.index') }}" class="text-blue-600 hover:text-blue-800">
                     <i class="fas fa-cog mr-2"></i>Manage Devices
@@ -22,7 +22,7 @@
 
             @if(!$enabled)
             <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
-                <p class="text-yellow-700">SNMP tidak aktif. Aktifkan di file .env</p>
+                <p class="text-yellow-700">SNMP is inactive. Enable it in the .env file</p>
             </div>
             @else
 

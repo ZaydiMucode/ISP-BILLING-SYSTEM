@@ -1,17 +1,17 @@
 @extends('layouts.customer')
 
-@section('title', 'Tiket Support')
+@section('title', 'Support Tickets')
 
 @section('content')
 <div class="space-y-6">
     <!-- Header -->
     <div class="flex justify-between items-center">
         <div>
-            <h1 class="text-2xl font-bold text-gray-800">Tiket Support</h1>
-            <p class="text-gray-600">Kelola tiket bantuan Anda</p>
+            <h1 class="text-2xl font-bold text-gray-800">Support Tickets</h1>
+            <p class="text-gray-600">Manage your support tickets</p>
         </div>
         <button onclick="document.getElementById('createTicketModal').classList.remove('hidden')" class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700">
-            <i class="fas fa-plus mr-2"></i>Buat Tiket
+            <i class="fas fa-plus mr-2"></i>Create Ticket
         </button>
     </div>
 
@@ -49,7 +49,7 @@
             @empty
             <div class="p-8 text-center text-gray-500">
                 <i class="fas fa-ticket-alt text-4xl mb-3"></i>
-                <p>Belum ada tiket support</p>
+                <p>No support tickets yet</p>
             </div>
             @endforelse
         </div>
@@ -62,43 +62,43 @@
 <!-- Create Ticket Modal -->
 <div id="createTicketModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
     <div class="bg-white rounded-xl p-6 w-full max-w-lg mx-4">
-        <h3 class="text-lg font-bold mb-4">Buat Tiket Baru</h3>
+        <h3 class="text-lg font-bold mb-4">Create New Ticket</h3>
         <form action="{{ route('customer.support.submit') }}" method="POST">
             @csrf
             <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Subjek</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                     <input type="text" name="subject" required class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
                         <select name="category" required class="w-full rounded-lg border-gray-300 shadow-sm">
-                            <option value="technical">Teknis</option>
-                            <option value="billing">Tagihan</option>
-                            <option value="installation">Instalasi</option>
-                            <option value="complaint">Keluhan</option>
-                            <option value="inquiry">Pertanyaan</option>
-                            <option value="other">Lainnya</option>
+                            <option value="technical">Technical</option>
+                            <option value="billing">Billing</option>
+                            <option value="installation">Installation</option>
+                            <option value="complaint">Complaint</option>
+                            <option value="inquiry">Inquiry</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Prioritas</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Priority</label>
                         <select name="priority" class="w-full rounded-lg border-gray-300 shadow-sm">
-                            <option value="low">Rendah</option>
-                            <option value="medium" selected>Sedang</option>
-                            <option value="high">Tinggi</option>
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
-                    <textarea name="message" rows="4" required class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500" placeholder="Jelaskan masalah Anda..."></textarea>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea name="message" rows="4" required class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500" placeholder="Describe your issue..."></textarea>
                 </div>
             </div>
             <div class="mt-6 flex justify-end space-x-3">
-                <button type="button" onclick="document.getElementById('createTicketModal').classList.add('hidden')" class="px-4 py-2 border rounded-lg hover:bg-gray-50">Batal</button>
-                <button type="submit" class="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700">Kirim Tiket</button>
+                <button type="button" onclick="document.getElementById('createTicketModal').classList.add('hidden')" class="px-4 py-2 border rounded-lg hover:bg-gray-50">Cancel</button>
+                <button type="submit" class="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700">Send Ticket</button>
             </div>
         </form>
     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah ONU')
+@section('title', 'Add ONU')
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
@@ -13,11 +13,11 @@
             <div class="max-w-2xl mx-auto">
                 <div class="flex items-center justify-between mb-6">
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-800">Tambah ONU</h1>
-                        <p class="text-gray-600">Daftarkan perangkat ONU baru</p>
+                        <h1 class="text-2xl font-bold text-gray-800">Add ONU</h1>
+                        <p class="text-gray-600">Register a new ONU device</p>
                     </div>
                     <a href="{{ route('admin.olt.onu.index') }}" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        <i class="fas fa-arrow-left mr-2"></i>Back
                     </a>
                 </div>
 
@@ -29,7 +29,7 @@
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">OLT</label>
                                 <select name="olt_id" required class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
-                                    <option value="">Pilih OLT</option>
+                                    <option value="">Select OLT</option>
                                     @foreach($olts as $olt)
                                     <option value="{{ $olt->id }}" {{ old('olt_id') == $olt->id ? 'selected' : '' }}>
                                         {{ $olt->name }} ({{ $olt->ip_address }})
@@ -49,7 +49,7 @@
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nama ONU</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">ONU Name</label>
                                     <input type="text" name="name" value="{{ old('name') }}"
                                         class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500"
                                         placeholder="ONU-Customer-001">
@@ -70,9 +70,9 @@
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Customer (Opsional)</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Customer (Optional)</label>
                                 <select name="customer_id" class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
-                                    <option value="">-- Tidak ada --</option>
+                                    <option value="">-- None --</option>
                                     @foreach($customers as $customer)
                                     <option value="{{ $customer->id }}" {{ old('customer_id') == $customer->id ? 'selected' : '' }}>
                                         {{ $customer->name }} - {{ $customer->phone }}
@@ -92,9 +92,9 @@
                         </div>
 
                         <div class="flex justify-end space-x-3 mt-6 pt-6 border-t">
-                            <a href="{{ route('admin.olt.onu.index') }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Batal</a>
+                            <a href="{{ route('admin.olt.onu.index') }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Cancel</a>
                             <button type="submit" class="px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700">
-                                <i class="fas fa-save mr-2"></i>Simpan
+                                <i class="fas fa-save mr-2"></i>Save
                             </button>
                         </div>
                     </form>

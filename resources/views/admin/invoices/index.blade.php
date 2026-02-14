@@ -4,17 +4,12 @@
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
-    <!-- Sidebar -->
     @include('admin.partials.sidebar')
 
-    <!-- Main Content -->
     <div class="lg:pl-64">
-        <!-- Top Bar -->
         @include('admin.partials.topbar')
 
-        <!-- Page Content -->
         <div class="p-6">
-            <!-- Header -->
             <div class="mb-6">
                 <div class="flex items-center justify-between">
                     <div>
@@ -28,7 +23,6 @@
                 </div>
             </div>
 
-            <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
                 <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-500">
                     <div class="flex items-center justify-between">
@@ -70,7 +64,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600 mb-1">Total Revenue</p>
-                            <p class="text-xl font-bold text-gray-900">Rp {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p>
+                            <p class="text-xl font-bold text-gray-900">₱ {{ number_format($stats['total_revenue'], 2, '.', ',') }}</p>
                         </div>
                         <div class="h-12 w-12 bg-purple-100 rounded-full flex items-center justify-center">
                             <i class="fas fa-money-bill-wave text-cyan-600 text-xl"></i>
@@ -79,13 +73,12 @@
                 </div>
             </div>
 
-            <!-- Filters -->
             <div class="bg-white rounded-xl shadow-md p-6 mb-6">
                 <form method="GET" action="{{ route('admin.invoices.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
                         <select name="status" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                            <option value="">All Status</option>
+                            <option value="">All Statuses</option>
                             <option value="paid" {{ request('status') == 'paid' ? 'selected' : '' }}>Paid</option>
                             <option value="unpaid" {{ request('status') == 'unpaid' ? 'selected' : '' }}>Unpaid</option>
                         </select>
@@ -120,7 +113,6 @@
                 </form>
             </div>
 
-            <!-- Invoices Table -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full">
@@ -152,7 +144,7 @@
                                         <span class="text-sm text-gray-900">{{ $invoice->package->name ?? '-' }}</span>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <p class="font-bold text-gray-900">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</p>
+                                        <p class="font-bold text-gray-900">₱ {{ number_format($invoice->amount, 2, '.', ',') }}</p>
                                     </td>
                                     <td class="px-6 py-4">
                                         <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800">
@@ -175,7 +167,7 @@
                                             @if($invoice->status === 'unpaid')
                                                 <form id="pay-invoice-{{ $invoice->id }}" action="{{ route('admin.invoices.pay', $invoice) }}" method="POST" class="inline">
                                                     @csrf
-                                                    <button type="button" onclick="confirmAction('Tandai invoice {{ $invoice->invoice_number }} sebagai lunas?', () => document.getElementById('pay-invoice-{{ $invoice->id }}').submit())" class="text-green-600 hover:text-green-800" title="Mark as Paid">
+                                                    <button type="button" onclick="confirmAction('Mark invoice {{ $invoice->invoice_number }} as paid?', () => document.getElementById('pay-invoice-{{ $invoice->id }}').submit())" class="text-green-600 hover:text-green-800" title="Mark as Paid">
                                                         <i class="fas fa-check-circle"></i>
                                                     </button>
                                                 </form>

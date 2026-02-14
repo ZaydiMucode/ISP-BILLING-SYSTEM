@@ -10,7 +10,6 @@
         @include('admin.partials.topbar')
 
         <div class="p-6">
-            <!-- Header -->
             <div class="mb-6">
                 <div class="flex items-center space-x-4">
                     <a href="{{ route('admin.invoices.show', $invoice) }}" class="text-gray-600 hover:text-gray-900">
@@ -23,7 +22,6 @@
                 </div>
             </div>
 
-            <!-- Form -->
             <div class="max-w-3xl">
                 <form action="{{ route('admin.invoices.update', $invoice) }}" method="POST" class="bg-white rounded-xl shadow-md p-6">
                     @csrf
@@ -49,7 +47,7 @@
                                 <option value="">No Package</option>
                                 @foreach($packages as $package)
                                     <option value="{{ $package->id }}" {{ old('package_id', $invoice->package_id) == $package->id ? 'selected' : '' }}>
-                                        {{ $package->name }} - Rp {{ number_format($package->price, 0, ',', '.') }}
+                                        {{ $package->name }} - ₱ {{ number_format($package->price, 2, '.', ',') }}
                                     </option>
                                 @endforeach
                             </select>
@@ -68,11 +66,11 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Amount <span class="text-red-500">*</span></label>
-                                <input type="number" name="amount" value="{{ old('amount', $invoice->amount) }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500">
+                                <input type="number" name="amount" value="{{ old('amount', $invoice->amount) }}" step="0.01" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Tax Amount</label>
-                                <input type="number" name="tax_amount" value="{{ old('tax_amount', $invoice->tax_amount) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500">
+                                <input type="number" name="tax_amount" value="{{ old('tax_amount', $invoice->tax_amount) }}" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500">
                             </div>
                         </div>
 

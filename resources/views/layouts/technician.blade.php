@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,23 +38,23 @@
             </a>
             <a href="{{ route('technician.tasks') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('technician.tasks*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-tasks w-5 mr-3"></i>
-                <span>Tugas Saya</span>
+                <span>My Tasks</span>
             </a>
             <a href="{{ route('technician.installations') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('technician.installations*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-plug w-5 mr-3"></i>
-                <span>Instalasi</span>
+                <span>Installations</span>
             </a>
             <a href="{{ route('technician.repairs') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('technician.repairs*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-wrench w-5 mr-3"></i>
-                <span>Perbaikan</span>
+                <span>Repairs</span>
             </a>
             <a href="{{ route('technician.map') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('technician.map*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-map-marked-alt w-5 mr-3"></i>
-                <span>Peta Jaringan</span>
+                <span>Network Map</span>
             </a>
             <a href="{{ route('technician.profile') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('technician.profile*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-user-cog w-5 mr-3"></i>
-                <span>Profil</span>
+                <span>Profile</span>
             </a>
         </nav>
 
@@ -64,7 +64,7 @@
                 @csrf
                 <button type="submit" class="flex items-center w-full px-4 py-3 text-gray-300 rounded-lg hover:bg-red-600 hover:text-white transition">
                     <i class="fas fa-sign-out-alt w-5 mr-3"></i>
-                    <span>Keluar</span>
+                    <span>Logout</span>
                 </button>
             </form>
         </div>

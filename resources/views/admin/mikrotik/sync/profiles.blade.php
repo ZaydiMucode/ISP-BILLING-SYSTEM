@@ -13,10 +13,10 @@
             <div class="mb-6 flex items-center justify-between">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900">Sync PPPoE Profiles</h1>
-                    <p class="text-gray-600">Mapping PPPoE Profile Mikrotik ke Paket {{ companyName() }}</p>
+                    <p class="text-gray-600">Mapping Mikrotik PPPoE Profiles to {{ companyName() }} Packages</p>
                 </div>
                 <a href="{{ route('admin.mikrotik.sync.index') }}" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-                    ← Kembali
+                    ← Back
                 </a>
             </div>
 
@@ -37,7 +37,7 @@
                 
                 <div class="bg-white rounded-lg shadow overflow-hidden">
                     <div class="p-4 bg-gray-50 border-b">
-                        <h3 class="font-semibold text-gray-700">{{ count($mikrotikProfiles) }} PPPoE Profiles ditemukan</h3>
+                        <h3 class="font-semibold text-gray-700">{{ count($mikrotikProfiles) }} PPPoE Profiles found</h3>
                     </div>
                     
                     <div class="overflow-x-auto">
@@ -48,9 +48,9 @@
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Rate Limit</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Speed (Mbps)</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Mapping ke Paket</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Buat Baru</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Harga (Rp)</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Mapping to Package</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Create New</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Price (Rp)</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -81,7 +81,7 @@
                                                 </span>
                                             @else
                                                 <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-sm">
-                                                    Belum mapping
+                                                    Not Mapped
                                                 </span>
                                             @endif
                                         </td>
@@ -89,7 +89,7 @@
                                             <select name="mappings[{{ $profile['name'] }}]" 
                                                     class="mapping-select border-gray-300 rounded-md shadow-sm text-sm"
                                                     data-profile="{{ $profile['name'] }}">
-                                                <option value="">-- Pilih Paket --</option>
+                                                <option value="">-- Select Package --</option>
                                                 @foreach($localPackages as $package)
                                                     <option value="{{ $package->id }}" 
                                                             {{ $profile['mapped_package_id'] == $package->id ? 'selected' : '' }}>
@@ -125,7 +125,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="7" class="px-6 py-4 text-center text-gray-500">
-                                            Tidak ada PPPoE Profile ditemukan
+                                            No PPPoE Profiles found
                                         </td>
                                     </tr>
                                 @endforelse
@@ -135,11 +135,11 @@
                     
                     <div class="p-4 bg-gray-50 border-t flex justify-between items-center">
                         <div class="text-sm text-gray-600">
-                            <span class="inline-block w-3 h-3 bg-green-100 rounded mr-1"></span> Sudah ter-mapping
-                            <span class="inline-block w-3 h-3 bg-yellow-100 rounded ml-4 mr-1"></span> Belum mapping
+                            <span class="inline-block w-3 h-3 bg-green-100 rounded mr-1"></span> Mapped
+                            <span class="inline-block w-3 h-3 bg-yellow-100 rounded ml-4 mr-1"></span> Unmapped
                         </div>
                         <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                            Simpan Mapping
+                            Save Mapping
                         </button>
                     </div>
                 </div>

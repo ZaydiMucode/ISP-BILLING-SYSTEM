@@ -13,8 +13,8 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <div>
-                    <h1 class="text-2xl font-bold text-white">Konfigurasi RADIUS</h1>
-                    <p class="text-gray-400 mt-1">Pengaturan koneksi FreeRADIUS Database</p>
+                    <h1 class="text-2xl font-bold text-white">RADIUS Configuration</h1>
+                    <p class="text-gray-400 mt-1">FreeRADIUS Database connection settings</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-300 mb-2">Nama Server</label>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Server Name</label>
                                 <input type="text" name="name" value="{{ $setting->name ?? 'FreeRADIUS Server' }}" 
                                        class="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white focus:outline-none focus:border-cyan-500">
                             </div>
@@ -47,7 +47,7 @@
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">Port MySQL <span class="text-red-400">*</span></label>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">MySQL Port <span class="text-red-400">*</span></label>
                                 <input type="number" name="port" id="port" value="{{ $setting->getConfig('port', 3306) }}" required
                                        placeholder="3306"
                                        class="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white focus:outline-none focus:border-cyan-500">
@@ -84,17 +84,17 @@
                                 <label class="flex items-center space-x-3 cursor-pointer">
                                     <input type="checkbox" name="enabled" value="1" {{ $setting->enabled ? 'checked' : '' }}
                                            class="w-5 h-5 rounded border-white/20 bg-white/5 text-cyan-500 focus:ring-cyan-500">
-                                    <span class="text-gray-300">Aktifkan Integrasi RADIUS</span>
+                                    <span class="text-gray-300">Enable RADIUS Integration</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="flex items-center space-x-4 mt-6">
                             <button type="submit" class="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition">
-                                <i class="fas fa-save mr-2"></i>Simpan
+                                <i class="fas fa-save mr-2"></i>Save
                             </button>
                             <button type="button" onclick="testConnection()" class="px-6 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition">
-                                <i class="fas fa-plug mr-2"></i>Test Koneksi
+                                <i class="fas fa-plug mr-2"></i>Test Connection
                             </button>
                         </div>
                     </form>
@@ -105,41 +105,41 @@
             <div>
                 <div class="bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-6">
                     <h3 class="text-lg font-semibold text-white mb-4">
-                        <i class="fas fa-vial mr-2"></i>Hasil Test
+                        <i class="fas fa-vial mr-2"></i>Test Result
                     </h3>
                     
                     <div id="testResult" class="hidden">
                         <div id="testSuccess" class="hidden p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
-                            <p class="text-green-400 font-semibold mb-2"><i class="fas fa-check-circle mr-2"></i>Koneksi Berhasil!</p>
+                            <p class="text-green-400 font-semibold mb-2"><i class="fas fa-check-circle mr-2"></i>Connection Successful!</p>
                             <div class="text-sm text-green-300 space-y-1">
-                                <p><strong>Tabel radcheck:</strong> <span id="resRadcheck">-</span></p>
-                                <p><strong>Jumlah User:</strong> <span id="resUserCount">-</span></p>
+                                <p><strong>radcheck Table:</strong> <span id="resRadcheck">-</span></p>
+                                <p><strong>User Count:</strong> <span id="resUserCount">-</span></p>
                             </div>
                         </div>
                         <div id="testError" class="hidden p-4 bg-red-500/20 border border-red-500/30 rounded-lg">
-                            <p class="text-red-400 font-semibold mb-2"><i class="fas fa-times-circle mr-2"></i>Koneksi Gagal</p>
+                            <p class="text-red-400 font-semibold mb-2"><i class="fas fa-times-circle mr-2"></i>Connection Failed</p>
                             <p class="text-sm text-red-300" id="errorMessage">-</p>
                         </div>
                     </div>
                     
                     <div id="testLoading" class="hidden text-center py-8">
                         <i class="fas fa-spinner fa-spin text-3xl text-cyan-400"></i>
-                        <p class="text-gray-400 mt-2">Menghubungkan...</p>
+                        <p class="text-gray-400 mt-2">Connecting...</p>
                     </div>
                     
                     <div id="testPlaceholder" class="text-center py-8 text-gray-500">
                         <i class="fas fa-database text-3xl mb-2"></i>
-                        <p>Klik "Test Koneksi" untuk memverifikasi</p>
+                        <p>Click "Test Connection" to verify</p>
                     </div>
                     
                     @if($setting->last_tested_at)
                         <div class="mt-4 pt-4 border-t border-white/10 text-sm text-gray-400">
-                            <p>Test terakhir: {{ $setting->last_tested_at->format('d/m/Y H:i') }}</p>
+                            <p>Last tested: {{ $setting->last_tested_at->format('d/m/Y H:i') }}</p>
                             <p>Status: 
                                 @if($setting->last_test_success)
-                                    <span class="text-green-400">Berhasil</span>
+                                    <span class="text-green-400">Successful</span>
                                 @else
-                                    <span class="text-red-400">Gagal</span>
+                                    <span class="text-red-400">Failed</span>
                                 @endif
                             </p>
                         </div>
@@ -148,11 +148,11 @@
                 
                 <!-- Help -->
                 <div class="mt-4 bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
-                    <h4 class="text-purple-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>Bantuan</h4>
+                    <h4 class="text-purple-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>Help</h4>
                     <ul class="text-sm text-purple-300 space-y-1">
-                        <li>• Database default: radius</li>
-                        <li>• Tabel: radcheck, radreply, radgroupcheck</li>
-                        <li>• NAS Secret untuk CoA/Disconnect</li>
+                        <li>• Default database: radius</li>
+                        <li>• Tables: radcheck, radreply, radgroupcheck</li>
+                        <li>• NAS Secret required for CoA/Disconnect</li>
                     </ul>
                 </div>
             </div>
@@ -169,7 +169,7 @@ function testConnection() {
     const password = document.getElementById('password').value;
     
     if (!host || !port || !database || !username || !password) {
-        alert('Mohon lengkapi semua field yang wajib diisi');
+        alert('Please complete all required fields');
         return;
     }
     
@@ -193,7 +193,7 @@ function testConnection() {
         if (data.success) {
             document.getElementById('testSuccess').classList.remove('hidden');
             document.getElementById('testError').classList.add('hidden');
-            document.getElementById('resRadcheck').textContent = data.data.has_radcheck ? 'Ada' : 'Tidak ada';
+            document.getElementById('resRadcheck').textContent = data.data.has_radcheck ? 'Exists' : 'Does not exist';
             document.getElementById('resUserCount').textContent = data.data.user_count || '0';
         } else {
             document.getElementById('testSuccess').classList.add('hidden');

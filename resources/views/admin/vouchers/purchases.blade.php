@@ -71,7 +71,7 @@
                                     {{ $purchase->customer_phone ?? '-' }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                    Rp {{ number_format($purchase->amount ?? 0, 0, ',', '.') }}
+                                    ₱ {{ number_format($purchase->amount ?? 0, 0, ',', '.') }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     @php

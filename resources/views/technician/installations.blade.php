@@ -1,10 +1,10 @@
 @extends('layouts.technician')
 
-@section('title', 'Instalasi')
+@section('title', 'Installations')
 
 @section('content')
 <div class="space-y-6">
-    <h1 class="text-2xl font-bold text-gray-800">Daftar Instalasi</h1>
+    <h1 class="text-2xl font-bold text-gray-800">Installation List</h1>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="divide-y divide-gray-100">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="text-right">
                         <span class="inline-flex px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-700">
-                            Menunggu Instalasi
+                            Awaiting Installation
                         </span>
                         <div class="mt-2 space-x-2">
                             <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $customer->phone) }}" target="_blank" 
@@ -43,7 +43,7 @@
             @empty
             <div class="p-8 text-center text-gray-500">
                 <i class="fas fa-check-circle text-4xl mb-2 text-green-500"></i>
-                <p>Tidak ada instalasi pending</p>
+                <p>No pending installations</p>
             </div>
             @endforelse
         </div>

@@ -58,7 +58,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600 mb-1">Avg. Price</p>
-                            <p class="text-2xl font-bold text-gray-900">Rp {{ number_format($packages->avg('price'), 0, ',', '.') }}</p>
+                            <p class="text-2xl font-bold text-gray-900">₱ {{ number_format($packages->avg('price'), 0, ',', '.') }}</p>
                         </div>
                         <div class="h-12 w-12 bg-purple-100 rounded-full flex items-center justify-center">
                             <i class="fas fa-chart-line text-cyan-600 text-xl"></i>
@@ -70,7 +70,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600 mb-1">Monthly Revenue</p>
-                            <p class="text-2xl font-bold text-gray-900">Rp {{ number_format($packages->sum(fn($p) => $p->price * ($p->customers_count ?? 0)), 0, ',', '.') }}</p>
+                            <p class="text-2xl font-bold text-gray-900">₱ {{ number_format($packages->sum(fn($p) => $p->price * ($p->customers_count ?? 0)), 0, ',', '.') }}</p>
                         </div>
                         <div class="h-12 w-12 bg-yellow-100 rounded-full flex items-center justify-center">
                             <i class="fas fa-money-bill-wave text-yellow-600 text-xl"></i>
@@ -126,7 +126,7 @@
                                         </span>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <p class="text-lg font-bold text-gray-900">Rp {{ number_format($package->price, 0, ',', '.') }}</p>
+                                        <p class="text-lg font-bold text-gray-900">₱ {{ number_format($package->price, 0, ',', '.') }}</p>
                                         <p class="text-xs text-gray-500">per month</p>
                                     </td>
                                     <td class="px-6 py-4">

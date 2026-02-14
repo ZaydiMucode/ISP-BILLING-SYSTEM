@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembayaran Gagal - {{ companyName() }}</title>
+    <title>Payment Failed - {{ companyName() }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -49,32 +49,32 @@
         <div class="failed-icon">
             <i class="fas fa-times"></i>
         </div>
-        <h2 class="text-danger mb-3">Pembayaran Gagal</h2>
+        <h2 class="text-danger mb-3">Payment Failed</h2>
         <p class="text-muted mb-4">
-            Maaf, pembayaran Anda tidak dapat diproses. 
-            Silakan coba lagi atau hubungi customer service kami.
+            Sorry, your payment could not be processed. 
+            Please try again or contact our customer service.
         </p>
         
         <div class="bg-light rounded p-3 mb-4">
             <p class="mb-0 small text-muted">
                 <i class="fas fa-info-circle me-1"></i>
-                Jika saldo Anda sudah terpotong, pembayaran akan dikembalikan dalam 1-3 hari kerja.
+                If your balance has been deducted, the payment will be refunded within 1-3 business days.
             </p>
         </div>
 
         <div class="d-grid gap-2">
             <a href="javascript:history.back()" class="btn btn-danger">
-                <i class="fas fa-redo me-2"></i>Coba Lagi
+                <i class="fas fa-redo me-2"></i>Try Again
             </a>
             <a href="{{ url('/') }}" class="btn btn-outline-secondary">
-                <i class="fas fa-home me-2"></i>Kembali ke Beranda
+                <i class="fas fa-home me-2"></i>Back to Home
             </a>
         </div>
 
         <hr class="my-4">
         
         <p class="mb-0 small text-muted">
-            Butuh bantuan? Hubungi kami di<br>
+            Need help? Contact us at<br>
             <a href="https://wa.me/6281234567890" class="text-success">
                 <i class="fab fa-whatsapp me-1"></i>WhatsApp
             </a>

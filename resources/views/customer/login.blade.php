@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Customer - {{ companyName() }}</title>
+    <title>Customer Login - {{ companyName() }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -14,7 +14,7 @@
                 <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fas fa-user text-white text-3xl"></i>
                 </div>
-                <h1 class="text-2xl font-bold text-gray-800">Portal Pelanggan</h1>
+                <h1 class="text-2xl font-bold text-gray-800">Customer Portal</h1>
                 <p class="text-gray-500 mt-1">{{ companyName() }}</p>
             </div>
 
@@ -29,11 +29,11 @@
                 @csrf
                 <div class="mb-5">
                     <label class="block text-gray-700 text-sm font-medium mb-2">
-                        <i class="fas fa-user mr-2"></i>Username / No. HP / Email
+                        <i class="fas fa-user mr-2"></i>Username / Phone / Email
                     </label>
                     <input type="text" name="username" value="{{ old('username') }}" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                        placeholder="Masukkan username PPPoE, HP, atau email">
+                        placeholder="Enter PPPoE username, phone, or email">
                     @error('username')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
@@ -46,7 +46,7 @@
                     <div class="relative">
                         <input type="password" name="password" id="password" required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                            placeholder="Masukkan password PPPoE">
+                            placeholder="Enter PPPoE password">
                         <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
                             <i class="fas fa-eye" id="toggleIcon"></i>
                         </button>
@@ -57,23 +57,23 @@
                 </div>
 
                 <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 transition transform hover:scale-[1.02]">
-                    <i class="fas fa-sign-in-alt mr-2"></i>Masuk
+                    <i class="fas fa-sign-in-alt mr-2"></i>Login
                 </button>
             </form>
 
             <div class="mt-6 text-center">
                 <p class="text-gray-500 text-sm">
-                    Gunakan username dan password PPPoE Anda untuk login
+                    Use your PPPoE username and password to log in
                 </p>
             </div>
 
             <div class="mt-6 pt-6 border-t border-gray-200">
                 <div class="flex justify-center space-x-4 text-sm">
                     <a href="{{ url('/') }}" class="text-blue-600 hover:text-blue-800">
-                        <i class="fas fa-home mr-1"></i>Beranda
+                        <i class="fas fa-home mr-1"></i>Home
                     </a>
                     <a href="{{ route('voucher.buy') }}" class="text-blue-600 hover:text-blue-800">
-                        <i class="fas fa-ticket mr-1"></i>Beli Voucher
+                        <i class="fas fa-ticket mr-1"></i>Buy Voucher
                     </a>
                 </div>
             </div>

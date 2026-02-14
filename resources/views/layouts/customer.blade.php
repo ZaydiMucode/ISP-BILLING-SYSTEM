@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,27 +38,27 @@
             </a>
             <a href="{{ route('customer.invoices') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.invoices*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-file-invoice w-5 mr-3"></i>
-                <span>Tagihan</span>
+                <span>Invoices</span>
             </a>
             <a href="{{ route('customer.payments') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.payments*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-credit-card w-5 mr-3"></i>
-                <span>Pembayaran</span>
+                <span>Payments</span>
             </a>
             <a href="{{ route('customer.usage') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.usage*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-chart-line w-5 mr-3"></i>
-                <span>Pemakaian</span>
+                <span>Usage</span>
             </a>
             <a href="{{ route('customer.tickets') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.tickets*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-ticket-alt w-5 mr-3"></i>
-                <span>Tiket Saya</span>
+                <span>My Tickets</span>
             </a>
             <a href="{{ route('customer.profile') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.profile*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-user-cog w-5 mr-3"></i>
-                <span>Profil</span>
+                <span>Profile</span>
             </a>
             <a href="{{ route('customer.support') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('customer.support*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-headset w-5 mr-3"></i>
-                <span>Bantuan</span>
+                <span>Support</span>
             </a>
         </nav>
 
@@ -68,7 +68,7 @@
                 @csrf
                 <button type="submit" class="flex items-center w-full px-4 py-3 text-gray-300 rounded-lg hover:bg-red-600 hover:text-white transition">
                     <i class="fas fa-sign-out-alt w-5 mr-3"></i>
-                    <span>Keluar</span>
+                    <span>Logout</span>
                 </button>
             </form>
         </div>

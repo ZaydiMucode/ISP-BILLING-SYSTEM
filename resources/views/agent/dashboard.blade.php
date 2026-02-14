@@ -8,8 +8,8 @@
     <div class="bg-gradient-to-r from-emerald-600 to-green-700 rounded-2xl p-6 text-white">
         <div class="flex items-center justify-between">
             <div>
-                <h1 class="text-2xl font-bold">Selamat Datang, {{ $agent->name ?? 'Agent' }}!</h1>
-                <p class="text-emerald-100 mt-1">Saldo: Rp {{ number_format($agent->balance ?? 0, 0, ',', '.') }}</p>
+                <h1 class="text-2xl font-bold">Welcome, {{ $agent->name ?? 'Agent' }}!</h1>
+                <p class="text-emerald-100 mt-1">Balance: Rp {{ number_format($agent->balance ?? 0, 0, ',', '.') }}</p>
             </div>
             <div class="hidden md:block">
                 <i class="fas fa-store text-6xl text-white/20"></i>
@@ -22,7 +22,7 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Saldo</p>
+                    <p class="text-gray-500 text-sm">Balance</p>
                     <p class="text-2xl font-bold text-emerald-600">Rp {{ number_format($agent->balance ?? 0, 0, ',', '.') }}</p>
                 </div>
                 <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
@@ -34,7 +34,7 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Penjualan Hari Ini</p>
+                    <p class="text-gray-500 text-sm">Today's Sales</p>
                     <p class="text-2xl font-bold text-blue-600">{{ $todaySales ?? 0 }}</p>
                 </div>
                 <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
@@ -46,7 +46,7 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Penjualan Bulan Ini</p>
+                    <p class="text-gray-500 text-sm">Monthly Sales</p>
                     <p class="text-2xl font-bold text-purple-600">{{ $monthSales ?? 0 }}</p>
                 </div>
                 <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
@@ -58,7 +58,7 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Komisi Bulan Ini</p>
+                    <p class="text-gray-500 text-sm">Monthly Commission</p>
                     <p class="text-2xl font-bold text-orange-600">Rp {{ number_format($monthCommission ?? 0, 0, ',', '.') }}</p>
                 </div>
                 <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
@@ -74,57 +74,57 @@
             <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-ticket text-emerald-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Jual Voucher</p>
+            <p class="font-medium text-gray-800">Sell Voucher</p>
         </a>
         <a href="{{ route('agent.topup') }}" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md transition text-center">
             <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-plus-circle text-blue-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Top Up Saldo</p>
+            <p class="font-medium text-gray-800">Top Up Balance</p>
         </a>
         <a href="{{ route('agent.transactions') }}" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md transition text-center">
             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-history text-purple-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Riwayat</p>
+            <p class="font-medium text-gray-800">History</p>
         </a>
         <a href="{{ route('agent.profile') }}" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md transition text-center">
             <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-user-cog text-gray-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Profil</p>
+            <p class="font-medium text-gray-800">Profile</p>
         </a>
     </div>
 
     <!-- Voucher Packages -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="p-6 border-b border-gray-100">
-            <h2 class="text-lg font-semibold text-gray-800">Paket Voucher Tersedia</h2>
+            <h2 class="text-lg font-semibold text-gray-800">Available Voucher Packages</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
             @forelse($voucherPackages ?? [] as $package)
             <div class="border border-gray-200 rounded-lg p-4 hover:border-emerald-500 transition">
                 <h3 class="font-semibold text-gray-800">{{ $package->name }}</h3>
-                <p class="text-sm text-gray-500">{{ $package->duration }} Hari</p>
+                <p class="text-sm text-gray-500">{{ $package->duration }} Days</p>
                 <div class="mt-3 flex justify-between items-center">
                     <div>
-                        <p class="text-xs text-gray-400">Harga Agent</p>
+                        <p class="text-xs text-gray-400">Agent Price</p>
                         <p class="font-bold text-emerald-600">Rp {{ number_format($package->agent_price, 0, ',', '.') }}</p>
                     </div>
                     <div>
-                        <p class="text-xs text-gray-400">Harga Jual</p>
+                        <p class="text-xs text-gray-400">Retail Price</p>
                         <p class="font-bold text-gray-800">Rp {{ number_format($package->customer_price, 0, ',', '.') }}</p>
                     </div>
                 </div>
                 <a href="{{ route('agent.vouchers.sell', ['package' => $package->id]) }}" 
                    class="mt-3 block w-full text-center bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition">
-                    Jual
+                    Sell
                 </a>
             </div>
             @empty
             <div class="col-span-3 text-center py-8 text-gray-500">
                 <i class="fas fa-ticket text-4xl mb-2"></i>
-                <p>Belum ada paket voucher</p>
+                <p>No voucher packages available</p>
             </div>
             @endforelse
         </div>
@@ -133,8 +133,8 @@
     <!-- Recent Transactions -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-            <h2 class="text-lg font-semibold text-gray-800">Transaksi Terbaru</h2>
-            <a href="{{ route('agent.transactions') }}" class="text-emerald-600 hover:text-emerald-700 text-sm">Lihat Semua</a>
+            <h2 class="text-lg font-semibold text-gray-800">Recent Transactions</h2>
+            <a href="{{ route('agent.transactions') }}" class="text-emerald-600 hover:text-emerald-700 text-sm">View All</a>
         </div>
         <div class="divide-y divide-gray-100">
             @forelse($recentTransactions ?? [] as $transaction)
@@ -157,7 +157,7 @@
             @empty
             <div class="p-8 text-center text-gray-500">
                 <i class="fas fa-inbox text-4xl mb-2"></i>
-                <p>Belum ada transaksi</p>
+                <p>No transactions yet</p>
             </div>
             @endforelse
         </div>

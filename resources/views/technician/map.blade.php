@@ -1,17 +1,17 @@
 @extends('layouts.technician')
 
-@section('title', 'Peta Jaringan')
+@section('title', 'Network Map')
 
 @section('content')
 <div class="space-y-6">
     <div class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-gray-800">Peta Jaringan</h1>
+        <h1 class="text-2xl font-bold text-gray-800">Network Map</h1>
         <div class="flex space-x-2">
             <button onclick="showOdps()" class="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition">
                 <i class="fas fa-project-diagram mr-1"></i> ODP
             </button>
             <button onclick="showCustomers()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                <i class="fas fa-users mr-1"></i> Pelanggan
+                <i class="fas fa-users mr-1"></i> Customers
             </button>
         </div>
     </div>
@@ -23,11 +23,11 @@
 
     <!-- Legend -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
-        <h3 class="font-semibold text-gray-800 mb-3">Keterangan</h3>
+        <h3 class="font-semibold text-gray-800 mb-3">Legend</h3>
         <div class="flex flex-wrap gap-4 text-sm">
             <div class="flex items-center">
                 <div class="w-4 h-4 bg-cyan-500 rounded-full mr-2"></div>
-                <span>ODP Aktif</span>
+                <span>Active ODP</span>
             </div>
             <div class="flex items-center">
                 <div class="w-4 h-4 bg-yellow-500 rounded-full mr-2"></div>
@@ -35,11 +35,11 @@
             </div>
             <div class="flex items-center">
                 <div class="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
-                <span>Pelanggan Aktif</span>
+                <span>Active Customer</span>
             </div>
             <div class="flex items-center">
                 <div class="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
-                <span>Pelanggan Suspended</span>
+                <span>Suspended Customer</span>
             </div>
         </div>
     </div>
@@ -72,8 +72,8 @@
                 fillOpacity: 0.8
             }).bindPopup(`
                 <strong>${odp.name}</strong><br>
-                Kapasitas: ${odp.used_ports || 0}/${odp.total_ports || 0}<br>
-                Status: ${odp.status}
+                Capacity: ${odp.used_ports || 0}/${odp.total_ports || 0}<br>
+                Status: ${odp.status.charAt(0).toUpperCase() + odp.status.slice(1)}
             `);
             odpMarkers.addLayer(marker);
         }
@@ -96,7 +96,7 @@
             }).bindPopup(`
                 <strong>${customer.name}</strong><br>
                 ${customer.address || ''}<br>
-                Status: ${customer.status}
+                Status: ${customer.status.charAt(0).toUpperCase() + customer.status.slice(1)}
             `);
             customerMarkers.addLayer(marker);
         }
