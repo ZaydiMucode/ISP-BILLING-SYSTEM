@@ -74,7 +74,7 @@
 - **Active/Inactive Status**: Control which packages are displayed
 
 ### 🎫 **Voucher System**
-- **Voucher Purchase**: SOnline voucher purchasing system
+- **Voucher Purchase**: Online voucher purchasing system
 - **Pricing Management**: Customer vs. Agent pricing
 - **Generation Settings**: Voucher format configuration
 - **Online Settings**: Duration and voucher profiles
