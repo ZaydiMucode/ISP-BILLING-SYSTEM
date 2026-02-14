@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Semua ONU')
+@section('title', 'All ONUs')
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
@@ -13,15 +13,15 @@
             <!-- Header -->
             <div class="flex justify-between items-center">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-800">Semua ONU</h1>
-                    <p class="text-gray-600">Daftar semua perangkat ONU</p>
+                    <h1 class="text-2xl font-bold text-gray-800">All ONUs</h1>
+                    <p class="text-gray-600">List of all ONU devices</p>
                 </div>
                 <div class="flex space-x-3">
                     <a href="{{ route('admin.olt.index') }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                        <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        <i class="fas fa-arrow-left mr-2"></i>Back
                     </a>
                     <a href="{{ route('admin.olt.onu.create') }}" class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700">
-                        <i class="fas fa-plus mr-2"></i>Tambah ONU
+                        <i class="fas fa-plus mr-2"></i>Add ONU
                     </a>
                 </div>
             </div>
@@ -32,11 +32,11 @@
                     <div class="flex-1 min-w-[200px]">
                         <input type="text" name="search" value="{{ request('search') }}" 
                             class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500"
-                            placeholder="Cari SN, nama, MAC, customer...">
+                            placeholder="Search SN, name, MAC, customer...">
                     </div>
                     <div>
                         <select name="status" class="rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
-                            <option value="">Semua Status</option>
+                            <option value="">All Status</option>
                             <option value="online" {{ request('status') == 'online' ? 'selected' : '' }}>Online</option>
                             <option value="offline" {{ request('status') == 'offline' ? 'selected' : '' }}>Offline</option>
                             <option value="los" {{ request('status') == 'los' ? 'selected' : '' }}>LOS</option>
@@ -45,14 +45,14 @@
                     </div>
                     <div>
                         <select name="olt_id" class="rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
-                            <option value="">Semua OLT</option>
+                            <option value="">All OLTs</option>
                             @foreach($olts as $olt)
                             <option value="{{ $olt->id }}" {{ request('olt_id') == $olt->id ? 'selected' : '' }}>{{ $olt->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <button type="submit" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900">
-                        <i class="fas fa-search mr-2"></i>Cari
+                        <i class="fas fa-search mr-2"></i>Search
                     </button>
                 </form>
             </div>
@@ -69,7 +69,7 @@
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">RX Power</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Last Online</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100">
@@ -135,7 +135,7 @@
                             @empty
                             <tr>
                                 <td colspan="7" class="px-4 py-8 text-center text-gray-500">
-                                    Tidak ada ONU ditemukan
+                                    No ONUs found
                                 </td>
                             </tr>
                             @endforelse
@@ -152,7 +152,7 @@
 
 <script>
 function rebootOnu(id) {
-    if (!confirm('Yakin ingin reboot ONU ini?')) return;
+    if (!confirm('Are you sure you want to reboot this ONU?')) return;
     
     fetch(`/admin/olt/onu/${id}/reboot`, {
         method: 'POST',

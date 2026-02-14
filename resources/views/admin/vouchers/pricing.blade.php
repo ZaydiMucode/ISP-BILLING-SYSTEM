@@ -22,7 +22,7 @@
                 <div class="flex items-center justify-between">
                     <h1 class="text-3xl font-bold text-gray-900">Voucher Pricing</h1>
                     <a href="{{ route('admin.vouchers.pricing.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                        <i class="fas fa-plus mr-2"></i>Tambah Pricing
+                        <i class="fas fa-plus mr-2"></i>Add Pricing
                     </a>
                 </div>
             </div>
@@ -39,16 +39,16 @@
                     <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-ticket-alt text-4xl text-gray-400"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Belum Ada Data Pricing</h3>
-                    <p class="text-gray-500 mb-6">Tambahkan pricing voucher untuk mulai menjual voucher hotspot.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">No Pricing Data Found</h3>
+                    <p class="text-gray-500 mb-6">Add voucher pricing to start selling hotspot vouchers.</p>
                     <div class="flex justify-center space-x-4">
                         <a href="{{ route('admin.vouchers.pricing.create') }}" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-                            <i class="fas fa-plus mr-2"></i>Tambah Pricing Manual
+                            <i class="fas fa-plus mr-2"></i>Add Pricing Manually
                         </a>
                         <form action="{{ route('admin.vouchers.pricing.seed') }}" method="POST" class="inline">
                             @csrf
                             <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
-                                <i class="fas fa-magic mr-2"></i>Generate Data Sample
+                                <i class="fas fa-magic mr-2"></i>Generate Sample Data
                             </button>
                         </form>
                     </div>
@@ -68,20 +68,20 @@
                                 
                                 <div class="space-y-2 mb-4">
                                     <div class="flex justify-between text-sm">
-                                        <span class="text-gray-500">Durasi</span>
-                                        <span class="font-medium">{{ $pricing->duration }} Jam</span>
+                                        <span class="text-gray-500">Duration</span>
+                                        <span class="font-medium">{{ $pricing->duration }} Hours</span>
                                     </div>
                                     <div class="flex justify-between text-sm">
-                                        <span class="text-gray-500">Harga Customer</span>
-                                        <span class="font-bold text-blue-600">Rp {{ number_format($pricing->customer_price, 0, ',', '.') }}</span>
+                                        <span class="text-gray-500">Customer Price</span>
+                                        <span class="font-bold text-blue-600">₱ {{ number_format($pricing->customer_price, 0, ',', '.') }}</span>
                                     </div>
                                     <div class="flex justify-between text-sm">
-                                        <span class="text-gray-500">Harga Agent</span>
-                                        <span class="font-bold text-cyan-600">Rp {{ number_format($pricing->agent_price, 0, ',', '.') }}</span>
+                                        <span class="text-gray-500">Agent Price</span>
+                                        <span class="font-bold text-cyan-600">₱ {{ number_format($pricing->agent_price, 0, ',', '.') }}</span>
                                     </div>
                                     <div class="flex justify-between text-sm">
-                                        <span class="text-gray-500">Komisi</span>
-                                        <span class="font-medium text-green-600">Rp {{ number_format($pricing->commission_amount, 0, ',', '.') }}</span>
+                                        <span class="text-gray-500">Commission</span>
+                                        <span class="font-medium text-green-600">₱ {{ number_format($pricing->commission_amount, 0, ',', '.') }}</span>
                                     </div>
                                 </div>
 
@@ -91,17 +91,17 @@
                                     
                                     <div class="grid grid-cols-2 gap-2">
                                         <div>
-                                            <label class="block text-xs text-gray-500 mb-1">Harga Cust.</label>
+                                            <label class="block text-xs text-gray-500 mb-1">Cust. Price</label>
                                             <input type="number" name="customer_price" value="{{ $pricing->customer_price }}" class="w-full px-2 py-1.5 border rounded text-sm">
                                         </div>
                                         <div>
-                                            <label class="block text-xs text-gray-500 mb-1">Harga Agent</label>
+                                            <label class="block text-xs text-gray-500 mb-1">Agent Price</label>
                                             <input type="number" name="agent_price" value="{{ $pricing->agent_price }}" class="w-full px-2 py-1.5 border rounded text-sm">
                                         </div>
                                     </div>
                                     
                                     <div>
-                                        <label class="block text-xs text-gray-500 mb-1">Komisi</label>
+                                        <label class="block text-xs text-gray-500 mb-1">Commission</label>
                                         <input type="number" name="commission_amount" value="{{ $pricing->commission_amount }}" class="w-full px-2 py-1.5 border rounded text-sm">
                                     </div>
 

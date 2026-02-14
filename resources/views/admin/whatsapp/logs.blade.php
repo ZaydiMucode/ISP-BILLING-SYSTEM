@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Riwayat Notifikasi WhatsApp')
+@section('title', 'WhatsApp Notification History')
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
@@ -13,11 +13,11 @@
             <!-- Header -->
             <div class="mb-6 flex justify-between items-center">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-900">Riwayat Notifikasi</h1>
-                    <p class="text-gray-600 mt-1">Daftar semua notifikasi WhatsApp yang telah dikirim</p>
+                    <h1 class="text-3xl font-bold text-gray-900">Notification History</h1>
+                    <p class="text-gray-600 mt-1">List of all WhatsApp notifications that have been sent</p>
                 </div>
                 <a href="{{ route('admin.whatsapp.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
-                    <i class="fas fa-arrow-left mr-2"></i>Kembali
+                    <i class="fas fa-arrow-left mr-2"></i>Back
                 </a>
             </div>
 
@@ -29,7 +29,7 @@
                             <i class="fas fa-paper-plane text-blue-600 text-xl"></i>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm text-gray-500">Total Pesan</p>
+                            <p class="text-sm text-gray-500">Total Messages</p>
                             <p class="text-2xl font-bold text-gray-900">{{ number_format($stats['total']) }}</p>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             <i class="fas fa-check-circle text-green-600 text-xl"></i>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm text-gray-500">Terkirim</p>
+                            <p class="text-sm text-gray-500">Sent</p>
                             <p class="text-2xl font-bold text-green-600">{{ number_format($stats['sent']) }}</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             <i class="fas fa-times-circle text-red-600 text-xl"></i>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm text-gray-500">Gagal</p>
+                            <p class="text-sm text-gray-500">Failed</p>
                             <p class="text-2xl font-bold text-red-600">{{ number_format($stats['failed']) }}</p>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             <i class="fas fa-calendar-day text-cyan-600 text-xl"></i>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm text-gray-500">Hari Ini</p>
+                            <p class="text-sm text-gray-500">Today</p>
                             <p class="text-2xl font-bold text-cyan-600">{{ number_format($stats['today']) }}</p>
                         </div>
                     </div>
@@ -73,21 +73,21 @@
             <div class="bg-white rounded-xl shadow-md p-4 mb-6">
                 <form action="{{ route('admin.whatsapp.logs') }}" method="GET" class="grid grid-cols-1 md:grid-cols-6 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Cari</label>
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="No. HP / Nama" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Search</label>
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Phone / Name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
                         <select name="status" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
-                            <option value="">Semua Status</option>
-                            <option value="sent" {{ request('status') == 'sent' ? 'selected' : '' }}>Terkirim</option>
-                            <option value="failed" {{ request('status') == 'failed' ? 'selected' : '' }}>Gagal</option>
+                            <option value="">All Status</option>
+                            <option value="sent" {{ request('status') == 'sent' ? 'selected' : '' }}>Sent</option>
+                            <option value="failed" {{ request('status') == 'failed' ? 'selected' : '' }}>Failed</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Tipe</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Type</label>
                         <select name="type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
-                            <option value="">Semua Tipe</option>
+                            <option value="">All Types</option>
                             <option value="invoice" {{ request('type') == 'invoice' ? 'selected' : '' }}>Invoice</option>
                             <option value="reminder" {{ request('type') == 'reminder' ? 'selected' : '' }}>Reminder</option>
                             <option value="suspension" {{ request('type') == 'suspension' ? 'selected' : '' }}>Suspension</option>
@@ -96,11 +96,11 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Dari Tanggal</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">From Date</label>
                         <input type="date" name="start_date" value="{{ request('start_date') }}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Sampai Tanggal</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">To Date</label>
                         <input type="date" name="end_date" value="{{ request('end_date') }}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="flex items-end gap-2">
@@ -120,13 +120,13 @@
                     <table class="w-full">
                         <thead class="bg-gray-50">
                             <tr>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Waktu</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Penerima</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tipe</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Time</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Recipient</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Invoice</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Pesan</th>
-                                <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Message</th>
+                                <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -177,11 +177,11 @@
                                 <td class="px-4 py-3 whitespace-nowrap">
                                     @if($log->status == 'sent')
                                         <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
-                                            <i class="fas fa-check-circle mr-1"></i>Terkirim
+                                            <i class="fas fa-check-circle mr-1"></i>Sent
                                         </span>
                                     @elseif($log->status == 'failed')
                                         <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800" title="{{ $log->error_message }}">
-                                            <i class="fas fa-times-circle mr-1"></i>Gagal
+                                            <i class="fas fa-times-circle mr-1"></i>Failed
                                         </span>
                                     @else
                                         <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">
@@ -191,7 +191,7 @@
                                 </td>
                                 <td class="px-4 py-3">
                                     <button onclick="showMessage({{ $log->id }})" class="text-cyan-600 hover:text-cyan-800 text-sm">
-                                        <i class="fas fa-eye mr-1"></i>Lihat
+                                        <i class="fas fa-eye mr-1"></i>View
                                     </button>
                                     <div id="message-{{ $log->id }}" class="hidden">{{ $log->message }}</div>
                                     @if($log->error_message)
@@ -200,7 +200,7 @@
                                 </td>
                                 <td class="px-4 py-3 whitespace-nowrap text-center">
                                     @if($log->status == 'failed')
-                                        <button onclick="resendMessage({{ $log->id }})" class="text-green-600 hover:text-green-800" title="Kirim Ulang">
+                                        <button onclick="resendMessage({{ $log->id }})" class="text-green-600 hover:text-green-800" title="Resend">
                                             <i class="fas fa-redo"></i>
                                         </button>
                                     @endif
@@ -210,7 +210,7 @@
                             <tr>
                                 <td colspan="7" class="px-4 py-8 text-center text-gray-500">
                                     <i class="fas fa-inbox text-4xl mb-2"></i>
-                                    <p>Belum ada riwayat notifikasi</p>
+                                    <p>No notification history available</p>
                                 </td>
                             </tr>
                             @endforelse
@@ -245,7 +245,7 @@ function showMessage(id) {
     }
     
     Swal.fire({
-        title: 'Detail Pesan',
+        title: 'Message Details',
         html: html,
         width: 600,
         showCloseButton: true,
@@ -261,17 +261,17 @@ function escapeHtml(text) {
 
 function resendMessage(id) {
     Swal.fire({
-        title: 'Kirim Ulang?',
-        text: 'Pesan akan dikirim ulang ke penerima',
+        title: 'Resend?',
+        text: 'The message will be resent to the recipient',
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#10b981',
         cancelButtonColor: '#6b7280',
-        confirmButtonText: 'Ya, Kirim Ulang',
-        cancelButtonText: 'Batal'
+        confirmButtonText: 'Yes, Resend',
+        cancelButtonText: 'Cancel'
     }).then((result) => {
         if (result.isConfirmed) {
-            showLoading('Mengirim ulang...');
+            showLoading('Resending...');
             
             fetch('{{ url("admin/whatsapp/resend") }}/' + id, {
                 method: 'POST',

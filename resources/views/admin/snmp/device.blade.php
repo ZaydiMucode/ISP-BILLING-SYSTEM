@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">Device: {{ $host }}</h1>
-                    <p class="text-gray-600">Detail informasi perangkat</p>
+                    <p class="text-gray-600">Detailed device information</p>
                 </div>
                 <a href="{{ route('admin.snmp.index') }}" class="text-blue-600 hover:text-blue-800">
                     <i class="fas fa-arrow-left mr-2"></i>Back
@@ -70,7 +70,9 @@
 
             <!-- Interfaces -->
             <div class="bg-white rounded-xl shadow overflow-hidden">
-                <div class="px-6 py-4 border-b"><h2 class="text-lg font-semibold"><i class="fas fa-ethernet text-purple-500 mr-2"></i>Interfaces</h2></div>
+                <div class="px-6 py-4 border-b">
+                    <h2 class="text-lg font-semibold"><i class="fas fa-ethernet text-purple-500 mr-2"></i>Interfaces</h2>
+                </div>
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>

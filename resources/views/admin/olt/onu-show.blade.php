@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail ONU - ' . $onu->serial_number)
+@section('title', 'ONU Detail - ' . $onu->serial_number)
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
@@ -46,7 +46,7 @@
                         <i class="fas fa-sync mr-2"></i>Reboot
                     </button>
                     <a href="{{ route('admin.olt.onu.index') }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                        <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        <i class="fas fa-arrow-left mr-2"></i>Back
                     </a>
                 </div>
             </div>
@@ -54,13 +54,13 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- ONU Info -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                    <h3 class="font-semibold text-gray-800 mb-4">Informasi ONU</h3>
+                    <h3 class="font-semibold text-gray-800 mb-4">ONU Information</h3>
                     <form action="{{ route('admin.olt.onu.update', $onu) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-sm text-gray-500 mb-1">Nama</label>
+                                <label class="block text-sm text-gray-500 mb-1">Name</label>
                                 <input type="text" name="name" value="{{ $onu->name }}"
                                     class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
                             </div>
@@ -72,7 +72,7 @@
                             <div>
                                 <label class="block text-sm text-gray-500 mb-1">Customer</label>
                                 <select name="customer_id" class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
-                                    <option value="">-- Tidak ada --</option>
+                                    <option value="">-- None --</option>
                                     @foreach($customers as $customer)
                                     <option value="{{ $customer->id }}" {{ $onu->customer_id == $customer->id ? 'selected' : '' }}>
                                         {{ $customer->name }}
@@ -81,7 +81,7 @@
                                 </select>
                             </div>
                             <button type="submit" class="w-full px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700">
-                                <i class="fas fa-save mr-2"></i>Simpan
+                                <i class="fas fa-save mr-2"></i>Save
                             </button>
                         </div>
                     </form>
@@ -199,13 +199,13 @@
                             <span class="text-gray-400">{{ $log->created_at->format('d/m H:i') }}</span>
                         </div>
                         @empty
-                        <p class="text-gray-500 text-sm text-center py-4">Belum ada riwayat</p>
+                        <p class="text-gray-500 text-sm text-center py-4">No history available</p>
                         @endforelse
                     </div>
 
                     <!-- Manual Status Update -->
                     <div class="mt-6 pt-6 border-t">
-                        <h4 class="font-medium text-gray-800 mb-3">Update Status Manual</h4>
+                        <h4 class="font-medium text-gray-800 mb-3">Manual Status Update</h4>
                         <form action="{{ route('admin.olt.onu.status', $onu) }}" method="POST" class="flex space-x-2">
                             @csrf
                             <select name="status" class="flex-1 rounded-lg border-gray-300 shadow-sm text-sm">
@@ -224,11 +224,11 @@
 
             <!-- Delete -->
             <div class="flex justify-end">
-                <form action="{{ route('admin.olt.onu.destroy', $onu) }}" method="POST" onsubmit="return confirm('Yakin hapus ONU ini?')">
+                <form action="{{ route('admin.olt.onu.destroy', $onu) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this ONU?')">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">
-                        <i class="fas fa-trash mr-2"></i>Hapus ONU
+                        <i class="fas fa-trash mr-2"></i>Delete ONU
                     </button>
                 </form>
             </div>
@@ -238,7 +238,7 @@
 
 <script>
 function rebootOnu() {
-    if (!confirm('Yakin ingin reboot ONU ini?')) return;
+    if (!confirm('Are you sure you want to reboot this ONU?')) return;
     
     fetch('{{ route("admin.olt.onu.reboot", $onu) }}', {
         method: 'POST',

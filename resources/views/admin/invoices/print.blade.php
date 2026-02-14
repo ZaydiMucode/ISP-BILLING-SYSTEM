@@ -80,17 +80,17 @@
                         <strong>{{ $invoice->package->name ?? 'Service' }}</strong><br>
                         <small>{{ ucfirst($invoice->invoice_type) }} - {{ $invoice->description ?? 'Monthly subscription' }}</small>
                     </td>
-                    <td class="text-right">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</td>
+                    <td class="text-right">₱ {{ number_format($invoice->amount, 2, '.', ',') }}</td>
                 </tr>
                 @if($invoice->tax_amount > 0)
                 <tr>
                     <td class="text-right"><strong>Tax</strong></td>
-                    <td class="text-right">Rp {{ number_format($invoice->tax_amount, 0, ',', '.') }}</td>
+                    <td class="text-right">₱ {{ number_format($invoice->tax_amount, 2, '.', ',') }}</td>
                 </tr>
                 @endif
                 <tr class="total-row">
                     <td class="text-right">TOTAL</td>
-                    <td class="text-right">Rp {{ number_format($invoice->total_amount, 0, ',', '.') }}</td>
+                    <td class="text-right">₱ {{ number_format($invoice->total_amount, 2, '.', ',') }}</td>
                 </tr>
             </tbody>
         </table>

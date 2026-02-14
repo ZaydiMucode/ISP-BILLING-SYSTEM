@@ -14,7 +14,7 @@
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-white">SNMP Network Monitoring</h1>
-                    <p class="text-gray-400">Monitor perangkat jaringan real-time</p>
+                    <p class="text-gray-400">Monitor network devices in real-time</p>
                 </div>
                 <div class="mt-4 md:mt-0 flex space-x-3">
                     <a href="{{ route('admin.snmp.dashboard') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
@@ -31,10 +31,10 @@
                 <div class="flex">
                     <i class="fas fa-exclamation-triangle text-yellow-400 mr-3 mt-1"></i>
                     <div>
-                        <h3 class="text-yellow-300 font-medium">SNMP Tidak Aktif</h3>
+                        <h3 class="text-yellow-300 font-medium">SNMP Inactive</h3>
                         <p class="text-yellow-400/80 text-sm mt-1">
-                            Aktifkan SNMP dengan mengatur <code class="bg-yellow-900 px-1 rounded">SNMP_ENABLED=true</code> di file .env.
-                            Pastikan PHP SNMP extension sudah terinstall.
+                            Enable SNMP by setting <code class="bg-yellow-900 px-1 rounded">SNMP_ENABLED=true</code> in your .env file.
+                            Ensure the PHP SNMP extension is installed.
                         </p>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
                         </a>
                         <form action="{{ route('admin.snmp.devices.delete', $device->id) }}" method="POST" class="flex-1">
                             @csrf @method('DELETE')
-                            <button type="submit" class="w-full py-2 bg-red-900/50 text-red-400 rounded-lg hover:bg-red-900 text-sm transition" onclick="return confirm('Hapus device ini?')">
-                                <i class="fas fa-trash mr-1"></i>Hapus
+                            <button type="submit" class="w-full py-2 bg-red-900/50 text-red-400 rounded-lg hover:bg-red-900 text-sm transition" onclick="return confirm('Delete this device?')">
+                                <i class="fas fa-trash mr-1"></i>Delete
                             </button>
                         </form>
                     </div>
@@ -151,9 +151,9 @@
                 @empty
                 <div class="col-span-3 bg-gray-800 rounded-xl border border-gray-700 p-8 text-center">
                     <i class="fas fa-server text-4xl text-gray-600 mb-3"></i>
-                    <p class="text-gray-400">Belum ada perangkat yang dimonitor</p>
+                    <p class="text-gray-400">No devices being monitored yet</p>
                     <button onclick="document.getElementById('addDeviceModal').classList.remove('hidden')" class="mt-4 text-cyan-400 hover:underline">
-                        <i class="fas fa-plus mr-1"></i>Tambah Device
+                        <i class="fas fa-plus mr-1"></i>Add Device
                     </button>
                 </div>
                 @endforelse

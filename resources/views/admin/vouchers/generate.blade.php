@@ -78,7 +78,7 @@
                                 <option value="">Select Package</option>
                                 @foreach($pricings as $pricing)
                                     <option value="{{ $pricing->id }}">
-                                        {{ $pricing->package_name }} - Rp {{ number_format($pricing->customer_price, 0, ',', '.') }}
+                                        {{ $pricing->package_name }} - ₱ {{ number_format($pricing->customer_price, 0, ',', '.') }}
                                     </option>
                                 @endforeach
                             </select>
@@ -97,7 +97,7 @@
                                         <option value="{{ $profile->id }}">
                                             {{ $profile->name }} 
                                             @if($profile->rate_limit) ({{ $profile->rate_limit }}) @endif
-                                            @if($profile->price > 0) - Rp {{ number_format($profile->price, 0, ',', '.') }} @endif
+                                            @if($profile->price > 0) - ₱ {{ number_format($profile->price, 0, ',', '.') }} @endif
                                         </option>
                                     @endforeach
                                 </select>

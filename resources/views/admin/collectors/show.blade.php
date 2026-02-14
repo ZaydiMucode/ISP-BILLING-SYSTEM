@@ -73,15 +73,15 @@
                         <div class="space-y-3">
                             <div class="flex justify-between">
                                 <span>Total Collected</span>
-                                <span class="font-bold">Rp 0</span>
+                                <span class="font-bold">₱ 0</span>
                             </div>
                             <div class="flex justify-between">
                                 <span>This Month</span>
-                                <span class="font-bold">Rp 0</span>
+                                <span class="font-bold">₱ 0</span>
                             </div>
                             <div class="flex justify-between">
                                 <span>Commission Earned</span>
-                                <span class="font-bold">Rp 0</span>
+                                <span class="font-bold">₱ 0</span>
                             </div>
                         </div>
                     </div>
@@ -108,8 +108,8 @@
                                 <td class="px-4 py-3 text-gray-600">{{ $payment->created_at->format('d M Y') }}</td>
                                 <td class="px-4 py-3 font-medium text-gray-900">{{ $payment->invoice->customer->name ?? '-' }}</td>
                                 <td class="px-4 py-3 text-gray-600">{{ $payment->invoice->invoice_number ?? '-' }}</td>
-                                <td class="px-4 py-3 font-medium text-gray-900">Rp {{ number_format($payment->amount ?? 0, 0, ',', '.') }}</td>
-                                <td class="px-4 py-3 text-green-600">Rp {{ number_format($payment->commission ?? 0, 0, ',', '.') }}</td>
+                                <td class="px-4 py-3 font-medium text-gray-900">₱ {{ number_format($payment->amount ?? 0, 0, ',', '.') }}</td>
+                                <td class="px-4 py-3 text-green-600">₱ {{ number_format($payment->commission ?? 0, 0, ',', '.') }}</td>
                             </tr>
                             @empty
                             <tr>

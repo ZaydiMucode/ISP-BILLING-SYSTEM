@@ -26,19 +26,19 @@
                 <form method="GET" action="{{ route('admin.collectors.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium text-gray-700 mb-2">Search</label>
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Name, phone, email..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search by name, phone, or email..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
                         <select name="status" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <option value="">All Status</option>
+                            <option value="">All Statuses</option>
                             <option value="active" {{ request('status') == 'active' ? 'selected' : '' }}>Active</option>
                             <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
                         </select>
                     </div>
                     <div class="flex items-end">
                         <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                            <i class="fas fa-search mr-2"></i>Filter
+                            <i class="fas fa-search mr-2"></i>Apply Filters
                         </button>
                     </div>
                 </form>
@@ -85,16 +85,16 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <div class="flex items-center justify-end space-x-2">
-                                            <a href="{{ route('admin.collectors.show', $collector) }}" class="text-blue-600 hover:text-blue-900" title="View">
+                                            <a href="{{ route('admin.collectors.show', $collector) }}" class="text-blue-600 hover:text-blue-900" title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="{{ route('admin.collectors.edit', $collector) }}" class="text-yellow-600 hover:text-yellow-900" title="Edit">
+                                            <a href="{{ route('admin.collectors.edit', $collector) }}" class="text-yellow-600 hover:text-yellow-900" title="Edit Collector">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <form id="delete-collector-{{ $collector->id }}" action="{{ route('admin.collectors.destroy', $collector) }}" method="POST" class="inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" onclick="confirmDelete('delete-collector-{{ $collector->id }}', '{{ $collector->name }}')" class="text-red-600 hover:text-red-900" title="Delete">
+                                                <button type="button" onclick="confirmDelete('delete-collector-{{ $collector->id }}', '{{ $collector->name }}')" class="text-red-600 hover:text-red-900" title="Delete Collector">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
@@ -105,7 +105,7 @@
                                 <tr>
                                     <td colspan="5" class="px-6 py-12 text-center text-gray-500">
                                         <i class="fas fa-hand-holding-usd text-4xl mb-4 text-gray-300"></i>
-                                        <p>No collectors found</p>
+                                        <p>No collectors were found matching your criteria.</p>
                                     </td>
                                 </tr>
                             @endforelse

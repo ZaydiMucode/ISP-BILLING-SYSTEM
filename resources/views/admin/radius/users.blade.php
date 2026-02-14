@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">RADIUS Users</h1>
-                    <p class="text-gray-600">Kelola user autentikasi RADIUS</p>
+                    <p class="text-gray-600">Manage RADIUS authentication users</p>
                 </div>
                 <button onclick="document.getElementById('addUserModal').classList.remove('hidden')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
                     <i class="fas fa-plus mr-2"></i>Add User
@@ -44,12 +44,12 @@
                                 <form action="{{ route('admin.radius.users.delete') }}" method="POST" class="inline">
                                     @csrf @method('DELETE')
                                     <input type="hidden" name="username" value="{{ $user->username }}">
-                                    <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Hapus user ini?')"><i class="fas fa-trash"></i></button>
+                                    <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Delete this user?')"><i class="fas fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
                         @empty
-                        <tr><td colspan="3" class="px-6 py-4 text-center text-gray-500">Tidak ada user</td></tr>
+                        <tr><td colspan="3" class="px-6 py-4 text-center text-gray-500">No users found</td></tr>
                         @endforelse
                     </tbody>
                 </table>

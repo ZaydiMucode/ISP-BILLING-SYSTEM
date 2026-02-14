@@ -13,8 +13,8 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <div>
-                    <h1 class="text-2xl font-bold text-white">Konfigurasi WhatsApp</h1>
-                    <p class="text-gray-400 mt-1">Pengaturan WhatsApp Gateway API</p>
+                    <h1 class="text-2xl font-bold text-white">WhatsApp Configuration</h1>
+                    <p class="text-gray-400 mt-1">WhatsApp Gateway API Settings</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-300 mb-2">Nama Gateway</label>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Gateway Name</label>
                                 <input type="text" name="name" value="{{ $setting->name ?? 'WhatsApp Gateway' }}" 
                                        class="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white">
                             </div>
@@ -53,14 +53,14 @@
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">Nomor Pengirim</label>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Sender Number</label>
                                 <input type="text" name="sender" value="{{ $setting->getConfig('sender') }}"
                                        placeholder="628123456789"
                                        class="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white">
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">Nomor Admin</label>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Admin Number</label>
                                 <input type="text" name="admin_phone" value="{{ $setting->getConfig('admin_phone') }}"
                                        placeholder="628123456789"
                                        class="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white">
@@ -70,17 +70,17 @@
                                 <label class="flex items-center space-x-3 cursor-pointer">
                                     <input type="checkbox" name="enabled" value="1" {{ $setting->enabled ? 'checked' : '' }}
                                            class="w-5 h-5 rounded border-white/20 bg-white/5 text-cyan-500">
-                                    <span class="text-gray-300">Aktifkan WhatsApp Gateway</span>
+                                    <span class="text-gray-300">Enable WhatsApp Gateway</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="flex items-center space-x-4 mt-6">
                             <button type="submit" class="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg">
-                                <i class="fas fa-save mr-2"></i>Simpan
+                                <i class="fas fa-save mr-2"></i>Save
                             </button>
                             <button type="button" onclick="showTestModal()" class="px-6 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg">
-                                <i class="fab fa-whatsapp mr-2"></i>Test Kirim
+                                <i class="fab fa-whatsapp mr-2"></i>Test Send
                             </button>
                         </div>
                     </form>
@@ -90,37 +90,37 @@
             <!-- Test Result -->
             <div>
                 <div class="bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-6">
-                    <h3 class="text-lg font-semibold text-white mb-4"><i class="fas fa-vial mr-2"></i>Hasil Test</h3>
+                    <h3 class="text-lg font-semibold text-white mb-4"><i class="fas fa-vial mr-2"></i>Test Result</h3>
                     
                     <div id="testResult" class="hidden">
                         <div id="testSuccess" class="hidden p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
-                            <p class="text-green-400 font-semibold"><i class="fas fa-check-circle mr-2"></i>Pesan Terkirim!</p>
+                            <p class="text-green-400 font-semibold"><i class="fas fa-check-circle mr-2"></i>Message Sent!</p>
                         </div>
                         <div id="testError" class="hidden p-4 bg-red-500/20 border border-red-500/30 rounded-lg">
-                            <p class="text-red-400 font-semibold mb-2"><i class="fas fa-times-circle mr-2"></i>Gagal</p>
+                            <p class="text-red-400 font-semibold mb-2"><i class="fas fa-times-circle mr-2"></i>Failed</p>
                             <p class="text-sm text-red-300" id="errorMessage">-</p>
                         </div>
                     </div>
                     
                     <div id="testLoading" class="hidden text-center py-8">
                         <i class="fas fa-spinner fa-spin text-3xl text-cyan-400"></i>
-                        <p class="text-gray-400 mt-2">Mengirim...</p>
+                        <p class="text-gray-400 mt-2">Sending...</p>
                     </div>
                     
                     <div id="testPlaceholder" class="text-center py-8 text-gray-500">
                         <i class="fab fa-whatsapp text-3xl mb-2"></i>
-                        <p>Klik "Test Kirim" untuk mengirim pesan test</p>
+                        <p>Click "Test Send" to send a test message</p>
                     </div>
                     
                     @if($setting->last_tested_at)
                         <div class="mt-4 pt-4 border-t border-white/10 text-sm text-gray-400">
-                            <p>Test terakhir: {{ $setting->last_tested_at->format('d/m/Y H:i') }}</p>
+                            <p>Last tested: {{ $setting->last_tested_at->format('d/m/Y H:i') }}</p>
                         </div>
                     @endif
                 </div>
                 
                 <div class="mt-4 bg-green-500/10 border border-green-500/30 rounded-lg p-4">
-                    <h4 class="text-green-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>Provider Didukung</h4>
+                    <h4 class="text-green-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>Supported Providers</h4>
                     <ul class="text-sm text-green-300 space-y-1">
                         <li>• Fonnte</li>
                         <li>• Wablas</li>
@@ -133,32 +133,40 @@
     </div>
 </main>
 
-<!-- Test Modal -->
 <div id="testModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
     <div class="bg-slate-800 rounded-xl p-6 w-full max-w-md mx-4">
-        <h3 class="text-lg font-semibold text-white mb-4">Test Kirim WhatsApp</h3>
+        <h3 class="text-lg font-semibold text-white mb-4">Test Send WhatsApp</h3>
         <div class="mb-4">
-            <label class="block text-sm text-gray-300 mb-2">Nomor Tujuan</label>
+            <label class="block text-sm text-gray-300 mb-2">Destination Number</label>
             <input type="text" id="test_number" placeholder="628123456789"
                    class="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white">
         </div>
         <div class="flex space-x-3">
-            <button onclick="testConnection()" class="flex-1 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg">Kirim</button>
-            <button onclick="hideTestModal()" class="flex-1 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg">Batal</button>
+            <button onclick="testConnection()" class="flex-1 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg">Send</button>
+            <button onclick="hideTestModal()" class="flex-1 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg">Cancel</button>
         </div>
     </div>
 </div>
 
 <script>
-function showTestModal() { document.getElementById('testModal').classList.remove('hidden'); document.getElementById('testModal').classList.add('flex'); }
-function hideTestModal() { document.getElementById('testModal').classList.add('hidden'); document.getElementById('testModal').classList.remove('flex'); }
+function showTestModal() { 
+    document.getElementById('testModal').classList.remove('hidden'); 
+    document.getElementById('testModal').classList.add('flex'); 
+}
+function hideTestModal() { 
+    document.getElementById('testModal').classList.add('hidden'); 
+    document.getElementById('testModal').classList.remove('flex'); 
+}
 
 function testConnection() {
     const api_url = document.getElementById('api_url').value;
     const api_key = document.getElementById('api_key').value;
     const test_number = document.getElementById('test_number').value;
     
-    if (!api_url || !api_key || !test_number) { alert('Mohon lengkapi semua field'); return; }
+    if (!api_url || !api_key || !test_number) { 
+        alert('Please complete all fields'); 
+        return; 
+    }
     
     hideTestModal();
     document.getElementById('testPlaceholder').classList.add('hidden');
@@ -167,7 +175,10 @@ function testConnection() {
     
     fetch('{{ route("admin.settings.whatsapp.test") }}', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+        headers: { 
+            'Content-Type': 'application/json', 
+            'X-CSRF-TOKEN': '{{ csrf_token() }}' 
+        },
         body: JSON.stringify({ api_url, api_key, test_number })
     })
     .then(r => r.json())

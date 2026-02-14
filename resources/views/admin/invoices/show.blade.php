@@ -24,7 +24,6 @@
 
             <div class="max-w-4xl">
                 <div class="bg-white rounded-xl shadow-md p-8">
-                    <!-- Invoice Header -->
                     <div class="flex justify-between items-start mb-8 pb-6 border-b">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900">{{ companyName() }}</h2>
@@ -37,7 +36,6 @@
                         </div>
                     </div>
 
-                    <!-- Invoice Info -->
                     <div class="grid grid-cols-2 gap-8 mb-8">
                         <div>
                             <h3 class="text-sm font-semibold text-gray-600 mb-3">BILL TO:</h3>
@@ -70,7 +68,6 @@
                         </div>
                     </div>
 
-                    <!-- Invoice Items -->
                     <div class="mb-8">
                         <table class="w-full">
                             <thead class="bg-gray-50">
@@ -86,14 +83,14 @@
                                         <p class="text-sm text-gray-600">{{ ucfirst($invoice->invoice_type) }} - {{ $invoice->description ?? 'Monthly subscription' }}</p>
                                     </td>
                                     <td class="px-4 py-4 text-right font-medium text-gray-900">
-                                        Rp {{ number_format($invoice->amount, 0, ',', '.') }}
+                                        ₱ {{ number_format($invoice->amount, 0, ',', '.') }}
                                     </td>
                                 </tr>
                                 @if($invoice->tax_amount > 0)
                                 <tr>
                                     <td class="px-4 py-4 text-right font-medium text-gray-600">Tax</td>
                                     <td class="px-4 py-4 text-right font-medium text-gray-900">
-                                        Rp {{ number_format($invoice->tax_amount, 0, ',', '.') }}
+                                        ₱ {{ number_format($invoice->tax_amount, 0, ',', '.') }}
                                     </td>
                                 </tr>
                                 @endif
@@ -102,23 +99,22 @@
                                 <tr>
                                     <td class="px-4 py-4 text-right font-bold text-gray-900">TOTAL</td>
                                     <td class="px-4 py-4 text-right font-bold text-2xl text-gray-900">
-                                        Rp {{ number_format($invoice->total_amount, 0, ',', '.') }}
+                                        ₱ {{ number_format($invoice->total_amount, 0, ',', '.') }}
                                     </td>
                                 </tr>
                             </tfoot>
                         </table>
                     </div>
 
-                    <!-- Actions -->
                     <div class="flex justify-end space-x-3 pt-6 border-t">
                         @if($invoice->status === 'unpaid')
                             @php $duitkuEnabled = \App\Models\AppSetting::getValue('duitku_enabled', 'false') === 'true'; @endphp
                             @if($duitkuEnabled)
                             <button type="button" onclick="openPaymentModal()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-                                <i class="fas fa-credit-card mr-2"></i>Bayar Online
+                                <i class="fas fa-credit-card mr-2"></i>Pay Online
                             </button>
                             @endif
-                            <form action="{{ route('admin.invoices.pay', $invoice) }}" method="POST" class="inline">
+                            <form action="{{ route('admin.invoices.pay', $invoice) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure you want to mark this as paid?')">
                                 @csrf
                                 <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
                                     <i class="fas fa-check-circle mr-2"></i>Mark as Paid
@@ -135,7 +131,6 @@
     </div>
 </div>
 
-<!-- Payment Modal -->
 @if($invoice->status === 'unpaid')
 <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
@@ -144,7 +139,7 @@
                 <div class="flex items-center">
                     <i class="fas fa-credit-card text-white text-2xl mr-3"></i>
                     <div>
-                        <h3 class="text-xl font-bold text-white">Pilih Metode Pembayaran</h3>
+                        <h3 class="text-xl font-bold text-white">Select Payment Method</h3>
                         <p class="text-blue-100 text-sm">Invoice: {{ $invoice->invoice_number }}</p>
                     </div>
                 </div>
@@ -157,28 +152,26 @@
         <div class="p-6">
             <div class="mb-4 p-4 bg-gray-50 rounded-lg">
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-600">Total Pembayaran</span>
-                    <span class="text-2xl font-bold text-gray-900">Rp {{ number_format($invoice->total_amount, 0, ',', '.') }}</span>
+                    <span class="text-gray-600">Total Payment</span>
+                    <span class="text-2xl font-bold text-gray-900"> ₱  {{ number_format($invoice->total_amount, 0, ',', '.') }}</span>
                 </div>
             </div>
 
             <div class="space-y-3" id="paymentMethods">
-                <!-- QRIS -->
                 <div class="payment-method-group">
-                    <h4 class="text-sm font-semibold text-gray-500 mb-2">QRIS (Semua E-Wallet)</h4>
+                    <h4 class="text-sm font-semibold text-gray-500 mb-2">QRIS (All E-Wallets)</h4>
                     <button type="button" onclick="selectPayment('SP')" class="payment-btn w-full flex items-center p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition">
                         <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
                             <i class="fas fa-qrcode text-purple-600 text-xl"></i>
                         </div>
                         <div class="text-left flex-1">
                             <p class="font-semibold text-gray-900">QRIS</p>
-                            <p class="text-sm text-gray-500">Scan dengan semua e-wallet</p>
+                            <p class="text-sm text-gray-500">Scan with any e-wallet</p>
                         </div>
                         <i class="fas fa-chevron-right text-gray-400"></i>
                     </button>
                 </div>
 
-                <!-- Virtual Account -->
                 <div class="payment-method-group">
                     <h4 class="text-sm font-semibold text-gray-500 mb-2">Virtual Account</h4>
                     <div class="grid grid-cols-2 gap-2">
@@ -221,7 +214,6 @@
                     </div>
                 </div>
 
-                <!-- E-Wallet -->
                 <div class="payment-method-group">
                     <h4 class="text-sm font-semibold text-gray-500 mb-2">E-Wallet</h4>
                     <div class="grid grid-cols-3 gap-2">
@@ -246,7 +238,6 @@
                     </div>
                 </div>
 
-                <!-- Retail -->
                 <div class="payment-method-group">
                     <h4 class="text-sm font-semibold text-gray-500 mb-2">Retail / Minimarket</h4>
                     <div class="grid grid-cols-2 gap-2">
@@ -266,10 +257,9 @@
                 </div>
             </div>
 
-            <!-- Loading State -->
             <div id="paymentLoading" class="hidden text-center py-8">
                 <i class="fas fa-spinner fa-spin text-4xl text-blue-600 mb-4"></i>
-                <p class="text-gray-600">Memproses pembayaran...</p>
+                <p class="text-gray-600">Processing payment...</p>
             </div>
         </div>
     </div>
@@ -307,14 +297,14 @@ function selectPayment(method) {
             // Redirect to payment page
             window.location.href = data.payment_url;
         } else {
-            alert('Gagal membuat pembayaran: ' + (data.message || 'Unknown error'));
+            alert('Failed to create payment: ' + (data.message || 'Unknown error'));
             document.getElementById('paymentMethods').classList.remove('hidden');
             document.getElementById('paymentLoading').classList.add('hidden');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Terjadi kesalahan. Silakan coba lagi.');
+        alert('An error occurred. Please try again.');
         document.getElementById('paymentMethods').classList.remove('hidden');
         document.getElementById('paymentLoading').classList.add('hidden');
     });

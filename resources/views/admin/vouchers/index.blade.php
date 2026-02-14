@@ -49,7 +49,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm text-gray-500 mb-1">Total Sales</p>
-                                <h3 class="text-2xl font-bold text-gray-900">Rp {{ number_format($stats['total_sales'], 0, ',', '.') }}</h3>
+                                <h3 class="text-2xl font-bold text-gray-900">₱ {{ number_format($stats['total_sales'], 0, ',', '.') }}</h3>
                             </div>
                             <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
                                 <i class="fas fa-money-bill-wave text-xl"></i>
@@ -105,7 +105,7 @@
                                         <td class="px-6 py-4 text-sm text-gray-500">{{ $purchase->created_at->format('d M Y H:i') }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-900">{{ $purchase->phone_number }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-900">{{ $purchase->pricing->package_name ?? 'Unknown' }}</td>
-                                        <td class="px-6 py-4 text-sm text-gray-900">Rp {{ number_format($purchase->price, 0, ',', '.') }}</td>
+                                        <td class="px-6 py-4 text-sm text-gray-900">₱ {{ number_format($purchase->price, 0, ',', '.') }}</td>
                                         <td class="px-6 py-4">
                                             <span class="px-2 py-1 text-xs font-semibold rounded-full 
                                                 {{ $purchase->status === 'success' ? 'bg-green-100 text-green-800' : '' }}

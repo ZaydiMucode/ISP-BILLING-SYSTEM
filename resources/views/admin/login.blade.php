@@ -64,7 +64,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold mb-1">Customer Management</h3>
-                        <p class="text-gray-300">Kelola pelanggan, paket, dan invoice dengan mudah</p>
+                        <p class="text-gray-300">Manage customers, packages, and invoices with ease</p>
                     </div>
                 </div>
 
@@ -74,7 +74,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold mb-1">Network Monitoring</h3>
-                        <p class="text-gray-300">Monitor jaringan ODP dan infrastruktur real-time</p>
+                        <p class="text-gray-300">Monitor ODP networks and infrastructure in real-time</p>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold mb-1">Business Analytics</h3>
-                        <p class="text-gray-300">Laporan lengkap dan analisis bisnis mendalam</p>
+                        <p class="text-gray-300">Comprehensive reports and deep business insights</p>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                                 required 
                                 value="{{ old('email') }}"
                                 class="block w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
-                                placeholder="admin@gembok.com"
+                                placeholder="admin@example.com"
                             >
                         </div>
                     </div>

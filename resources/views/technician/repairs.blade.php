@@ -1,10 +1,10 @@
 @extends('layouts.technician')
 
-@section('title', 'Perbaikan')
+@section('title', 'Repairs')
 
 @section('content')
 <div class="space-y-6">
-    <h1 class="text-2xl font-bold text-gray-800">Daftar Perbaikan</h1>
+    <h1 class="text-2xl font-bold text-gray-800">Repair List</h1>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="divide-y divide-gray-100">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="text-right">
                         <span class="inline-flex px-3 py-1 text-xs rounded-full bg-red-100 text-red-700">
-                            Perlu Perbaikan
+                            Needs Repair
                         </span>
                         <div class="mt-2 space-x-2">
                             <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $customer->phone) }}" target="_blank" 
@@ -45,7 +45,7 @@
             @empty
             <div class="p-8 text-center text-gray-500">
                 <i class="fas fa-check-circle text-4xl mb-2 text-green-500"></i>
-                <p>Tidak ada perbaikan pending</p>
+                <p>No pending repairs</p>
             </div>
             @endforelse
         </div>

@@ -1,21 +1,21 @@
 @extends('layouts.customer')
 
-@section('title', 'Riwayat Pembayaran')
+@section('title', 'Payment History')
 
 @section('content')
 <div class="space-y-6">
-    <h1 class="text-2xl font-bold text-gray-800">Riwayat Pembayaran</h1>
+    <h1 class="text-2xl font-bold text-gray-800">Payment History</h1>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">No. Invoice</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Periode</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Jumlah</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Metode</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Invoice No.</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Period</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Method</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
@@ -30,7 +30,7 @@
                         <td class="px-6 py-4">
                             <span class="inline-flex px-2 py-1 text-xs rounded-full 
                                 {{ $payment->payment_method == 'cash' ? 'bg-green-100 text-green-700' : 
-                                   ($payment->payment_method == 'transfer' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700') }}">
+                                    ($payment->payment_method == 'transfer' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700') }}">
                                 {{ ucfirst($payment->payment_method ?? 'N/A') }}
                             </span>
                         </td>
@@ -39,7 +39,7 @@
                     <tr>
                         <td colspan="5" class="px-6 py-8 text-center text-gray-500">
                             <i class="fas fa-inbox text-4xl mb-2"></i>
-                            <p>Belum ada riwayat pembayaran</p>
+                            <p>No payment history found</p>
                         </td>
                     </tr>
                     @endforelse

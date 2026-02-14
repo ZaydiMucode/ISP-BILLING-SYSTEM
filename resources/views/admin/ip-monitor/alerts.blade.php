@@ -18,7 +18,7 @@
                     </a>
                     <div>
                         <h1 class="text-2xl font-bold text-white">Network Alerts</h1>
-                        <p class="text-gray-400">Semua alert dari IP Monitor</p>
+                        <p class="text-gray-400">All alerts from IP Monitor</p>
                     </div>
                 </div>
                 <div class="mt-4 md:mt-0">
@@ -35,7 +35,7 @@
             <div class="bg-gray-800 rounded-xl p-4 mb-6 border border-gray-700">
                 <form method="GET" class="flex flex-wrap gap-4">
                     <select name="type" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
-                        <option value="">Semua Type</option>
+                        <option value="">All Types</option>
                         <option value="down" {{ request('type') == 'down' ? 'selected' : '' }}>Down</option>
                         <option value="recovery" {{ request('type') == 'recovery' ? 'selected' : '' }}>Recovery</option>
                         <option value="warning" {{ request('type') == 'warning' ? 'selected' : '' }}>Warning</option>
@@ -43,7 +43,7 @@
                     <label class="flex items-center text-gray-300">
                         <input type="checkbox" name="unread" value="1" {{ request('unread') ? 'checked' : '' }}
                                class="w-4 h-4 text-cyan-600 bg-gray-700 border-gray-600 rounded mr-2">
-                        Hanya Unread
+                        Unread Only
                     </label>
                     <button type="submit" class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2 rounded-lg transition">
                         <i class="fas fa-filter mr-2"></i>Filter
@@ -91,7 +91,7 @@
                     @empty
                     <div class="p-8 text-center text-gray-400">
                         <i class="fas fa-bell-slash text-4xl mb-3 opacity-50"></i>
-                        <p>Tidak ada alert</p>
+                        <p>No alerts found</p>
                     </div>
                     @endforelse
                 </div>

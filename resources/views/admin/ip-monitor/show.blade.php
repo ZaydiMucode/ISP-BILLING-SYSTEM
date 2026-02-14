@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail IP Monitor')
+@section('title', 'IP Monitor Details')
 
 @section('content')
 <div class="flex h-screen bg-gray-900">
@@ -61,7 +61,7 @@
 
                     <!-- Uptime Chart -->
                     <div class="bg-gray-800 rounded-xl border border-gray-700 p-6">
-                        <h3 class="text-lg font-semibold text-white mb-4">Uptime (7 Hari Terakhir)</h3>
+                        <h3 class="text-lg font-semibold text-white mb-4">Uptime (Last 7 Days)</h3>
                         <div class="flex items-end justify-between h-32 space-x-2">
                             @foreach($dailyData as $day)
                             <div class="flex-1 flex flex-col items-center">
@@ -78,13 +78,13 @@
                     <!-- Recent Logs -->
                     <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
                         <div class="px-6 py-4 border-b border-gray-700">
-                            <h3 class="text-lg font-semibold text-white">Log Terbaru</h3>
+                            <h3 class="text-lg font-semibold text-white">Recent Logs</h3>
                         </div>
                         <div class="overflow-x-auto max-h-96">
                             <table class="w-full">
                                 <thead class="bg-gray-700/50 sticky top-0">
                                     <tr>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-400">Waktu</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-400">Time</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-400">Status</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-400">Latency</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-400">Packet Loss</th>
@@ -93,7 +93,7 @@
                                 <tbody class="divide-y divide-gray-700">
                                     @forelse($recentLogs as $log)
                                     <tr class="hover:bg-gray-700/50">
-                                        <td class="px-4 py-2 text-gray-300 text-sm">{{ $log->checked_at->format('d/m H:i:s') }}</td>
+                                        <td class="px-4 py-2 text-gray-300 text-sm">{{ $log->checked_at->format('M d, H:i:s') }}</td>
                                         <td class="px-4 py-2">
                                             <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-{{ $log->status_color }}-900 text-{{ $log->status_color }}-300">
                                                 {{ strtoupper($log->status) }}
@@ -104,7 +104,7 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="4" class="px-4 py-8 text-center text-gray-400">Belum ada log</td>
+                                        <td colspan="4" class="px-4 py-8 text-center text-gray-400">No logs available</td>
                                     </tr>
                                     @endforelse
                                 </tbody>
@@ -117,14 +117,14 @@
                 <div class="space-y-6">
                     <!-- Info Card -->
                     <div class="bg-gray-800 rounded-xl border border-gray-700 p-6">
-                        <h3 class="text-lg font-semibold text-white mb-4">Informasi</h3>
+                        <h3 class="text-lg font-semibold text-white mb-4">Information</h3>
                         <dl class="space-y-3">
                             <div>
                                 <dt class="text-gray-400 text-sm">IP Address</dt>
                                 <dd class="text-white font-mono">{{ $ipMonitor->ip_address }}</dd>
                             </div>
                             <div>
-                                <dt class="text-gray-400 text-sm">Nama</dt>
+                                <dt class="text-gray-400 text-sm">Name</dt>
                                 <dd class="text-white">{{ $ipMonitor->name ?? '-' }}</dd>
                             </div>
                             <div>
@@ -141,32 +141,32 @@
                             </div>
                             <div>
                                 <dt class="text-gray-400 text-sm">Check Interval</dt>
-                                <dd class="text-white">{{ $ipMonitor->check_interval }} detik</dd>
+                                <dd class="text-white">{{ $ipMonitor->check_interval }} seconds</dd>
                             </div>
                             <div>
                                 <dt class="text-gray-400 text-sm">Alert Threshold</dt>
-                                <dd class="text-white">{{ $ipMonitor->alert_threshold }} kali gagal</dd>
+                                <dd class="text-white">{{ $ipMonitor->alert_threshold }} failed attempts</dd>
                             </div>
                             <div>
                                 <dt class="text-gray-400 text-sm">Last Check</dt>
-                                <dd class="text-white">{{ $ipMonitor->last_check ? $ipMonitor->last_check->format('d/m/Y H:i:s') : 'Never' }}</dd>
+                                <dd class="text-white">{{ $ipMonitor->last_check ? $ipMonitor->last_check->format('M d, Y H:i:s') : 'Never' }}</dd>
                             </div>
                             <div>
                                 <dt class="text-gray-400 text-sm">Last Up</dt>
-                                <dd class="text-green-400">{{ $ipMonitor->last_up ? $ipMonitor->last_up->format('d/m/Y H:i:s') : '-' }}</dd>
+                                <dd class="text-green-400">{{ $ipMonitor->last_up ? $ipMonitor->last_up->format('M d, Y H:i:s') : '-' }}</dd>
                             </div>
                             <div>
                                 <dt class="text-gray-400 text-sm">Last Down</dt>
-                                <dd class="text-red-400">{{ $ipMonitor->last_down ? $ipMonitor->last_down->format('d/m/Y H:i:s') : '-' }}</dd>
+                                <dd class="text-red-400">{{ $ipMonitor->last_down ? $ipMonitor->last_down->format('M d, Y H:i:s') : '-' }}</dd>
                             </div>
                             <div>
-                                <dt class="text-gray-400 text-sm">Status</dt>
+                                <dt class="text-gray-400 text-sm">Monitoring Status</dt>
                                 <dd>
                                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium {{ $ipMonitor->is_active ? 'bg-green-900 text-green-300' : 'bg-gray-700 text-gray-300' }}">
                                         {{ $ipMonitor->is_active ? 'Active' : 'Inactive' }}
                                     </span>
                                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium {{ $ipMonitor->alert_enabled ? 'bg-yellow-900 text-yellow-300' : 'bg-gray-700 text-gray-300' }} ml-1">
-                                        Alert {{ $ipMonitor->alert_enabled ? 'ON' : 'OFF' }}
+                                        Alerts {{ $ipMonitor->alert_enabled ? 'ON' : 'OFF' }}
                                     </span>
                                 </dd>
                             </div>
@@ -175,7 +175,7 @@
 
                     <!-- Recent Alerts -->
                     <div class="bg-gray-800 rounded-xl border border-gray-700 p-6">
-                        <h3 class="text-lg font-semibold text-white mb-4">Alerts Terbaru</h3>
+                        <h3 class="text-lg font-semibold text-white mb-4">Recent Alerts</h3>
                         @if($ipMonitor->alerts->count() > 0)
                         <div class="space-y-3">
                             @foreach($ipMonitor->alerts as $alert)
@@ -189,7 +189,7 @@
                             @endforeach
                         </div>
                         @else
-                        <p class="text-gray-400 text-sm">Tidak ada alert</p>
+                        <p class="text-gray-400 text-sm">No alerts found</p>
                         @endif
                     </div>
                 </div>
@@ -219,7 +219,7 @@ function pingNow() {
     })
     .catch(() => {
         icon.classList.remove('fa-spin');
-        alert('Gagal melakukan ping');
+        alert('Failed to perform ping');
     });
 }
 </script>

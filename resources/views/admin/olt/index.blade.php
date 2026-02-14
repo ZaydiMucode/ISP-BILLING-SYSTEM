@@ -21,7 +21,7 @@
                         <i class="fas fa-list mr-2"></i>Semua ONU
                     </a>
                     <a href="{{ route('admin.olt.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                        <i class="fas fa-plus mr-2"></i>Tambah OLT
+                        <i class="fas fa-plus mr-2"></i>Add OLT
                     </a>
                 </div>
             </div>
@@ -129,10 +129,10 @@
                                 <p class="text-xs text-gray-500">Temperature</p>
                             </div>
                             @endif
-                            <a href="{{ route('admin.olt.show', $olt) }}" class="p-2 text-gray-500 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg">
+                            <a href="{{ route('admin.olt.show', $olt) }}" class="p-2 text-gray-500 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg" title="View Details">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="{{ route('admin.olt.edit', $olt) }}" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg">
+                            <a href="{{ route('admin.olt.edit', $olt) }}" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg" title="Edit OLT">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </div>
@@ -142,7 +142,7 @@
                     <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-6">
                         <div class="text-center p-3 bg-gray-50 rounded-lg">
                             <p class="text-2xl font-bold text-gray-800">{{ $olt->total_pon_ports }}</p>
-                            <p class="text-xs text-gray-500">Total Port</p>
+                            <p class="text-xs text-gray-500">Total Ports</p>
                         </div>
                         <div class="text-center p-3 bg-gray-50 rounded-lg">
                             <p class="text-2xl font-bold text-gray-800">{{ $olt->total_onus }}</p>
@@ -190,9 +190,9 @@
             @if($olts->isEmpty())
             <div class="bg-white rounded-xl shadow-sm p-12 text-center">
                 <i class="fas fa-server text-gray-300 text-5xl mb-4"></i>
-                <p class="text-gray-500">Belum ada OLT terdaftar</p>
+                <p class="text-gray-500">No OLTs registered yet</p>
                 <a href="{{ route('admin.olt.create') }}" class="inline-block mt-4 text-cyan-600 hover:text-cyan-700">
-                    <i class="fas fa-plus mr-1"></i>Tambah OLT Pertama
+                    <i class="fas fa-plus mr-1"></i>Add Your First OLT
                 </a>
             </div>
             @endif

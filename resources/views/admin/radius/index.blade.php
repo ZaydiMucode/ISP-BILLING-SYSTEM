@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">RADIUS Server Management</h1>
-                    <p class="text-gray-600">Kelola autentikasi PPPoE via FreeRADIUS</p>
+                    <p class="text-gray-600">Manage PPPoE authentication via FreeRADIUS</p>
                 </div>
                 <div class="flex space-x-2">
                     <a href="{{ route('admin.radius.users') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
@@ -30,9 +30,9 @@
                 <div class="flex">
                     <i class="fas fa-exclamation-triangle text-yellow-400 mr-3 mt-1"></i>
                     <div>
-                        <h3 class="text-yellow-800 font-medium">RADIUS Tidak Aktif</h3>
+                        <h3 class="text-yellow-800 font-medium">RADIUS Inactive</h3>
                         <p class="text-yellow-700 text-sm mt-1">
-                            Aktifkan RADIUS dengan mengatur <code class="bg-yellow-100 px-1 rounded">RADIUS_ENABLED=true</code> di file .env
+                            Enable RADIUS by setting <code class="bg-yellow-100 px-1 rounded">RADIUS_ENABLED=true</code> in your .env file
                         </p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                                     <form action="{{ route('admin.radius.disconnect') }}" method="POST" class="inline">
                                         @csrf
                                         <input type="hidden" name="username" value="{{ $user->username }}">
-                                        <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Disconnect user ini?')">
+                                        <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Disconnect this user?')">
                                             <i class="fas fa-plug"></i> Disconnect
                                         </button>
                                     </form>
@@ -95,7 +95,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-4 text-center text-gray-500">Tidak ada user online</td>
+                                <td colspan="7" class="px-6 py-4 text-center text-gray-500">No users online</td>
                             </tr>
                             @endforelse
                         </tbody>
