@@ -21,7 +21,7 @@ class CollectorController extends Controller
             'password' => 'required',
         ]);
 
-        $collector = Collector::where('username', $request->username)->first();
+        $collector = Collector::where('name', $request->username)->first();
 
         if ($collector && Hash::check($request->password, $collector->password)) {
             Auth::loginUsingId($collector->user_id ?? $collector->id);
@@ -29,7 +29,7 @@ class CollectorController extends Controller
             return redirect()->route('collector.dashboard');
         }
 
-        return back()->with('error', 'Username atau password salah');
+        return back()->with('error', 'Invalid Username or Password');
     }
 
     public function logout()
@@ -156,7 +156,7 @@ class CollectorController extends Controller
         }
 
         return redirect()->route('collector.dashboard')
-            ->with('success', 'Pembayaran berhasil dicatat!');
+            ->with('success', 'Payment successfully recorded!');
     }
 
     public function history(Request $request)

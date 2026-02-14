@@ -27,7 +27,7 @@ class TechnicianController extends Controller
             return redirect()->route('technician.dashboard');
         }
 
-        return back()->with('error', 'Username atau password salah');
+        return back()->with('error', 'Invalid username or password');
     }
 
     public function logout()
@@ -73,7 +73,7 @@ class TechnicianController extends Controller
     public function updateTask(Request $request, $taskId)
     {
         // TODO: Implement task update logic
-        return back()->with('success', 'Status tugas berhasil diperbarui');
+        return back()->with('success', 'Task status updated successfully');
     }
 
     public function installations()
