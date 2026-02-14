@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">RADIUS Groups</h1>
-                    <p class="text-gray-600">Bandwidth Profiles untuk RADIUS</p>
+                    <p class="text-gray-600">Bandwidth Profiles for RADIUS</p>
                 </div>
                 <button onclick="document.getElementById('addGroupModal').classList.remove('hidden')" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">
                     <i class="fas fa-plus mr-2"></i>Add Group
@@ -35,7 +35,7 @@
                 </div>
                 @empty
                 <div class="col-span-3 bg-gray-50 rounded-xl p-8 text-center text-gray-500">
-                    Belum ada group/profile
+                    No groups/profiles found
                 </div>
                 @endforelse
             </div>

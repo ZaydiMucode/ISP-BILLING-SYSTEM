@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
                 <i class="fas fa-hand-holding-dollar text-white text-3xl"></i>
             </div>
             <h1 class="text-3xl font-bold text-white">Collector Portal</h1>
-            <p class="text-blue-300 mt-2">Kelola penagihan pembayaran</p>
+            <p class="text-blue-300 mt-2">Manage payment collections</p>
         </div>
 
         <!-- Login Form -->
@@ -34,7 +34,7 @@
                     </label>
                     <input type="text" name="username" required
                         class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Masukkan username">
+                        placeholder="Enter username">
                 </div>
 
                 <div class="mb-6">
@@ -43,19 +43,19 @@
                     </label>
                     <input type="password" name="password" required
                         class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Masukkan password">
+                        placeholder="Enter password">
                 </div>
 
                 <div class="flex items-center justify-between mb-6">
                     <label class="flex items-center text-blue-200 text-sm">
                         <input type="checkbox" name="remember" class="mr-2 rounded bg-white/10 border-white/20 text-blue-500 focus:ring-blue-500">
-                        Ingat saya
+                        Remember me
                     </label>
                 </div>
 
                 <button type="submit"
                     class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-lg">
-                    <i class="fas fa-sign-in-alt mr-2"></i>Masuk
+                    <i class="fas fa-sign-in-alt mr-2"></i>Login
                 </button>
             </form>
         </div>
@@ -63,7 +63,7 @@
         <!-- Footer -->
         <div class="text-center mt-6">
             <a href="/" class="text-gray-400 hover:text-gray-300 text-sm">
-                <i class="fas fa-arrow-left mr-1"></i> Kembali ke Beranda
+                <i class="fas fa-arrow-left mr-1"></i> Back to Home
             </a>
         </div>
     </div>

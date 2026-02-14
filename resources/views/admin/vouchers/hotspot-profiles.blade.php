@@ -77,7 +77,7 @@
                                 <td class="px-6 py-4 text-sm text-gray-500">{{ $profile->session_timeout ?: '-' }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
                                     @if($profile->price > 0)
-                                        Rp {{ number_format($profile->price, 0, ',', '.') }}
+                                        ₱ {{ number_format($profile->price, 0, ',', '.') }}
                                     @else
                                         -
                                     @endif

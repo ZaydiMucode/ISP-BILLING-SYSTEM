@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pengaturan Duitku')
+@section('title', 'Duitku Settings')
 
 @section('content')
 <div class="min-h-screen bg-gray-100">
@@ -13,11 +13,11 @@
             <div class="mb-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-900">Pengaturan Duitku</h1>
-                        <p class="text-gray-600">Konfigurasi Payment Gateway Duitku</p>
+                        <h1 class="text-2xl font-bold text-gray-900">Duitku Settings</h1>
+                        <p class="text-gray-600">Configure Duitku Payment Gateway</p>
                     </div>
                     <a href="{{ route('admin.settings.integrations') }}" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-                        ← Kembali
+                        ← Back
                     </a>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                                         <input type="checkbox" name="enabled" class="sr-only peer" 
                                                {{ $settings['enabled'] === 'true' ? 'checked' : '' }}>
                                         <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                                        <span class="ml-3 text-sm font-medium text-gray-700">Aktif</span>
+                                        <span class="ml-3 text-sm font-medium text-gray-700">Active</span>
                                     </label>
                                 </div>
                             </div>
@@ -71,8 +71,8 @@
                                 </label>
                                 <input type="text" name="merchant_code" value="{{ $settings['merchant_code'] }}" required
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    placeholder="Masukkan Merchant Code">
-                                <p class="text-xs text-gray-500 mt-1">Dapatkan dari dashboard Duitku</p>
+                                    placeholder="Enter Merchant Code">
+                                <p class="text-xs text-gray-500 mt-1">Obtain this from your Duitku dashboard</p>
                             </div>
 
                             <div class="mb-4">
@@ -81,7 +81,7 @@
                                 </label>
                                 <input type="password" name="api_key" value="{{ $settings['api_key'] }}" required
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    placeholder="Masukkan API Key">
+                                    placeholder="Enter API Key">
                             </div>
 
                             <div class="mb-6">
@@ -90,10 +90,10 @@
                                            class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                                            {{ $settings['is_production'] === 'true' ? 'checked' : '' }}>
                                     <label for="is_production" class="ml-2 text-sm text-gray-700">
-                                        Mode Production
+                                        Production Mode
                                     </label>
                                 </div>
-                                <p class="text-xs text-gray-500 mt-1">Centang jika sudah siap untuk transaksi real</p>
+                                <p class="text-xs text-gray-500 mt-1">Check this when you are ready for real transactions</p>
                             </div>
 
                             <div class="mb-6 p-4 bg-gray-50 rounded-lg">
@@ -106,16 +106,16 @@
                                         <i class="fas fa-copy"></i>
                                     </button>
                                 </div>
-                                <p class="text-xs text-gray-500 mt-1">Masukkan URL ini di dashboard Duitku</p>
+                                <p class="text-xs text-gray-500 mt-1">Enter this URL in your Duitku dashboard</p>
                             </div>
 
                             <div class="flex items-center justify-between">
                                 <button type="button" onclick="testConnection()" 
                                         class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
-                                    <i class="fas fa-plug mr-2"></i>Test Koneksi
+                                    <i class="fas fa-plug mr-2"></i>Test Connection
                                 </button>
                                 <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                                    <i class="fas fa-save mr-2"></i>Simpan
+                                    <i class="fas fa-save mr-2"></i>Save Settings
                                 </button>
                             </div>
                         </form>
@@ -126,11 +126,11 @@
                 <div class="space-y-6">
                     <!-- Payment Methods -->
                     <div class="bg-white rounded-xl shadow-md p-6">
-                        <h3 class="font-semibold text-gray-800 mb-4">Metode Pembayaran</h3>
+                        <h3 class="font-semibold text-gray-800 mb-4">Payment Methods</h3>
                         <div class="space-y-3">
                             <div class="flex items-center text-sm">
                                 <i class="fas fa-qrcode text-purple-500 w-6"></i>
-                                <span class="text-gray-600">QRIS (Semua E-Wallet)</span>
+                                <span class="text-gray-600">QRIS (All E-Wallets)</span>
                             </div>
                             <div class="flex items-center text-sm">
                                 <i class="fas fa-university text-blue-500 w-6"></i>
@@ -149,34 +149,34 @@
 
                     <!-- How to Get Credentials -->
                     <div class="bg-white rounded-xl shadow-md p-6">
-                        <h3 class="font-semibold text-gray-800 mb-4">Cara Mendapatkan Kredensial</h3>
+                        <h3 class="font-semibold text-gray-800 mb-4">How to Obtain Credentials</h3>
                         <ol class="space-y-2 text-sm text-gray-600">
                             <li class="flex items-start">
                                 <span class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">1</span>
-                                Daftar di <a href="https://duitku.com" target="_blank" class="text-blue-600 hover:underline">duitku.com</a>
+                                Register at <a href="https://duitku.com" target="_blank" class="text-blue-600 hover:underline">duitku.com</a>
                             </li>
                             <li class="flex items-start">
                                 <span class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">2</span>
-                                Login ke Dashboard Merchant
+                                Login to the Merchant Dashboard
                             </li>
                             <li class="flex items-start">
                                 <span class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">3</span>
-                                Buka menu Project > API Keys
+                                Navigate to Project > API Keys
                             </li>
                             <li class="flex items-start">
                                 <span class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">4</span>
-                                Copy Merchant Code dan API Key
+                                Copy your Merchant Code and API Key
                             </li>
                             <li class="flex items-start">
                                 <span class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">5</span>
-                                Set Callback URL di dashboard Duitku
+                                Set the Callback URL in the Duitku dashboard
                             </li>
                         </ol>
                     </div>
 
                     <!-- Test Result -->
                     <div id="testResult" class="hidden bg-white rounded-xl shadow-md p-6">
-                        <h3 class="font-semibold text-gray-800 mb-4">Hasil Test</h3>
+                        <h3 class="font-semibold text-gray-800 mb-4">Test Result</h3>
                         <div id="testResultContent"></div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
 function copyCallback() {
     const url = '{{ config("app.url") }}/api/duitku/callback';
     navigator.clipboard.writeText(url).then(() => {
-        showToast('success', 'Callback URL berhasil disalin');
+        showToast('success', 'Callback URL copied successfully');
     });
 }
 
@@ -216,14 +216,14 @@ function testConnection() {
                 <div class="text-green-600">
                     <i class="fas fa-check-circle text-2xl mb-2"></i>
                     <p class="font-medium">${data.message}</p>
-                    <p class="text-sm text-gray-500 mt-1">${data.methods_count} metode pembayaran tersedia</p>
+                    <p class="text-sm text-gray-500 mt-1">${data.methods_count} payment methods available</p>
                 </div>
             `;
         } else {
             contentDiv.innerHTML = `
                 <div class="text-red-600">
                     <i class="fas fa-times-circle text-2xl mb-2"></i>
-                    <p class="font-medium">Koneksi Gagal</p>
+                    <p class="font-medium">Connection Failed</p>
                     <p class="text-sm mt-1">${data.message}</p>
                 </div>
             `;
@@ -234,7 +234,7 @@ function testConnection() {
     })
     .finally(() => {
         btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-plug mr-2"></i>Test Koneksi';
+        btn.innerHTML = '<i class="fas fa-plug mr-2"></i>Test Connection';
     });
 }
 </script>

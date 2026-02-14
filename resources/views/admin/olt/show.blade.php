@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail OLT - ' . $olt->name)
+@section('title', 'OLT Detail - ' . $olt->name)
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
@@ -43,7 +43,7 @@
                         <i class="fas fa-edit mr-2"></i>Edit
                     </a>
                     <a href="{{ route('admin.olt.index') }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                        <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        <i class="fas fa-arrow-left mr-2"></i>Back
                     </a>
                 </div>
             </div>
@@ -75,7 +75,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- OLT Info -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                    <h3 class="font-semibold text-gray-800 mb-4">Informasi OLT</h3>
+                    <h3 class="font-semibold text-gray-800 mb-4">OLT Information</h3>
                     <div class="space-y-3 text-sm">
                         <div class="flex justify-between">
                             <span class="text-gray-500">IP Address</span>
@@ -97,7 +97,7 @@
                         @endif
                         @if($olt->location)
                         <div class="flex justify-between">
-                            <span class="text-gray-500">Lokasi</span>
+                            <span class="text-gray-500">Location</span>
                             <span class="font-medium">{{ $olt->location }}</span>
                         </div>
                         @endif
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         @empty
-                        <p class="text-gray-500 text-sm">Tidak ada data fan</p>
+                        <p class="text-gray-500 text-sm">No fan data available</p>
                         @endforelse
                     </div>
                 </div>
@@ -147,9 +147,9 @@
             <!-- ONU List -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-100">
                 <div class="p-4 border-b border-gray-100 flex justify-between items-center">
-                    <h3 class="font-semibold text-gray-800">Daftar ONU</h3>
+                    <h3 class="font-semibold text-gray-800">ONU List</h3>
                     <a href="{{ route('admin.olt.onu.create') }}" class="text-sm text-cyan-600 hover:text-cyan-700">
-                        <i class="fas fa-plus mr-1"></i>Tambah ONU
+                        <i class="fas fa-plus mr-1"></i>Add ONU
                     </a>
                 </div>
                 <div class="overflow-x-auto">
@@ -161,7 +161,7 @@
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">RX Power</th>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Last Online</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100">
@@ -217,7 +217,7 @@
                             @empty
                             <tr>
                                 <td colspan="6" class="px-4 py-8 text-center text-gray-500">
-                                    Belum ada ONU terdaftar
+                                    No registered ONU available
                                 </td>
                             </tr>
                             @endforelse

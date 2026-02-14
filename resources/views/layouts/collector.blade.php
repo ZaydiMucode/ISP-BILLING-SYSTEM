@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@
         <!-- Stats Card -->
         <div class="p-4">
             <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-4 text-white">
-                <p class="text-blue-100 text-sm">Terkumpul Hari Ini</p>
+                <p class="text-blue-100 text-sm">Collected Today</p>
                 <p class="text-2xl font-bold">Rp {{ number_format($todayTotal ?? 0, 0, ',', '.') }}</p>
             </div>
         </div>
@@ -46,19 +46,19 @@
             </a>
             <a href="{{ route('collector.invoices') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('collector.invoices*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-file-invoice-dollar w-5 mr-3"></i>
-                <span>Tagihan</span>
+                <span>Invoices</span>
             </a>
             <a href="{{ route('collector.collect') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('collector.collect*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-money-bill-wave w-5 mr-3"></i>
-                <span>Terima Pembayaran</span>
+                <span>Receive Payment</span>
             </a>
             <a href="{{ route('collector.history') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('collector.history*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-history w-5 mr-3"></i>
-                <span>Riwayat</span>
+                <span>History</span>
             </a>
             <a href="{{ route('collector.profile') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('collector.profile*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-user-cog w-5 mr-3"></i>
-                <span>Profil</span>
+                <span>Profile</span>
             </a>
         </nav>
 
@@ -68,7 +68,7 @@
                 @csrf
                 <button type="submit" class="flex items-center w-full px-4 py-3 text-gray-300 rounded-lg hover:bg-red-600 hover:text-white transition">
                     <i class="fas fa-sign-out-alt w-5 mr-3"></i>
-                    <span>Keluar</span>
+                    <span>Logout</span>
                 </button>
             </form>
         </div>

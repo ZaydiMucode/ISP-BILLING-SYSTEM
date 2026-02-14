@@ -13,10 +13,10 @@
             <div class="mb-6 flex items-center justify-between">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900">Import Hotspot Users</h1>
-                    <p class="text-gray-600">Import {{ $totalUsers }} Hotspot Users dari Mikrotik</p>
+                    <p class="text-gray-600">Import {{ $totalUsers }} Hotspot Users from Mikrotik</p>
                 </div>
                 <a href="{{ route('admin.mikrotik.sync.index') }}" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-                    ← Kembali
+                    ← Back
                 </a>
             </div>
 
@@ -40,11 +40,11 @@
                 </div>
                 <div class="bg-white rounded-lg shadow p-4">
                     <div class="text-2xl font-bold text-green-600">{{ count($toImport) }}</div>
-                    <div class="text-sm text-gray-500">Siap Import (Baru)</div>
+                    <div class="text-sm text-gray-500">Ready to Import (New)</div>
                 </div>
                 <div class="bg-white rounded-lg shadow p-4">
                     <div class="text-2xl font-bold text-yellow-600">{{ count($existing) }}</div>
-                    <div class="text-sm text-gray-500">Sudah Ada di Database</div>
+                    <div class="text-sm text-gray-500">Already in Database</div>
                 </div>
             </div>
 
@@ -53,23 +53,23 @@
                 
                 <!-- Options -->
                 <div class="bg-white rounded-lg shadow p-4 mb-6">
-                    <h3 class="font-semibold text-gray-700 mb-3">Opsi Import</h3>
+                    <h3 class="font-semibold text-gray-700 mb-3">Import Options</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Default Package</label>
                             <select name="default_package_id" class="w-full border-gray-300 rounded-md shadow-sm">
-                                <option value="">-- Pilih Default Package --</option>
+                                <option value="">-- Select Default Package --</option>
                                 @foreach($localPackages as $package)
                                     <option value="{{ $package->id }}">{{ $package->name }} ({{ $package->speed }})</option>
                                 @endforeach
                             </select>
-                            <p class="text-xs text-gray-500 mt-1">Digunakan jika profile tidak ter-mapping</p>
+                            <p class="text-xs text-gray-500 mt-1">Used if the profile is not mapped</p>
                         </div>
                         <div class="flex items-center">
                             <input type="checkbox" name="skip_existing" value="1" checked 
                                    class="rounded border-gray-300 text-orange-600" id="skip_existing">
                             <label for="skip_existing" class="ml-2 text-sm text-gray-700">
-                                Skip yang sudah ada di database
+                                Skip users already in database
                             </label>
                         </div>
                     </div>
@@ -79,14 +79,14 @@
                 <div class="bg-white rounded-lg shadow overflow-hidden mb-6">
                     <div class="p-4 bg-green-50 border-b flex justify-between items-center">
                         <h3 class="font-semibold text-green-700">
-                            {{ count($toImport) }} Users Siap Import
+                            {{ count($toImport) }} Users Ready to Import
                         </h3>
                         <div>
                             <button type="button" onclick="selectAll(true)" class="text-sm text-orange-600 hover:underline mr-3">
-                                Pilih Semua
+                                Select All
                             </button>
                             <button type="button" onclick="selectAll(false)" class="text-sm text-gray-600 hover:underline">
-                                Batal Pilih
+                                Deselect All
                             </button>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="7" class="px-4 py-8 text-center text-gray-500">
-                                            Semua Hotspot Users sudah ada di database
+                                            All Hotspot Users are already in the database
                                         </td>
                                     </tr>
                                 @endforelse
@@ -176,7 +176,7 @@
                     <div class="bg-white rounded-lg shadow overflow-hidden">
                         <div class="p-4 bg-yellow-50 border-b">
                             <h3 class="font-semibold text-yellow-700">
-                                {{ count($existing) }} Users Sudah Ada di Database
+                                {{ count($existing) }} Users Already in Database
                             </h3>
                         </div>
                         
@@ -206,7 +206,7 @@
                                             </td>
                                             <td class="px-4 py-3 whitespace-nowrap">
                                                 <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">
-                                                    Sudah Ada
+                                                    Exists
                                                 </span>
                                             </td>
                                         </tr>

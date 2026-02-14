@@ -1,11 +1,11 @@
 @extends('layouts.agent')
 
-@section('title', 'Riwayat Transaksi')
+@section('title', 'Transaction History')
 
 @section('content')
 <div class="space-y-6">
     <div class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-gray-800">Riwayat Transaksi</h1>
+        <h1 class="text-2xl font-bold text-gray-800">Transaction History</h1>
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
@@ -13,11 +13,11 @@
             <table class="w-full">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Kode Voucher</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Pembeli</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Harga</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Komisi</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Voucher Code</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Commission</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                     </tr>
                 </thead>
@@ -35,10 +35,10 @@
                             <div class="text-xs text-gray-500">{{ $transaction->customer_phone }}</div>
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-800">
-                            Rp {{ number_format($transaction->amount, 0, ',', '.') }}
+                            ₱ {{ number_format($transaction->amount, 0, ',', '.') }}
                         </td>
                         <td class="px-6 py-4 text-sm text-green-600 font-medium">
-                            +Rp {{ number_format($transaction->commission, 0, ',', '.') }}
+                            +₱ {{ number_format($transaction->commission, 0, ',', '.') }}
                         </td>
                         <td class="px-6 py-4">
                             <span class="inline-flex px-2 py-1 text-xs rounded-full {{ $transaction->status == 'completed' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' }}">
@@ -50,7 +50,7 @@
                     <tr>
                         <td colspan="6" class="px-6 py-8 text-center text-gray-500">
                             <i class="fas fa-inbox text-4xl mb-2"></i>
-                            <p>Belum ada transaksi</p>
+                            <p>No transactions yet</p>
                         </td>
                     </tr>
                     @endforelse

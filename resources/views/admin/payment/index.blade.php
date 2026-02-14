@@ -13,7 +13,7 @@
             <!-- Header -->
             <div class="mb-6">
                 <h1 class="text-3xl font-bold text-gray-900">Payment Gateway</h1>
-                <p class="text-gray-600 mt-1">Kelola integrasi payment gateway</p>
+                <p class="text-gray-600 mt-1">Manage payment gateway integrations</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -69,7 +69,7 @@
                         </div>
                         
                         <a href="{{ route('admin.settings.midtrans') }}" class="block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">
-                            <i class="fas fa-cog mr-2"></i>Konfigurasi
+                            <i class="fas fa-cog mr-2"></i>Configuration
                         </a>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         </div>
                         
                         <a href="{{ route('admin.settings.xendit') }}" class="block w-full text-center py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition">
-                            <i class="fas fa-cog mr-2"></i>Konfigurasi
+                            <i class="fas fa-cog mr-2"></i>Configuration
                         </a>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
                         <h6 class="font-semibold text-gray-900 mb-3">Supported Payment Methods:</h6>
                         <div class="grid grid-cols-2 gap-2 mb-4">
                             <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-qrcode text-green-500 mr-2 w-4"></i>QRIS
+                                <i class="fas fa-qrcode text-green-500 mr-2 w-4"></i>QRph
                             </div>
                             <div class="flex items-center text-sm text-gray-600">
                                 <i class="fas fa-university text-green-500 mr-2 w-4"></i>Virtual Account
@@ -177,17 +177,16 @@
                         </div>
                         
                         <a href="{{ route('admin.settings.duitku') }}" class="block w-full text-center py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition">
-                            <i class="fas fa-cog mr-2"></i>Konfigurasi
+                            <i class="fas fa-cog mr-2"></i>Configuration
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Default Gateway -->
             <div class="bg-white rounded-xl shadow-md p-6 mb-6">
                 <h5 class="font-bold text-gray-900 mb-4"><i class="fas fa-cog mr-2 text-cyan-600"></i>Default Gateway</h5>
                 <div class="flex items-center justify-between">
-                    <p class="text-gray-600">Gateway yang digunakan secara default untuk pembayaran:</p>
+                    <p class="text-gray-600">The gateway used by default for payments:</p>
                     <div class="flex space-x-4">
                         <label class="flex items-center">
                             <input type="radio" name="default_gateway" value="midtrans" {{ $settings['default_gateway'] == 'midtrans' ? 'checked' : '' }} class="mr-2 text-cyan-600">
@@ -208,7 +207,7 @@
             <!-- Configuration Guide -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="px-6 py-4 border-b border-gray-200">
-                    <h5 class="font-bold text-gray-900"><i class="fas fa-book mr-2 text-cyan-600"></i>Panduan Konfigurasi</h5>
+                    <h5 class="font-bold text-gray-900"><i class="fas fa-book mr-2 text-cyan-600"></i>Configuration Guide</h5>
                 </div>
                 <div class="p-6">
                     <div x-data="{ openTab: 'midtrans' }">
@@ -219,7 +218,7 @@
                         </div>
                         
                         <div x-show="openTab === 'midtrans'">
-                            <p class="text-gray-600 mb-3">Konfigurasi via menu <strong>Integrasi > Midtrans</strong> atau file <code class="bg-gray-100 px-2 py-1 rounded">.env</code>:</p>
+                            <p class="text-gray-600 mb-3">Configure via menu <strong>Integration > Midtrans</strong> or in the <code class="bg-gray-100 px-2 py-1 rounded">.env</code> file:</p>
                             <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto"># Midtrans Configuration
 MIDTRANS_SERVER_KEY=your-server-key
 MIDTRANS_CLIENT_KEY=your-client-key
@@ -230,7 +229,7 @@ MIDTRANS_IS_PRODUCTION=false</pre>
                         </div>
                         
                         <div x-show="openTab === 'xendit'" style="display: none;">
-                            <p class="text-gray-600 mb-3">Konfigurasi via menu <strong>Integrasi > Xendit</strong> atau file <code class="bg-gray-100 px-2 py-1 rounded">.env</code>:</p>
+                            <p class="text-gray-600 mb-3">Configure via menu <strong>Integration > Xendit</strong> or in the <code class="bg-gray-100 px-2 py-1 rounded">.env</code> file:</p>
                             <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto"># Xendit Configuration
 XENDIT_SECRET_KEY=your-secret-key
 XENDIT_CALLBACK_TOKEN=your-callback-token</pre>
@@ -240,17 +239,17 @@ XENDIT_CALLBACK_TOKEN=your-callback-token</pre>
                         </div>
                         
                         <div x-show="openTab === 'duitku'" style="display: none;">
-                            <p class="text-gray-600 mb-3">Konfigurasi via menu <strong>Integrasi > Duitku</strong>:</p>
+                            <p class="text-gray-600 mb-3">Configure via menu <strong>Integration > Duitku</strong>:</p>
                             <div class="bg-gray-50 rounded-lg p-4 mb-4">
                                 <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                                    <li>Daftar akun di <a href="https://dashboard.duitku.com" target="_blank" class="text-green-600 hover:underline">Duitku Dashboard</a></li>
-                                    <li>Dapatkan <strong>Merchant Code</strong> dan <strong>API Key</strong></li>
-                                    <li>Masukkan ke halaman konfigurasi Duitku</li>
+                                    <li>Register an account at the <a href="https://dashboard.duitku.com" target="_blank" class="text-green-600 hover:underline">Duitku Dashboard</a></li>
+                                    <li>Obtain your <strong>Merchant Code</strong> and <strong>API Key</strong></li>
+                                    <li>Enter them into the Duitku configuration page</li>
                                     <li>Set Callback URL: <code class="bg-gray-200 px-1 rounded text-xs">{{ url('/api/duitku/callback') }}</code></li>
-                                    <li>Test koneksi untuk memastikan konfigurasi benar</li>
+                                    <li>Test the connection to ensure correct configuration</li>
                                 </ol>
                             </div>
-                            <p class="text-sm text-gray-500 mb-3">Duitku mendukung: QRIS, Virtual Account (BCA, Mandiri, BNI, BRI, Permata, dll), E-Wallet (OVO, DANA, ShopeePay, LinkAja), dan Retail (Alfamart, Indomaret)</p>
+                            <p class="text-sm text-gray-500 mb-3">Duitku supports: QRIS, Virtual Accounts (GCASH, MAYA, CIMB, etc.), E-Wallets (OVO, DANA, ShopeePay, LinkAja), and Retail (Alfamart, Indomaret)</p>
                             <a href="https://dashboard.duitku.com" target="_blank" class="inline-flex items-center mt-2 text-green-600 hover:text-green-800">
                                 <i class="fas fa-external-link-alt mr-2"></i>Duitku Dashboard
                             </a>

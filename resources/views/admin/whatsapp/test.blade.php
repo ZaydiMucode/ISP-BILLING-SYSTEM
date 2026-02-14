@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Test WhatsApp')
+@section('title', 'WhatsApp Test')
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false, selectedType: 'invoice', showCustomMessage: false }">
@@ -13,20 +13,19 @@
             <!-- Header -->
             <div class="mb-6 flex justify-between items-center">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-900">Test Notifikasi WhatsApp</h1>
-                    <p class="text-gray-600 mt-1">Kirim notifikasi test ke pelanggan tertentu</p>
+                    <h1 class="text-3xl font-bold text-gray-900">Test WhatsApp Notification</h1>
+                    <p class="text-gray-600 mt-1">Send test notifications to specific customers</p>
                 </div>
                 <a href="{{ route('admin.whatsapp.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
-                    <i class="fas fa-arrow-left mr-2"></i>Kembali
+                    <i class="fas fa-arrow-left mr-2"></i>Back
                 </a>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Test Form -->
                 <div class="bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
                         <h5 class="text-white font-bold text-lg">
-                            <i class="fab fa-whatsapp mr-2"></i>Kirim Test Notifikasi
+                            <i class="fab fa-whatsapp mr-2"></i>Send Test Notification
                         </h5>
                     </div>
                     <div class="p-6">
@@ -34,9 +33,9 @@
                             @csrf
                             <!-- Pilih Pelanggan -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Pelanggan</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Select Customer</label>
                                 <select name="customer_id" id="customer_id" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" required>
-                                    <option value="">-- Pilih Pelanggan --</option>
+                                    <option value="">-- Select Customer --</option>
                                     @foreach($customers as $customer)
                                         <option value="{{ $customer->id }}" data-phone="{{ $customer->phone }}" data-package="{{ $customer->package->name ?? '-' }}">
                                             {{ $customer->name }} - {{ $customer->phone }}
@@ -47,18 +46,18 @@
 
                             <!-- Info Pelanggan -->
                             <div id="customerInfo" class="hidden bg-gray-50 rounded-lg p-4">
-                                <h6 class="font-medium text-gray-700 mb-2">Info Pelanggan</h6>
+                                <h6 class="font-medium text-gray-700 mb-2">Customer Info</h6>
                                 <div class="grid grid-cols-2 gap-2 text-sm">
                                     <div>
-                                        <span class="text-gray-500">Nama:</span>
+                                        <span class="text-gray-500">Name:</span>
                                         <span id="infoName" class="font-medium text-gray-900"></span>
                                     </div>
                                     <div>
-                                        <span class="text-gray-500">Telepon:</span>
+                                        <span class="text-gray-500">Phone:</span>
                                         <span id="infoPhone" class="font-medium text-gray-900"></span>
                                     </div>
                                     <div>
-                                        <span class="text-gray-500">Paket:</span>
+                                        <span class="text-gray-500">Package:</span>
                                         <span id="infoPackage" class="font-medium text-gray-900"></span>
                                     </div>
                                 </div>
@@ -66,22 +65,22 @@
 
                             <!-- Tipe Notifikasi -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Tipe Notifikasi</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Notification Type</label>
                                 <div class="grid grid-cols-2 gap-3">
                                     <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition" :class="selectedType === 'invoice' ? 'border-green-500 bg-green-50' : 'border-gray-300'">
                                         <input type="radio" name="type" value="invoice" x-model="selectedType" class="hidden">
                                         <i class="fas fa-file-invoice text-blue-500 mr-2"></i>
-                                        <span class="text-sm">Invoice Baru</span>
+                                        <span class="text-sm">New Invoice</span>
                                     </label>
                                     <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition" :class="selectedType === 'reminder' ? 'border-green-500 bg-green-50' : 'border-gray-300'">
                                         <input type="radio" name="type" value="reminder" x-model="selectedType" class="hidden">
                                         <i class="fas fa-bell text-yellow-500 mr-2"></i>
-                                        <span class="text-sm">Pengingat</span>
+                                        <span class="text-sm">Reminder</span>
                                     </label>
                                     <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition" :class="selectedType === 'suspension' ? 'border-green-500 bg-green-50' : 'border-gray-300'">
                                         <input type="radio" name="type" value="suspension" x-model="selectedType" class="hidden">
                                         <i class="fas fa-ban text-red-500 mr-2"></i>
-                                        <span class="text-sm">Penangguhan</span>
+                                        <span class="text-sm">Suspension</span>
                                     </label>
                                     <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition" :class="selectedType === 'custom' ? 'border-green-500 bg-green-50' : 'border-gray-300'">
                                         <input type="radio" name="type" value="custom" x-model="selectedType" class="hidden">
@@ -93,13 +92,13 @@
 
                             <!-- Custom Message -->
                             <div x-show="selectedType === 'custom'" x-transition>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Pesan Custom</label>
-                                <textarea name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Tulis pesan custom..."></textarea>
-                                <p class="text-xs text-gray-500 mt-1">Gunakan *text* untuk bold, _text_ untuk italic</p>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Custom Message</label>
+                                <textarea name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Write custom message..."></textarea>
+                                <p class="text-xs text-gray-500 mt-1">Use *text* for bold, _text_ for italic</p>
                             </div>
 
                             <button type="submit" id="sendBtn" class="w-full bg-green-500 text-white px-4 py-3 rounded-lg hover:bg-green-600 transition font-medium">
-                                <i class="fab fa-whatsapp mr-2"></i>Kirim Test Notifikasi
+                                <i class="fab fa-whatsapp mr-2"></i>Send Test Notification
                             </button>
                         </form>
                     </div>
@@ -110,59 +109,58 @@
                     <!-- Preview Template -->
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <div class="px-6 py-4 border-b border-gray-200">
-                            <h5 class="font-bold text-gray-900"><i class="fas fa-eye mr-2 text-cyan-600"></i>Preview Template</h5>
+                            <h5 class="font-bold text-gray-900"><i class="fas fa-eye mr-2 text-cyan-600"></i>Template Preview</h5>
                         </div>
                         <div class="p-6">
                             <!-- Invoice Template -->
                             <div x-show="selectedType === 'invoice'" class="bg-gray-50 rounded-lg p-4">
-                                <pre class="text-sm text-gray-700 whitespace-pre-wrap">Halo *{nama}*,
+                                <pre class="text-sm text-gray-700 whitespace-pre-wrap">Hello *{name}*,
 
-Tagihan internet Anda telah terbit:
+Your internet bill has been issued:
 
 📋 *Invoice:* INV-XXXXX
-📦 *Paket:* {paket}
+📦 *Package:* {package}
 💰 *Total:* Rp {amount}
-📅 *Jatuh Tempo:* {due_date}
+📅 *Due Date:* {due_date}
 
-Silakan lakukan pembayaran sebelum jatuh tempo.
+Please make payment before the due date.
 
-Terima kasih,
+Thank you,
 *{{ companyName() }}*</pre>
                             </div>
 
-                            <!-- Reminder Template -->
                             <div x-show="selectedType === 'reminder'" class="bg-gray-50 rounded-lg p-4">
-                                <pre class="text-sm text-gray-700 whitespace-pre-wrap">⚠️ *Pengingat Pembayaran*
+                                <pre class="text-sm text-gray-700 whitespace-pre-wrap">⚠️ *Payment Reminder*
 
-Halo *{nama}*,
+Hello *{name}*,
 
-Tagihan Anda belum dibayar:
+Your bill remains unpaid:
 
 📋 *Invoice:* INV-XXXXX
 💰 *Total:* Rp {amount}
-📅 *Jatuh Tempo:* {due_date}
+📅 *Due Date:* {due_date}
 
-Mohon segera lakukan pembayaran untuk menghindari pemutusan layanan.
+Please complete payment immediately to avoid service interruption.
 
 *{{ companyName() }}*</pre>
                             </div>
 
                             <!-- Suspension Template -->
                             <div x-show="selectedType === 'suspension'" class="bg-gray-50 rounded-lg p-4">
-                                <pre class="text-sm text-gray-700 whitespace-pre-wrap">🚫 *Pemberitahuan Penangguhan Layanan*
+                                <pre class="text-sm text-gray-700 whitespace-pre-wrap">🚫 *Service Suspension Notice*
 
-Halo *{nama}*,
+Hello *{name}*,
 
-Layanan internet Anda telah ditangguhkan karena tunggakan pembayaran.
+Your internet service has been suspended due to outstanding payment.
 
-Silakan hubungi kami atau lakukan pembayaran untuk mengaktifkan kembali layanan Anda.
+Please contact us or complete payment to reactivate your service.
 
 *{{ companyName() }}*</pre>
                             </div>
 
                             <!-- Custom Template -->
                             <div x-show="selectedType === 'custom'" class="bg-gray-50 rounded-lg p-4">
-                                <p class="text-sm text-gray-500 italic">Pesan custom akan dikirim sesuai yang Anda tulis.</p>
+                                <p class="text-sm text-gray-500 italic">The custom message will be sent exactly as you write it.</p>
                             </div>
                         </div>
                     </div>
@@ -170,7 +168,7 @@ Silakan hubungi kami atau lakukan pembayaran untuk mengaktifkan kembali layanan 
                     <!-- Result -->
                     <div id="resultCard" class="hidden bg-white rounded-xl shadow-md overflow-hidden">
                         <div class="px-6 py-4 border-b border-gray-200">
-                            <h5 class="font-bold text-gray-900"><i class="fas fa-check-circle mr-2 text-green-600"></i>Hasil</h5>
+                            <h5 class="font-bold text-gray-900"><i class="fas fa-check-circle mr-2 text-green-600"></i>Result</h5>
                         </div>
                         <div class="p-6">
                             <div id="resultContent"></div>
@@ -203,7 +201,7 @@ document.getElementById('testForm').addEventListener('submit', function(e) {
     
     const btn = document.getElementById('sendBtn');
     const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Mengirim...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
     btn.disabled = true;
     
     const formData = new FormData(this);
@@ -236,8 +234,8 @@ document.getElementById('testForm').addEventListener('submit', function(e) {
                     <div class="flex items-center">
                         <i class="fas fa-check-circle text-green-500 text-2xl mr-3"></i>
                         <div>
-                            <p class="font-medium text-green-800">Berhasil!</p>
-                            <p class="text-sm text-green-600">${data.message || 'Pesan berhasil dikirim'}</p>
+                            <p class="font-medium text-green-800">Success!</p>
+                            <p class="text-sm text-green-600">${data.message || 'Message sent successfully'}</p>
                         </div>
                     </div>
                 </div>
@@ -248,8 +246,8 @@ document.getElementById('testForm').addEventListener('submit', function(e) {
                     <div class="flex items-center">
                         <i class="fas fa-times-circle text-red-500 text-2xl mr-3"></i>
                         <div>
-                            <p class="font-medium text-red-800">Gagal!</p>
-                            <p class="text-sm text-red-600">${data.message || 'Gagal mengirim pesan'}</p>
+                            <p class="font-medium text-red-800">Failed!</p>
+                            <p class="text-sm text-red-600">${data.message || 'Failed to send message'}</p>
                         </div>
                     </div>
                 </div>
