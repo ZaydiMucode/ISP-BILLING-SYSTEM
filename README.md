@@ -1,4 +1,4 @@
-# 🔐 GEMBOK LARA - ISP Billing & Management System
+# ISP Billing & Management System
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css)
@@ -8,9 +8,9 @@
 
 
 
-**GEMBOK LARA** is an ISP (Internet Service Provider) billing and operational management system built using **Laravel 12**. This system is designed with a modern interface, deep analytics, and comprehensive features to manage your ISP business.
+An ISP (Internet Service Provider) billing and operational management system built using **Laravel 12**. This system is designed with a modern interface, deep analytics, and comprehensive features to manage your ISP business.
 
-🌐 **Demo**: [https://isp.digitalkanaku.com/](https://isp.digitalkanaku.com/)
+
 
 ---
 
