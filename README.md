@@ -6,7 +6,9 @@
 ![Chart.js](https://img.shields.io/badge/Chart.js-4.x-FF6384?style=for-the-badge&logo=chartdotjs)
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions)
 
-**GEMBOK LARA** adalah sistem manajemen tagihan dan operasional ISP (Internet Service Provider) yang dibangun menggunakan **Laravel 12**. Sistem ini dirancang dengan antarmuka modern, analitik mendalam, dan fitur lengkap untuk mengelola bisnis ISP Anda.
+
+
+**GEMBOK LARA** is an ISP (Internet Service Provider) billing and operational management system built using **Laravel 12**. This system is designed with a modern interface, deep analytics, and comprehensive features to manage your ISP business.
 
 🌐 **Demo**: [https://isp.digitalkanaku.com/](https://isp.digitalkanaku.com/)
 
@@ -21,18 +23,18 @@
   <img src="img/network-map.png" alt="Network Map" width="45%">
 </div>
 
-> **Note**: Screenshot aplikasi tersedia di folder `img/`
+> **Note**:Application screenshots are available in the folder `img/`
 
 ---
 
-## ✨ Fitur Lengkap
+## ✨ Full Feature 
 
 ### 🎨 **Modern UI/UX**
-- **Theme ISP Network**: Desain modern dengan warna cyan & biru yang profesional
-- **Responsive Design**: Tampilan optimal di desktop, tablet, dan mobile
-- **Dark Sidebar**: Sidebar dengan gradient elegan dan navigasi intuitif
-- **Interactive Charts**: Grafik analitik menggunakan Chart.js
-- **Smooth Animations**: Transisi dan hover effects yang halus
+- **Theme ISP Network**: Modern design with professional cyan & blue color palettes
+- **Responsive Design**: Optimal display across desktop, tablet, and mobile devices.
+- **Dark Sidebar**: Elegant gradient sidebar featuring intuitive navigation.
+- **Interactive Charts**: Analytical graphs powered by Chart.js.
+- **Smooth Animations**: Seamless transitions and refined hover effects.
 
 ### 📊 **Dashboard Analytics**
 - **Real-time Statistics**: 
@@ -45,60 +47,60 @@
   - Customer Growth Chart
   - Package Distribution (Doughnut Chart)
   - Invoice Status (Pie Chart)
-- **Recent Activity**: Invoice dan customer terbaru
-- **Quick Actions**: Akses cepat ke fitur utama
+- **Recent Activity**: Latest invoices and customers
+- **Quick Actions**: Fast access to core features
 
 ### 👥 **Customer Management**
 - **CRUD Lengkap**: Create, Read, Update, Delete customer
-- **Customer Profile**: Detail lengkap dengan statistik
-- **Package Assignment**: Assign paket internet ke customer
+- **Customer Profile**: Comprehensive details with statistics
+- **Package Assignment**: Assign internet packages to customers
 - **Status Management**: Active, Inactive, Suspended
-- **Search & Filter**: Pencarian dan filter berdasarkan status/paket
-- **Invoice History**: Riwayat tagihan per customer
+- **Search & Filter**: Search and filter by status or package
+- **Invoice History**: Billing history per customer
 
 ### 💰 **Invoice & Billing**
 - **Auto Invoice Generation**: Generate invoice otomatis
 - **Invoice Management**: Create, edit, view, print invoice
-- **Payment Tracking**: Status paid/unpaid dengan tanggal bayar
-- **Invoice Filtering**: Filter berdasarkan status, customer, tanggal
-- **Professional Print**: Template invoice untuk print
-- **Revenue Analytics**: Statistik pendapatan real-time
+- **Payment Tracking**: Paid/unpaid status with payment dates
+- **Invoice Filtering**: Filter by status, customer, and date
+- **Professional Print**: Print-ready invoice templates
+- **Revenue Analytics**: Real-time revenue statistics
 
 ### 📦 **Package Management**
-- **Flexible Packages**: Buat paket dengan harga dan kecepatan custom
-- **Package Statistics**: Jumlah subscriber per paket
-- **Tax Configuration**: Pengaturan pajak per paket
-- **PPPoE Profile**: Mapping ke profil Mikrotik
-- **Active/Inactive Status**: Kontrol paket yang ditampilkan
+- **Flexible Packages**: Create packages with custom pricing and speeds
+- **Package Statistics**: Number of subscribers per package
+- **Tax Configuration**:Tax settings per package
+- **PPPoE Profile**: Mapping to MikroTik profiles
+- **Active/Inactive Status**: Control which packages are displayed
 
 ### 🎫 **Voucher System**
-- **Voucher Purchase**: Sistem pembelian voucher online
-- **Pricing Management**: Harga customer vs agen
-- **Generation Settings**: Konfigurasi format voucher
-- **Online Settings**: Durasi dan profil voucher
-- **Delivery Logs**: Tracking pengiriman voucher
-- **Sales Analytics**: Statistik penjualan voucher
+- **Voucher Purchase**: Online voucher purchasing system
+- **Pricing Management**: Customer vs. Agent pricing
+- **Generation Settings**: Voucher format configuration
+- **Online Settings**: Duration and voucher profiles
+- **Delivery Logs**: Voucher delivery tracking
+- **Sales Analytics**: Voucher sales statistics
 
 ### 🌐 **Network Management**
 - **ODP Management**: Database Optical Distribution Point
-- **Interactive Map**: Peta jaringan dengan Leaflet.js
-- **Capacity Monitoring**: Visualisasi port usage
-- **GPS Coordinates**: Lokasi ODP dengan koordinat
+- **Interactive Map**: Network map powered by Leaflet.js
+- **Capacity Monitoring**: Port usage visualization
+- **GPS Coordinates**: ODP locations with precise coordinates
 - **Status Tracking**: Active, Maintenance, Full
-- **Cable Routes**: Manajemen rute kabel per customer
-- **ONU Devices**: Database perangkat ONU
-- **Network Segments**: Manajemen segmen jaringan
-- **Maintenance Logs**: Riwayat maintenance infrastruktur
+- **Cable Routes**: Cable route management per customer
+- **ONU Devices**:ONU device database
+- **Network Segments**: Network segment management
+- **Maintenance Logs**: Infrastructure maintenance history
 
-### � **O*LT Management** (NEW v1.3.0)
-- **OLT Dashboard**: Monitoring semua OLT dengan statistik ONU
+### 📟 **OLT Management** (NEW v1.3.0)
+- **OLT Dashboard**: Monitoring all OLTs with ONU statistics
 - **ONU Status**: Real-time status (Online, Offline, LOS, DyingGasp)
-- **Optical Signal**: RX/TX Power monitoring dengan indikator kualitas
-- **Hardware Monitoring**: Temperature dan Fan speed (RPM)
-- **PON Port Management**: Status dan kapasitas per port
+- **Optical Signal**: RX/TX Power monitoring with quality indicators
+- **Hardware Monitoring**: Temperature and Fan speed (RPM)
+- **PON Port Management**: Status and capacity per port
 - **ONU Actions**: Reboot, status update, customer assignment
-- **Status History**: Tracking perubahan status ONU
-- **Search & Filter**: Cari ONU berdasarkan SN, MAC, customer
+- **Status History**: Tracking ONU status changes
+- **Search & Filter**: Search ONU by SN, MAC, or customer
 
 ### 👨‍💼 **Agent System**
 - **Agent Management**: CRUD agen penjualan
@@ -111,17 +113,17 @@
 - **Notifications**: Sistem notifikasi untuk agen
 
 ### 🛠️ **Staff Management**
-- **Technicians**: Manajemen teknisi lapangan
-- **Collectors**: Manajemen kolektor pembayaran
-- **Area Coverage**: Pembagian area kerja
-- **Performance Tracking**: Monitoring kinerja staff
+- **Technicians**: Field technician management
+- **Collectors**: Payment collector management
+- **Area Coverage**: Work area assignment
+- **Performance Tracking**: Staff performance monitoring
 
 ### ⚙️ **System Settings**
-- **Company Profile**: Konfigurasi data perusahaan
-- **Payment Gateway**: Integrasi Midtrans/Xendit
-- **WhatsApp Gateway**: Notifikasi otomatis via WA
-- **Email Configuration**: Setup SMTP untuk email
-- **System Preferences**: Pengaturan umum sistem
+- **Company Profile**: Company data configuration
+- **Payment Gateway**: Midtrans/Xendit integration
+- **WhatsApp Gateway**: Automated notifications via WA
+- **Email Configuration**: SMTP setup for email
+- **System Preferences**: General system settings
 
 ### 🔌 **Mikrotik Integration**
 - **PPPoE Management**: Auto create/update/delete secrets, profile mapping, disconnect users
@@ -161,51 +163,51 @@
 
 ## 🗄️ **Database Seeders**
 
-Sistem dilengkapi dengan 23 seeder lengkap untuk data dummy:
+The system comes equipped with 23 comprehensive seeders for dummy data:
 
 ### Core Data
-- `UserSeeder` - Admin dan staff users
-- `AppSettingSeeder` - Konfigurasi aplikasi
-- `PackageSeeder` - Paket internet (10-100 Mbps)
-- `VoucherPricingSeeder` - Harga voucher
+- `UserSeeder` - Admin and staff users
+- `AppSettingSeeder` - Application configuration
+- `PackageSeeder` - Internet packages (10-100 Mbps)
+- `VoucherPricingSeeder` - Voucher pricing
 
 ### Staff & Agents
-- `TechnicianSeeder` - Data teknisi
-- `CollectorSeeder` - Data kolektor
-- `AgentSeeder` - Data agen (3 agen)
-- `AgentBalanceSeeder` - Saldo agen
-- `AgentTransactionSeeder` - Transaksi agen
-- `AgentBalanceRequestSeeder` - Request saldo
-- `AgentNotificationSeeder` - Notifikasi agen
-- `AgentPaymentSeeder` - Pembayaran via agen
-- `AgentMonthlyPaymentSeeder` - Pembayaran bulanan
-- `AgentVoucherSaleSeeder` - Penjualan voucher
+- `TechnicianSeeder` - Technician data
+- `CollectorSeeder` - Collector data
+- `AgentSeeder` - Agent data (3 agents)
+- `AgentBalanceSeeder` - Agent balances
+- `AgentTransactionSeeder` - Agent transactions
+- `AgentBalanceRequestSeeder` - Balance requests
+- `AgentNotificationSeeder` - Agent notifications
+- `AgentPaymentSeeder` - Payments via agents
+- `AgentMonthlyPaymentSeeder` - Monthly payments
+- `AgentVoucherSaleSeeder` - Voucher sales
 
 ### Network Infrastructure
-- `OdpSeeder` - 5 ODP dengan koordinat GPS
-- `NetworkSegmentSeeder` - Segmen jaringan
-- `CableRouteSeeder` - Rute kabel customer
-- `OnuDeviceSeeder` - Perangkat ONU
-- `CableMaintenanceLogSeeder` - Log maintenance
+- `OdpSeeder` - 5 ODPs with GPS coordinates
+- `NetworkSegmentSeeder` - Network segments
+- `CableRouteSeeder` - Customer cable routes
+- `OnuDeviceSeeder` - ONU devices
+- `CableMaintenanceLogSeeder` - Maintenance logs
 
 ### Customers & Billing
-- `CustomerSeeder` - 5 customer dummy
-- `InvoiceSeeder` - Invoice bulanan
+- `CustomerSeeder` - 5 dummy customers
+- `InvoiceSeeder` - Monthly invoices
 
 ### Voucher System
-- `VoucherPurchaseSeeder` - 20 transaksi voucher
-- `VoucherGenerationSettingSeeder` - Setting generator
-- `VoucherOnlineSettingSeeder` - Setting online (1H-30D)
-- `VoucherDeliveryLogSeeder` - Log pengiriman
+- `VoucherPurchaseSeeder` - 20 voucher transactions
+- `VoucherGenerationSettingSeeder` - Generator settings
+- `VoucherOnlineSettingSeeder` - Online settings (1H-30D)
+- `VoucherDeliveryLogSeeder` - Delivery logs
 
 ### Reports
-- `MonthlySummarySeeder` - Ringkasan 3 bulan terakhir
+- `MonthlySummarySeeder` - Summary for the last 3 months
 
-**Dokumentasi lengkap**: Lihat `database/seeders/README.md`
+**Full Documentation**: See `database/seeders/README.md`
 
 ---
 
-## 🚀 Instalasi & Setup
+## 🚀 Installation & Setup
 
 ### Prasyarat
 - PHP >= 8.2
@@ -227,7 +229,7 @@ Sistem dilengkapi dengan 23 seeder lengkap untuk data dummy:
    npm install
    ```
 
-3. **Konfigurasi Environment**
+3. **Configure  Environment**
    ```bash
    cp .env.example .env
    php artisan key:generate
@@ -255,23 +257,23 @@ Sistem dilengkapi dengan 23 seeder lengkap untuk data dummy:
    npm run dev
    ```
 
-6. **Jalankan Server**
+6. **Run Server**
    ```bash
    php artisan serve
    ```
 
-Akses aplikasi di: `http://localhost:8000`
+Access the application at:: `http://localhost:8000`
 
 ---
 
-## 🔑 Akun Demo
+## 🔑  Demo Accounts
 
 | Role | Email/Username | Password |
 |------|----------------|----------|
 | **Administrator** | `admin@gembok.com` | `admin123` |
-| **Customer** | `pppoe-ahmad` atau `081299887766` | `ahmad123` |
+| **Customer** | `pppoe-ahmad` or `081299887766` | `ahmad123` |
 
-> Customer dapat login menggunakan: PPPoE username, username, nomor HP, atau email
+> Customers can login using: PPPoE username, username, mobile number, or email.
 
 ---
 
@@ -297,7 +299,7 @@ Akses aplikasi di: `http://localhost:8000`
 
 ---
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
 
 ```
 gembok-lara/
@@ -320,61 +322,58 @@ gembok-lara/
 
 ---
 
-## 🔒 Keamanan
+## 🔒 Security
 
-GEMBOK LARA dibangun dengan standar keamanan Laravel:
+GEMBOK LARA is built following Laravel's high security standards:
 
-- ✅ **Authentication** - Session-based dengan Bcrypt hashing
-- ✅ **CSRF Protection** - Token pada semua form
-- ✅ **SQL Injection Protection** - Eloquent ORM binding
-- ✅ **XSS Protection** - Blade auto-escaping
-- ✅ **Input Validation** - Validasi ketat pada semua input
-- ✅ **Password Hashing** - Bcrypt dengan salt
-- ✅ **Secure Headers** - HTTP security headers
+- ✅ **Authentication** - Session-based with Bcrypt hashing
+- ✅ **CSRF Protection** - Tokens enabled on all forms
+- ✅ **SQL Injection Protection** - Powered by Eloquent ORM binding
+- ✅ **XSS Protection** - Automatic escaping via Blade templates
+- ✅ **Input Validation** - Strict server-side validation for all inputs
+- ✅ **Password Hashing** - Secure Bcrypt with unique salts
+- ✅ **Secure Headers** - Implementation of standard HTTP security headers
 
 ---
 
 ## 🔄 CI/CD Pipeline
 
-Proyek ini menggunakan **GitHub Actions** dengan security checks otomatis sebelum deployment.
+This project utilizes **GitHub Actions** with automated security checks before deployment.
 
 ### Pipeline Flow
-```
-Push/PR → Security Scans → Tests → Security Gate → Deploy to VPS
-```
 
 ### Security Checks
 
 #### SAST (Static Application Security Testing)
-| Tool | Fungsi |
-|------|--------|
-| **PHPStan** | Static analysis untuk PHP (level 5) |
-| **Psalm** | Taint analysis untuk deteksi SQL injection, XSS |
+| Tool | Function |
+|------|----------|
+| **PHPStan** | Static analysis for PHP (level 5) |
+| **Psalm** | Taint analysis for SQL injection and XSS detection |
 | **Semgrep** | Pattern-based security scanning |
 | **CodeQL** | GitHub's advanced security analysis |
 
 #### Dependency Vulnerability Scan
-| Tool | Fungsi |
-|------|--------|
-| **Composer Audit** | Scan vulnerabilities di PHP packages |
-| **PHP Security Checker** | Symfony security advisories |
-| **NPM Audit** | Scan vulnerabilities di JavaScript packages |
+| Tool | Function |
+|------|----------|
+| **Composer Audit** | Scans for vulnerabilities in PHP packages |
+| **PHP Security Checker** | Checks against Symfony security advisories |
+| **NPM Audit** | Scans for vulnerabilities in JavaScript packages |
 
 ### Workflow Triggers
-- **Push ke `main`**: Full pipeline + deploy ke VPS
-- **Push ke `dev`**: Security checks + tests (tanpa deploy)
+- **Push to `main`**: Full pipeline + deployment to VPS
+- **Push to `dev`**: Security checks + tests (no deployment)
 - **Pull Request**: Security checks + tests
 
 ### Deployment
-- Auto-deploy ke VPS via SSH setelah semua security checks pass
+- Auto-deploy to VPS via SSH after all security checks pass
 - Laravel optimization (config/route/view cache)
 - Zero-downtime deployment
 
 ### Dependabot
-- Auto-update dependencies setiap minggu (Senin)
-- Monitoring: Composer, NPM, GitHub Actions
+- Automated dependency updates every week (Monday)
+- Monitoring for: Composer, NPM, and GitHub Actions
 
-Lihat detail konfigurasi di `.github/workflows/ci-security.yml`
+See detailed configuration in `.github/workflows/ci-security.yml`
 
 ---
 
@@ -485,19 +484,19 @@ Lihat detail konfigurasi di `.github/workflows/ci-security.yml`
 
 ---
 
-## 🤝 Kontribusi
+## 🤝 Contribution
 
-Kami sangat menghargai kontribusi Anda!
+We highly appreciate your contributions!
 
-1. Fork repository
-2. Buat branch baru (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
-## 💬 Dukungan
+## 💬 Support
 
 - **Issues**: [GitHub Issues](https://github.com/rizkylab/gembok-lara/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/rizkylab/gembok-lara/discussions)
@@ -506,28 +505,28 @@ Kami sangat menghargai kontribusi Anda!
 
 ## ☕ Support Project
 
-Jika proyek ini bermanfaat untuk Anda, pertimbangkan untuk memberikan dukungan:
+If this project is useful to you, please consider showing your support:
 
 <a href="https://saweria.co/rizkylab" target="_blank">
   <img src="https://img.shields.io/badge/Saweria-Support%20Me-orange?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white" alt="Support via Saweria">
 </a>
 
-Dukungan Anda membantu pengembangan fitur baru dan maintenance proyek ini. Terima kasih! 🙏
+Your support helps with the development of new features and project maintenance. Thank you! 🙏
 
 ---
 
 ## 📄 License
 
-Proyek ini dilisensikan di bawah **MIT License**. Lihat file `LICENSE` untuk detail.
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
 
 ---
 
 ## 🙏 Acknowledgments
 
-Proyek ini terinspirasi dari:
-- **[Gembok Bill](https://github.com/alijayanet/gembok-bill)** oleh Ali Jaya Net
+This project was inspired by:
+- **[Gembok Bill](https://github.com/alijayanet/gembok-bill)** by Ali Jaya Net
 
-Terima kasih kepada:
+Special thanks to:
 - Laravel Community
 - Tailwind CSS Team
 - Chart.js Contributors

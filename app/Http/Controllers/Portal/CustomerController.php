@@ -29,7 +29,7 @@ class CustomerController extends Controller
             return redirect()->route('customer.dashboard');
         }
 
-        return back()->with('error', 'Username atau password salah');
+        return back()->with('error', 'Invalid username or password');
     }
 
     public function logout()
@@ -110,7 +110,7 @@ class CustomerController extends Controller
         }
 
         if ($invoice->status === 'paid') {
-            return response()->json(['success' => false, 'message' => 'Invoice sudah dibayar']);
+            return response()->json(['success' => false, 'message' => 'Invoice already paid']);
         }
 
         $request->validate([
@@ -120,7 +120,7 @@ class CustomerController extends Controller
         $duitku = app(\App\Services\DuitkuService::class);
         
         if (!$duitku->isEnabled()) {
-            return response()->json(['success' => false, 'message' => 'Pembayaran online tidak tersedia']);
+            return response()->json(['success' => false, 'message' => 'Online payment is currently unavailable']);
         }
 
         $orderId = 'INV-' . $invoice->id . '-' . time();
@@ -129,7 +129,7 @@ class CustomerController extends Controller
             'order_id' => $orderId,
             'amount' => (int) $invoice->total_amount,
             'payment_method' => $request->payment_method,
-            'product_details' => 'Pembayaran ' . $invoice->invoice_number,
+            'product_details' => 'Payment for ' . $invoice->invoice_number,
             'customer_name' => $customer->name ?? 'Customer',
             'customer_email' => $customer->email ?? '',
             'customer_phone' => $customer->phone ?? '',
@@ -152,7 +152,7 @@ class CustomerController extends Controller
 
         return response()->json([
             'success' => false,
-            'message' => $result['message'] ?? 'Gagal membuat pembayaran',
+            'message' => $result['message'] ?? 'Failed to create payment',
         ]);
     }
 
@@ -199,7 +199,7 @@ class CustomerController extends Controller
             return view('customer.pay', compact('invoice', 'result'));
         }
 
-        return back()->with('error', 'Gagal membuat pembayaran');
+        return back()->with('error', 'Failed to create payment');
     }
 
     public function profile()
@@ -235,7 +235,7 @@ class CustomerController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Profil berhasil diperbarui');
+        return back()->with('success', 'Profile updated successfully');
     }
 
     public function support()
@@ -272,7 +272,7 @@ class CustomerController extends Controller
             'status' => 'open',
         ]);
         
-        return back()->with('success', 'Tiket berhasil dikirim. Tim kami akan segera menghubungi Anda.');
+        return back()->with('success', 'Ticket submitted successfully. Our team will contact you shortly.');
     }
 
     public function tickets()

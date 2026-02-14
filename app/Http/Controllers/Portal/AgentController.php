@@ -29,7 +29,7 @@ class AgentController extends Controller
             return redirect()->route('agent.dashboard');
         }
 
-        return back()->with('error', 'Username atau password salah');
+        return back()->with('error', 'Invalid username or password');
     }
 
     public function logout()
@@ -90,7 +90,7 @@ class AgentController extends Controller
 
         // Check agent balance
         if ($agent->balance < $package->agent_price) {
-            return back()->with('error', 'Saldo tidak mencukupi. Silakan top up terlebih dahulu.');
+            return back()->with('error', 'Insufficient balance. Please top up your account.');
         }
 
         // Generate voucher code
@@ -121,7 +121,7 @@ class AgentController extends Controller
         }
 
         return redirect()->route('agent.dashboard')
-            ->with('success', "Voucher berhasil dijual! Kode: {$voucherCode}");
+            ->with('success', "Voucher sold successfully! Code: {$voucherCode}");
     }
 
     public function topup()
@@ -141,7 +141,7 @@ class AgentController extends Controller
         // Create balance request (pending approval)
         // TODO: Create AgentBalanceRequest model
         
-        return back()->with('success', 'Permintaan top up berhasil dikirim. Menunggu konfirmasi admin.');
+        return back()->with('success', 'Top up request sent successfully. Awaiting admin confirmation.');
     }
 
     public function transactions()
@@ -181,6 +181,6 @@ class AgentController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Profil berhasil diperbarui');
+        return back()->with('success', 'Profile updated successfully');
     }
 }
