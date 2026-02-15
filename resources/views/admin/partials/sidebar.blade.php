@@ -176,7 +176,7 @@
         
         <a href="{{ route('admin.settings.integrations') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.settings.integrations') || request()->routeIs('admin.settings.mikrotik*') || request()->routeIs('admin.settings.radius*') || request()->routeIs('admin.settings.genieacs*') || request()->routeIs('admin.settings.whatsapp*') || request()->routeIs('admin.settings.midtrans*') || request()->routeIs('admin.settings.xendit*') ? 'bg-white bg-opacity-20 text-white' : '' }}">
             <i class="fas fa-plug w-5 mr-3"></i>
-            <span>Integrasi</span>
+            <span>Intergration</span>
         </a>
         
         <a href="{{ route('admin.api-docs') }}" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition {{ request()->routeIs('admin.api-docs') ? 'bg-white bg-opacity-20 text-white' : '' }}">

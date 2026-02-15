@@ -91,7 +91,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         @if($customer->package)
                                             <div class="text-sm font-medium text-gray-900">{{ $customer->package->name }}</div>
-                                            <div class="text-sm text-gray-500">Rp {{ number_format($customer->package->price, 0, ',', '.') }}/mo</div>
+                                            <div class="text-sm text-gray-500"> ₱ {{ number_format($customer->package->price, 0, ',', '.') }}/mo</div>
                                         @else
                                             <span class="text-sm text-gray-400">No Package</span>
                                         @endif

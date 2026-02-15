@@ -44,7 +44,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600 mb-1">Total Revenue</p>
-                            <p class="text-2xl font-bold text-gray-900">Rp {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p>
+                            <p class="text-2xl font-bold text-gray-900">₱ {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p>
                             <p class="text-xs text-gray-500 mt-1">Paid invoices</p>
                         </div>
                         <div class="h-14 w-14 bg-green-100 rounded-full flex items-center justify-center">
@@ -58,7 +58,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600 mb-1">Pending Revenue</p>
-                            <p class="text-2xl font-bold text-gray-900">Rp {{ number_format($stats['pending_revenue'], 0, ',', '.') }}</p>
+                            <p class="text-2xl font-bold text-gray-900">₱ {{ number_format($stats['pending_revenue'], 0, ',', '.') }}</p>
                             <p class="text-xs text-yellow-600 mt-1">
                                 <i class="fas fa-clock"></i> {{ $stats['unpaid_invoices'] }} unpaid
                             </p>
@@ -155,7 +155,7 @@
                                     <p class="text-sm text-gray-600">{{ $invoice->invoice_number }}</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="font-bold text-gray-900">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</p>
+                                    <p class="font-bold text-gray-900">₱ {{ number_format($invoice->amount, 0, ',', '.') }}</p>
                                     <span class="text-xs px-2 py-1 rounded-full {{ $invoice->status === 'paid' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' }}">
                                         {{ ucfirst($invoice->status) }}
                                     </span>
@@ -270,7 +270,7 @@
                     displayColors: false,
                     callbacks: {
                         label: function(context) {
-                            return 'Rp ' + context.parsed.y.toLocaleString('id-ID');
+                            return '₱' + context.parsed.y.toLocaleString('en-US');
                         }
                     }
                 }
@@ -286,11 +286,11 @@
                         padding: 10,
                         callback: function(value) {
                             if (value >= 1000000) {
-                                return 'Rp ' + (value / 1000000).toFixed(1) + 'M';
+                                return '₱ ' + (value / 1000000).toFixed(1) + 'M';
                             } else if (value >= 1000) {
-                                return 'Rp ' + (value / 1000).toFixed(0) + 'K';
+                                return '₱ ' + (value / 1000).toFixed(0) + 'K';
                             }
-                            return 'Rp ' + value.toLocaleString('id-ID');
+                            return '₱ ' + value.toLocaleString('en-US');
                         }
                     }
                 },

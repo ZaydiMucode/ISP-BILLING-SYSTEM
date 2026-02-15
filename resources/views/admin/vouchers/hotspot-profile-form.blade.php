@@ -63,12 +63,12 @@
                             <!-- Pricing -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Customer Price (Rp)</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Customer Price (₱)</label>
                                     <input type="number" name="price" value="{{ old('price', $profile->price ?? 0) }}" min="0" 
                                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-cyan-500">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Agent Price (Rp)</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Agent Price (₱)</label>
                                     <input type="number" name="agent_price" value="{{ old('agent_price', $profile->agent_price ?? 0) }}" min="0" 
                                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-cyan-500">
                                 </div>

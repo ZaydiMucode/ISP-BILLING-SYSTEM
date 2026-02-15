@@ -46,7 +46,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Price</p>
-                                <p class="font-medium text-gray-900">Rp {{ number_format($package->price, 0, ',', '.') }}</p>
+                                <p class="font-medium text-gray-900">₱ {{ number_format($package->price, 0, ',', '.') }}</p>
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Tax Rate</p>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <span>Monthly Revenue</span>
-                                <span class="font-bold">Rp {{ number_format($package->price * $package->customers->where('status', 'active')->count(), 0, ',', '.') }}</span>
+                                <span class="font-bold"> ₱ {{ number_format($package->price * $package->customers->where('status', 'active')->count(), 0, ',', '.') }}</span>
                             </div>
                         </div>
                     </div>

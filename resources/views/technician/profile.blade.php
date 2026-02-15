@@ -1,10 +1,10 @@
 @extends('layouts.technician')
 
-@section('title', 'Profil')
+@section('title', 'Profile')
 
 @section('content')
 <div class="max-w-2xl mx-auto space-y-6">
-    <h1 class="text-2xl font-bold text-gray-800">Profil Saya</h1>
+    <h1 class="text-2xl font-bold text-gray-800">My Profile</h1>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <div class="flex items-center space-x-4 mb-6">
@@ -26,7 +26,7 @@
                 <p class="font-medium text-gray-800">{{ $technician->username ?? 'N/A' }}</p>
             </div>
             <div>
-                <p class="text-gray-500">No. Telepon</p>
+                <p class="text-gray-500">Phone Number</p>
                 <p class="font-medium text-gray-800">{{ $technician->phone ?? 'N/A' }}</p>
             </div>
             <div>
@@ -35,20 +35,20 @@
             </div>
             <div>
                 <p class="text-gray-500">Area</p>
-                <p class="font-medium text-gray-800">{{ $technician->area ?? 'Semua Area' }}</p>
+                <p class="font-medium text-gray-800">{{ $technician->area ?? 'All Areas' }}</p>
             </div>
         </div>
 
         <div class="bg-orange-50 rounded-lg p-4">
-            <p class="text-sm text-orange-600 mb-1">Tugas Selesai Bulan Ini</p>
-            <p class="text-2xl font-bold text-orange-700">0</p>
+            <p class="text-sm text-orange-600 mb-1">Tasks Completed This Month</p>
+            <p class="text-2xl font-bold text-orange-700">{{ $completedMonthTasks ?? 0 }}</p>
         </div>
     </div>
 
     <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
         <p class="text-yellow-800 text-sm">
             <i class="fas fa-info-circle mr-2"></i>
-            Untuk mengubah data profil, silakan hubungi admin.
+            To change your profile data, please contact the administrator.
         </p>
     </div>
 </div>

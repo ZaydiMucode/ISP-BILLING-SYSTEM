@@ -12,8 +12,8 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <div>
-                    <h1 class="text-2xl font-bold text-white">Konfigurasi Xendit</h1>
-                    <p class="text-gray-400 mt-1">Pengaturan Payment Gateway Xendit</p>
+                    <h1 class="text-2xl font-bold text-white">Xendit Configuration</h1>
+                    <p class="text-gray-400 mt-1">Xendit Payment Gateway Settings</p>
                 </div>
             </div>
         </div>
@@ -52,14 +52,14 @@
                                 <label class="flex items-center space-x-3 cursor-pointer">
                                     <input type="checkbox" name="enabled" value="1" {{ $setting->enabled ? 'checked' : '' }}
                                            class="w-5 h-5 rounded border-white/20 bg-white/5 text-cyan-500">
-                                    <span class="text-gray-300">Aktifkan Xendit</span>
+                                    <span class="text-gray-300">Enable Xendit</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="mt-6">
                             <button type="submit" class="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg">
-                                <i class="fas fa-save mr-2"></i>Simpan
+                                <i class="fas fa-save mr-2"></i>Save
                             </button>
                         </div>
                     </form>
@@ -68,19 +68,19 @@
             
             <div>
                 <div class="bg-indigo-500/10 border border-indigo-500/30 rounded-lg p-4">
-                    <h4 class="text-indigo-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>Cara Mendapatkan Key</h4>
+                    <h4 class="text-indigo-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>How to Get Keys</h4>
                     <ol class="text-sm text-indigo-300 space-y-1 list-decimal list-inside">
-                        <li>Login ke dashboard.xendit.co</li>
+                        <li>Login to dashboard.xendit.co</li>
                         <li>Settings → API Keys</li>
                         <li>Generate Secret Key</li>
-                        <li>Copy dan simpan dengan aman</li>
+                        <li>Copy and store it safely</li>
                     </ol>
                 </div>
                 
                 <div class="mt-4 bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
                     <h4 class="text-blue-400 font-semibold mb-2"><i class="fas fa-link mr-2"></i>Callback URL</h4>
                     <p class="text-sm text-blue-300 break-all">{{ url('/api/payment/xendit/callback') }}</p>
-                    <p class="text-xs text-gray-500 mt-2">Set URL ini di dashboard Xendit</p>
+                    <p class="text-xs text-gray-500 mt-2">Set this URL in your Xendit dashboard</p>
                 </div>
             </div>
         </div>

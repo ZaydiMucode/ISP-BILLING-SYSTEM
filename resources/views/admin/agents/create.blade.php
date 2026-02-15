@@ -34,7 +34,8 @@
                                 <i class="fas fa-user mr-2 text-blue-600"></i>Full Name *
                             </label>
                             <input type="text" name="name" id="name" value="{{ old('name') }}" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('name') border-red-500 @enderror">
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('name') border-red-500 @enderror"
+                                placeholder="Enter full name">
                             @error('name')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -58,7 +59,8 @@
                                 <i class="fas fa-envelope mr-2 text-blue-600"></i>Email Address
                             </label>
                             <input type="email" name="email" id="email" value="{{ old('email') }}"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('email') border-red-500 @enderror">
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('email') border-red-500 @enderror"
+                                placeholder="agent@example.com">
                             @error('email')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -70,7 +72,8 @@
                                 <i class="fas fa-lock mr-2 text-blue-600"></i>Password
                             </label>
                             <input type="password" name="password" id="password"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('password') border-red-500 @enderror">
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('password') border-red-500 @enderror"
+                                placeholder="••••••••">
                             <p class="mt-1 text-xs text-gray-500">Leave empty to auto-generate or skip</p>
                             @error('password')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -83,7 +86,8 @@
                                 <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Address
                             </label>
                             <textarea name="address" id="address" rows="3"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('address') border-red-500 @enderror">{{ old('address') }}</textarea>
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('address') border-red-500 @enderror"
+                                placeholder="Enter complete address">{{ old('address') }}</textarea>
                             @error('address')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror

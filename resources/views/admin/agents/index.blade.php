@@ -91,7 +91,7 @@
                                             <form id="topup-agent-{{ $agent->id }}" action="{{ route('admin.agents.topup', $agent) }}" method="POST" class="inline">
                                                 @csrf
                                                 <input type="hidden" name="amount" value="100000">
-                                                <button type="button" onclick="confirmAction('Top up Rp 100.000 untuk {{ $agent->name }}?', () => document.getElementById('topup-agent-{{ $agent->id }}').submit())" class="text-green-600 hover:text-green-900" title="Quick Topup 100k">
+                                                <button type="button" onclick="confirmAction('Top up ₱ 1000 for {{ $agent->name }}?', () => document.getElementById('topup-agent-{{ $agent->id }}').submit())" class="text-green-600 hover:text-green-900" title="Quick Topup 1000₱">
                                                     <i class="fas fa-plus-circle"></i>
                                                 </button>
                                             </form>

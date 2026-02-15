@@ -42,7 +42,7 @@
                             <i class="fas fa-check-circle text-green-600"></i>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm text-gray-500">Lunas</p>
+                            <p class="text-sm text-gray-500">Paid</p>
                             <p class="text-xl font-bold text-green-600">{{ $customer->invoices()->where('status', 'paid')->count() }}</p>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                             <i class="fas fa-clock text-yellow-600"></i>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm text-gray-500">Belum Bayar</p>
+                            <p class="text-sm text-gray-500">Unpaid</p>
                             <p class="text-xl font-bold text-yellow-600">{{ $customer->invoices()->where('status', 'unpaid')->count() }}</p>
                         </div>
                     </div>
@@ -64,8 +64,8 @@
                             <i class="fas fa-exclamation-circle text-red-600"></i>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm text-gray-500">Total Tunggakan</p>
-                            <p class="text-xl font-bold text-red-600">Rp {{ number_format($customer->invoices()->where('status', 'unpaid')->sum('amount'), 0, ',', '.') }}</p>
+                            <p class="text-sm text-gray-500">Total Arrears or Obligation</p>
+                            <p class="text-xl font-bold text-red-600"> ₱ {{ number_format($customer->invoices()->where('status', 'unpaid')->sum('amount'), 0, ',', '.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -74,22 +74,22 @@
             <!-- Invoices Table -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                    <h2 class="text-lg font-bold text-gray-900">Daftar Invoice</h2>
+                    <h2 class="text-lg font-bold text-gray-900">Invoice List</h2>
                     <a href="{{ route('admin.invoices.create', ['customer_id' => $customer->id]) }}" class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700 transition text-sm">
-                        <i class="fas fa-plus mr-2"></i>Buat Invoice
+                        <i class="fas fa-plus mr-2"></i>Create Invoice
                     </a>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead class="bg-gray-50">
                             <tr>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">No. Invoice</th>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Periode</th>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Paket</th>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Jumlah</th>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Jatuh Tempo</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">No. of Invoice</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Period</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Package</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Amount</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Due Date</th>
                                 <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
-                                <th class="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Aksi</th>
+                                <th class="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -104,13 +104,13 @@
                                     {{ $invoice->period_start ? $invoice->period_start->format('d M') : '' }} - {{ $invoice->period_end ? $invoice->period_end->format('d M Y') : '' }}
                                 </td>
                                 <td class="px-4 py-3 text-gray-600">{{ $invoice->package->name ?? '-' }}</td>
-                                <td class="px-4 py-3 font-medium text-gray-900">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</td>
+                                <td class="px-4 py-3 font-medium text-gray-900"> ₱ {{ number_format($invoice->amount, 0, ',', '.') }}</td>
                                 <td class="px-4 py-3 text-gray-600">{{ $invoice->due_date ? $invoice->due_date->format('d M Y') : '-' }}</td>
                                 <td class="px-4 py-3">
                                     @if($invoice->status == 'paid')
-                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Lunas</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Paid</span>
                                     @elseif($invoice->status == 'unpaid')
-                                        <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Belum Bayar</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Unpaid</span>
                                     @else
                                         <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">{{ ucfirst($invoice->status) }}</span>
                                     @endif
@@ -121,9 +121,9 @@
                                             <i class="fas fa-eye"></i>
                                         </a>
                                         @if($invoice->status == 'unpaid')
-                                        <form action="{{ route('admin.invoices.pay', $invoice) }}" method="POST" class="inline" onsubmit="return confirm('Tandai invoice ini sebagai lunas?')">
+                                        <form action="{{ route('admin.invoices.pay', $invoice) }}" method="POST" class="inline" onsubmit="return confirm('Mark this invoice as paid?')">
                                             @csrf
-                                            <button type="submit" class="text-green-600 hover:text-green-800" title="Tandai Lunas">
+                                            <button type="submit" class="text-green-600 hover:text-green-800" title="Mark as Paid">
                                                 <i class="fas fa-check"></i>
                                             </button>
                                         </form>
@@ -138,7 +138,7 @@
                             <tr>
                                 <td colspan="7" class="px-4 py-8 text-center text-gray-500">
                                     <i class="fas fa-file-invoice text-4xl mb-2"></i>
-                                    <p>Belum ada invoice</p>
+                                    <p>No invoices available</p>
                                 </td>
                             </tr>
                             @endforelse

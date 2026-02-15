@@ -1,17 +1,17 @@
 @extends('layouts.technician')
 
-@section('title', 'Tugas Saya')
+@section('title', 'My Tasks')
 
 @section('content')
 <div class="space-y-6">
     <div class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-gray-800">Tugas Saya</h1>
+        <h1 class="text-2xl font-bold text-gray-800">My Tasks</h1>
         <div class="flex space-x-2">
             <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500">
-                <option value="">Semua Status</option>
+                <option value="">All Statuses</option>
                 <option value="pending">Pending</option>
-                <option value="in_progress">Dalam Proses</option>
-                <option value="completed">Selesai</option>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
             </select>
         </div>
     </div>
@@ -36,12 +36,12 @@
                     <div class="text-right">
                         <span class="inline-flex px-3 py-1 text-xs rounded-full 
                             {{ $task->status == 'completed' ? 'bg-green-100 text-green-700' : 
-                               ($task->status == 'in_progress' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700') }}">
+                                ($task->status == 'in_progress' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700') }}">
                             {{ ucfirst(str_replace('_', ' ', $task->status)) }}
                         </span>
                         <div class="mt-2">
                             <a href="{{ route('technician.tasks.show', $task->id) }}" class="text-orange-600 hover:text-orange-700 text-sm">
-                                <i class="fas fa-eye mr-1"></i> Detail
+                                <i class="fas fa-eye mr-1"></i> Details
                             </a>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
             @empty
             <div class="p-8 text-center text-gray-500">
                 <i class="fas fa-clipboard-check text-4xl mb-2 text-green-500"></i>
-                <p>Tidak ada tugas saat ini</p>
+                <p>No tasks currently assigned</p>
             </div>
             @endforelse
         </div>

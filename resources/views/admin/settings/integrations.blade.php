@@ -8,8 +8,8 @@
     <div class="p-6">
         <!-- Header -->
         <div class="mb-6">
-            <h1 class="text-2xl font-bold text-white">Pengaturan Integrasi</h1>
-            <p class="text-gray-400 mt-1">Kelola koneksi ke layanan eksternal (Mikrotik, RADIUS, GenieACS, WhatsApp)</p>
+            <h1 class="text-2xl font-bold text-white">Integration Settings</h1>
+            <p class="text-gray-400 mt-1">Manage connections to external services (Mikrotik, RADIUS, GenieACS, WhatsApp)</p>
         </div>
 
         <!-- Integration Cards -->
@@ -29,9 +29,9 @@
                             </div>
                         </div>
                         @if($integrations['mikrotik'] && $integrations['mikrotik']->enabled)
-                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Aktif</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
                         @else
-                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Nonaktif</span>
+                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Inactive</span>
                         @endif
                     </div>
                     
@@ -50,11 +50,11 @@
                             @endif
                         </div>
                     @else
-                        <p class="text-sm text-gray-500 mb-4">Belum dikonfigurasi</p>
+                        <p class="text-sm text-gray-500 mb-4">Not configured yet</p>
                     @endif
                     
                     <a href="{{ route('admin.settings.mikrotik') }}" class="block w-full text-center py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Konfigurasi
+                        <i class="fas fa-cog mr-2"></i>Configure
                     </a>
                 </div>
             </div>
@@ -73,9 +73,9 @@
                             </div>
                         </div>
                         @if($integrations['radius'] && $integrations['radius']->enabled)
-                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Aktif</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
                         @else
-                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Nonaktif</span>
+                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Inactive</span>
                         @endif
                     </div>
                     
@@ -94,11 +94,11 @@
                             @endif
                         </div>
                     @else
-                        <p class="text-sm text-gray-500 mb-4">Belum dikonfigurasi</p>
+                        <p class="text-sm text-gray-500 mb-4">Not configured yet</p>
                     @endif
                     
                     <a href="{{ route('admin.settings.radius') }}" class="block w-full text-center py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Konfigurasi
+                        <i class="fas fa-cog mr-2"></i>Configure
                     </a>
                 </div>
             </div>
@@ -117,9 +117,9 @@
                             </div>
                         </div>
                         @if($integrations['genieacs'] && $integrations['genieacs']->enabled)
-                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Aktif</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
                         @else
-                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Nonaktif</span>
+                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Inactive</span>
                         @endif
                     </div>
                     
@@ -138,11 +138,11 @@
                             @endif
                         </div>
                     @else
-                        <p class="text-sm text-gray-500 mb-4">Belum dikonfigurasi</p>
+                        <p class="text-sm text-gray-500 mb-4">Not configured yet</p>
                     @endif
                     
                     <a href="{{ route('admin.settings.genieacs') }}" class="block w-full text-center py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Konfigurasi
+                        <i class="fas fa-cog mr-2"></i>Configure
                     </a>
                 </div>
             </div>
@@ -161,9 +161,9 @@
                             </div>
                         </div>
                         @if($integrations['whatsapp'] && $integrations['whatsapp']->enabled)
-                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Aktif</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
                         @else
-                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Nonaktif</span>
+                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Inactive</span>
                         @endif
                     </div>
                     
@@ -182,11 +182,11 @@
                             @endif
                         </div>
                     @else
-                        <p class="text-sm text-gray-500 mb-4">Belum dikonfigurasi</p>
+                        <p class="text-sm text-gray-500 mb-4">Not configured yet</p>
                     @endif
                     
                     <a href="{{ route('admin.settings.whatsapp') }}" class="block w-full text-center py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Konfigurasi
+                        <i class="fas fa-cog mr-2"></i>Configure
                     </a>
                 </div>
             </div>
@@ -205,16 +205,16 @@
                             </div>
                         </div>
                         @if($integrations['midtrans'] && $integrations['midtrans']->enabled)
-                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Aktif</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
                         @else
-                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Nonaktif</span>
+                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Inactive</span>
                         @endif
                     </div>
                     
-                    <p class="text-sm text-gray-500 mb-4">{{ $integrations['midtrans'] ? 'Dikonfigurasi' : 'Belum dikonfigurasi' }}</p>
+                    <p class="text-sm text-gray-500 mb-4">{{ $integrations['midtrans'] ? 'Configured' : 'Not configured yet' }}</p>
                     
                     <a href="{{ route('admin.settings.midtrans') }}" class="block w-full text-center py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Konfigurasi
+                        <i class="fas fa-cog mr-2"></i>Configure
                     </a>
                 </div>
             </div>
@@ -233,16 +233,16 @@
                             </div>
                         </div>
                         @if($integrations['xendit'] && $integrations['xendit']->enabled)
-                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Aktif</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
                         @else
-                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Nonaktif</span>
+                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Inactive</span>
                         @endif
                     </div>
                     
-                    <p class="text-sm text-gray-500 mb-4">{{ $integrations['xendit'] ? 'Dikonfigurasi' : 'Belum dikonfigurasi' }}</p>
+                    <p class="text-sm text-gray-500 mb-4">{{ $integrations['xendit'] ? 'Configured' : 'Not configured yet' }}</p>
                     
                     <a href="{{ route('admin.settings.xendit') }}" class="block w-full text-center py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Konfigurasi
+                        <i class="fas fa-cog mr-2"></i>Configure
                     </a>
                 </div>
             </div>
@@ -262,16 +262,16 @@
                         </div>
                         @php $duitkuEnabled = \App\Models\AppSetting::getValue('duitku_enabled', 'false') === 'true'; @endphp
                         @if($duitkuEnabled)
-                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Aktif</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
                         @else
-                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Nonaktif</span>
+                            <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">Inactive</span>
                         @endif
                     </div>
                     
                     <p class="text-sm text-gray-500 mb-4">QRIS, VA, E-Wallet, Retail</p>
                     
                     <a href="{{ route('admin.settings.duitku') }}" class="block w-full text-center py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Konfigurasi
+                        <i class="fas fa-cog mr-2"></i>Configure
                     </a>
                 </div>
             </div>
@@ -283,11 +283,11 @@
             <div class="flex items-start space-x-3">
                 <i class="fas fa-info-circle text-blue-400 mt-0.5"></i>
                 <div class="text-sm text-blue-300">
-                    <p class="font-semibold mb-1">Catatan:</p>
+                    <p class="font-semibold mb-1">Notes:</p>
                     <ul class="list-disc list-inside space-y-1 text-blue-200">
-                        <li>Konfigurasi disimpan di database, tidak perlu edit file .env</li>
-                        <li>Gunakan tombol "Test Koneksi" untuk memverifikasi konfigurasi</li>
-                        <li>Pastikan firewall mengizinkan koneksi ke layanan eksternal</li>
+                        <li>Configurations are saved in the database, no need to edit the .env file</li>
+                        <li>Use the "Test Connection" button to verify configuration</li>
+                        <li>Ensure the firewall allows connections to external services</li>
                     </ul>
                 </div>
             </div>

@@ -50,7 +50,7 @@
                                 <option value="">Select Package (Optional)</option>
                                 @foreach($packages as $package)
                                     <option value="{{ $package->id }}" {{ old('package_id') == $package->id ? 'selected' : '' }}>
-                                        {{ $package->name }} - Rp {{ number_format($package->price, 0, ',', '.') }}
+                                        {{ $package->name }} - ₱ {{ number_format($package->price, 2, '.', ',') }}
                                     </option>
                                 @endforeach
                             </select>
@@ -70,17 +70,17 @@
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Amount (Rp) <span class="text-red-500">*</span>
+                                Amount (₱) <span class="text-red-500">*</span>
                             </label>
-                            <input type="number" name="amount" value="{{ old('amount') }}" required min="0" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('amount') border-red-500 @enderror">
+                            <input type="number" name="amount" value="{{ old('amount') }}" required min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('amount') border-red-500 @enderror">
                             @error('amount')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Tax Amount (Rp)</label>
-                            <input type="number" name="tax_amount" value="{{ old('tax_amount', 0) }}" min="0" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tax Amount (₱)</label>
+                            <input type="number" name="tax_amount" value="{{ old('tax_amount', 0) }}" min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                         </div>
 
                         <div>
@@ -90,7 +90,7 @@
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
-                            <textarea name="description" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">{{ old('description') }}</textarea>
+                            <textarea name="description" rows="3" placeholder="Enter service description..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">{{ old('description') }}</textarea>
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@
                             Cancel
                         </a>
                         <button type="submit" class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition">
-                            <i class="fas fa-save mr-2"></i>Create Invoice
+                            <i class="fas fa-save mr-2"></i>Save Invoice
                         </button>
                     </div>
                 </form>

@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">Session History: {{ $username }}</h1>
-                    <p class="text-gray-600">Riwayat koneksi user</p>
+                    <p class="text-gray-600">User connection history</p>
                 </div>
                 <a href="{{ route('admin.radius.users') }}" class="text-blue-600 hover:text-blue-800">
                     <i class="fas fa-arrow-left mr-2"></i>Back to Users
@@ -43,7 +43,7 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $session->acctterminatecause ?? '-' }}</td>
                         </tr>
                         @empty
-                        <tr><td colspan="6" class="px-6 py-4 text-center text-gray-500">Tidak ada history</td></tr>
+                        <tr><td colspan="6" class="px-6 py-4 text-center text-gray-500">No history found</td></tr>
                         @endforelse
                     </tbody>
                 </table>

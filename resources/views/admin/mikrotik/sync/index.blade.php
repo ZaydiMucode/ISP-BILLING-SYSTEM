@@ -12,7 +12,7 @@
         <main class="p-6">
             <div class="mb-6">
                 <h1 class="text-2xl font-bold text-gray-900">Sync Mikrotik</h1>
-                <p class="text-gray-600">Import data dari Mikrotik ke {{ companyName() }}</p>
+                <p class="text-gray-600">Import data from Mikrotik to {{ companyName() }}</p>
             </div>
 
             @if(session('success'))
@@ -32,14 +32,14 @@
                     <svg class="mx-auto h-12 w-12 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                     </svg>
-                    <h3 class="mt-2 text-lg font-medium text-red-800">Tidak Terhubung ke Mikrotik</h3>
-                    <p class="mt-1 text-red-600">{{ $error ?? 'Silakan cek konfigurasi Mikrotik di menu Settings > Mikrotik' }}</p>
+                    <h3 class="mt-2 text-lg font-medium text-red-800">Not Connected to Mikrotik</h3>
+                    <p class="mt-1 text-red-600">{{ $error ?? 'Please check Mikrotik configuration in Settings > Mikrotik menu' }}</p>
                     <a href="{{ route('admin.settings.mikrotik') }}" class="mt-4 inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
-                        Konfigurasi Mikrotik
+                        Mikrotik Configuration
                     </a>
                 </div>
             @else
@@ -54,8 +54,8 @@
                                 </svg>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-gray-900">Data Mikrotik</h3>
-                                <p class="text-sm text-gray-500">Terhubung</p>
+                                <h3 class="text-lg font-semibold text-gray-900">Mikrotik Data</h3>
+                                <p class="text-sm text-gray-500">Connected</p>
                             </div>
                         </div>
                         <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
@@ -87,8 +87,8 @@
                                 </svg>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-gray-900">Data {{ companyName() }}</h3>
-                                <p class="text-sm text-gray-500">Database Lokal</p>
+                                <h3 class="text-lg font-semibold text-gray-900">{{ companyName() }} Data</h3>
+                                <p class="text-sm text-gray-500">Local Database</p>
                             </div>
                         </div>
                         <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
@@ -113,7 +113,7 @@
                             </div>
                             <div class="ml-4">
                                 <h3 class="text-lg font-semibold text-gray-900">Sync Status</h3>
-                                <p class="text-sm text-gray-500">Siap untuk sync</p>
+                                <p class="text-sm text-gray-500">Ready to sync</p>
                             </div>
                         </div>
                     </div>
@@ -125,16 +125,16 @@
                     <div class="bg-white rounded-lg shadow overflow-hidden">
                         <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-500 to-blue-600">
                             <h3 class="text-lg font-semibold text-white">1. Sync Profiles → Packages</h3>
-                            <p class="text-blue-100 text-sm mt-1">Mapping PPPoE Profile ke Paket</p>
+                            <p class="text-blue-100 text-sm mt-1">Map PPPoE Profiles to Packages</p>
                         </div>
                         <div class="p-6">
                             <p class="text-gray-600 text-sm mb-4">
-                                Sinkronkan PPPoE Profile dari Mikrotik ke Paket di {{ companyName() }}. 
-                                Anda bisa mapping ke paket yang sudah ada atau membuat paket baru.
+                                Synchronize PPPoE Profiles from Mikrotik to Packages in {{ companyName() }}. 
+                                You can map to existing packages or create new ones.
                             </p>
                             <ul class="text-sm text-gray-500 mb-4 space-y-1">
-                                <li>• {{ $stats['pppoe_profiles'] }} profiles di Mikrotik</li>
-                                <li>• {{ $stats['local_packages'] }} packages di lokal</li>
+                                <li>• {{ $stats['pppoe_profiles'] }} profiles on Mikrotik</li>
+                                <li>• {{ $stats['local_packages'] }} local packages</li>
                             </ul>
                             <a href="{{ route('admin.mikrotik.sync.profiles') }}" 
                                class="block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
@@ -147,16 +147,16 @@
                     <div class="bg-white rounded-lg shadow overflow-hidden">
                         <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-green-500 to-green-600">
                             <h3 class="text-lg font-semibold text-white">2. Import PPPoE Secrets</h3>
-                            <p class="text-green-100 text-sm mt-1">Import user PPPoE ke Customer</p>
+                            <p class="text-green-100 text-sm mt-1">Import PPPoE users to Customers</p>
                         </div>
                         <div class="p-6">
                             <p class="text-gray-600 text-sm mb-4">
-                                Import PPPoE Secrets dari Mikrotik sebagai Customer baru. 
-                                Data yang sudah ada bisa dilewati atau diupdate.
+                                Import PPPoE Secrets from Mikrotik as new Customers. 
+                                Existing data can be skipped or updated.
                             </p>
                             <ul class="text-sm text-gray-500 mb-4 space-y-1">
-                                <li>• {{ $stats['pppoe_secrets'] }} secrets di Mikrotik</li>
-                                <li>• Preview sebelum import</li>
+                                <li>• {{ $stats['pppoe_secrets'] }} secrets on Mikrotik</li>
+                                <li>• Preview before import</li>
                             </ul>
                             <a href="{{ route('admin.mikrotik.sync.secrets') }}" 
                                class="block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
@@ -169,16 +169,16 @@
                     <div class="bg-white rounded-lg shadow overflow-hidden">
                         <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-orange-500 to-orange-600">
                             <h3 class="text-lg font-semibold text-white">3. Import Hotspot Users</h3>
-                            <p class="text-orange-100 text-sm mt-1">Import user Hotspot ke Customer</p>
+                            <p class="text-orange-100 text-sm mt-1">Import Hotspot users to Customers</p>
                         </div>
                         <div class="p-6">
                             <p class="text-gray-600 text-sm mb-4">
-                                Import Hotspot Users dari Mikrotik sebagai Customer baru.
-                                Cocok untuk user WiFi/Voucher.
+                                Import Hotspot Users from Mikrotik as new Customers.
+                                Suitable for WiFi/Voucher users.
                             </p>
                             <ul class="text-sm text-gray-500 mb-4 space-y-1">
-                                <li>• {{ $stats['hotspot_users'] }} users di Mikrotik</li>
-                                <li>• Preview sebelum import</li>
+                                <li>• {{ $stats['hotspot_users'] }} users on Mikrotik</li>
+                                <li>• Preview before import</li>
                             </ul>
                             <a href="{{ route('admin.mikrotik.sync.hotspot') }}" 
                                class="block w-full text-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">
@@ -190,12 +190,12 @@
 
                 <!-- Info Box -->
                 <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-                    <h4 class="font-semibold text-blue-800 mb-2">💡 Tips Sync</h4>
+                    <h4 class="font-semibold text-blue-800 mb-2">💡 Sync Tips</h4>
                     <ul class="text-sm text-blue-700 space-y-1">
-                        <li>1. <strong>Sync Profiles dulu</strong> - Pastikan semua profile sudah ter-mapping ke paket sebelum import secrets</li>
-                        <li>2. <strong>Preview sebelum import</strong> - Selalu cek data yang akan diimport</li>
-                        <li>3. <strong>Backup database</strong> - Lakukan backup sebelum import data dalam jumlah besar</li>
-                        <li>4. <strong>Skip existing</strong> - Gunakan opsi skip untuk menghindari duplikasi data</li>
+                        <li>1. <strong>Sync Profiles first</strong> - Ensure all profiles are mapped to packages before importing secrets</li>
+                        <li>2. <strong>Preview before import</strong> - Always check the data to be imported</li>
+                        <li>3. <strong>Backup database</strong> - Perform a backup before importing large amounts of data</li>
+                        <li>4. <strong>Skip existing</strong> - Use the skip option to avoid duplicate data</li>
                     </ul>
                 </div>
             @endif

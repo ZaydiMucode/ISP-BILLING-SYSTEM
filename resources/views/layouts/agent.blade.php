@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,8 +33,8 @@
         <!-- Balance Card -->
         <div class="p-4">
             <div class="bg-gradient-to-r from-emerald-600 to-green-600 rounded-lg p-4 text-white">
-                <p class="text-emerald-100 text-sm">Saldo Anda</p>
-                <p class="text-2xl font-bold">Rp {{ number_format(Auth::user()->balance ?? 0, 0, ',', '.') }}</p>
+                <p class="text-emerald-100 text-sm">Your Balance</p>
+                <p class="text-2xl font-bold">₱  {{ number_format(Auth::user()->balance ?? 0, 0, ',', '.') }}</p>
             </div>
         </div>
 
@@ -46,19 +46,19 @@
             </a>
             <a href="{{ route('agent.vouchers.sell') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('agent.vouchers*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-ticket w-5 mr-3"></i>
-                <span>Jual Voucher</span>
+                <span>Sell Voucher</span>
             </a>
             <a href="{{ route('agent.topup') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('agent.topup*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-plus-circle w-5 mr-3"></i>
-                <span>Top Up Saldo</span>
+                <span>Top Up Balance</span>
             </a>
             <a href="{{ route('agent.transactions') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('agent.transactions*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-history w-5 mr-3"></i>
-                <span>Riwayat Transaksi</span>
+                <span>Transaction History</span>
             </a>
             <a href="{{ route('agent.profile') }}" class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-slate-700 {{ request()->routeIs('agent.profile*') ? 'bg-slate-700 text-white' : '' }}">
                 <i class="fas fa-user-cog w-5 mr-3"></i>
-                <span>Profil</span>
+                <span>Profile</span>
             </a>
         </nav>
 
@@ -68,7 +68,7 @@
                 @csrf
                 <button type="submit" class="flex items-center w-full px-4 py-3 text-gray-300 rounded-lg hover:bg-red-600 hover:text-white transition">
                     <i class="fas fa-sign-out-alt w-5 mr-3"></i>
-                    <span>Keluar</span>
+                    <span>Logout</span>
                 </button>
             </form>
         </div>

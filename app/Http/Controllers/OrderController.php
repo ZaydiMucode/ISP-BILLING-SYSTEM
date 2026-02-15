@@ -152,7 +152,7 @@ class OrderController extends Controller
             $message .= "👤 *Nama:* {$order->customer_name}\n";
             $message .= "📱 *Telepon:* {$order->customer_phone}\n";
             $message .= "📦 *Paket:* {$order->package->name}\n";
-            $message .= "💰 *Total:* Rp " . number_format($order->total_amount, 0, ',', '.') . "\n";
+            $message .= "💰 *Total:*  ₱ " . number_format($order->total_amount, 0, ',', '.') . "\n";
             $message .= "🔌 *Tipe:* " . strtoupper($order->connection_type) . "\n\n";
             $message .= "📍 *Alamat:*\n{$order->customer_address}";
 

@@ -46,14 +46,14 @@
                             <input type="radio" name="direction" value="pull" checked class="mr-3 text-cyan-600"> 
                             <div>
                                 <p class="font-medium">⬇️ Pull</p>
-                                <p class="text-xs text-gray-500">Mikrotik → Gembok</p>
+                                <p class="text-xs text-gray-500">Mikrotik → Padlock</p>
                             </div>
                         </label>
                         <label class="flex items-center p-4 border-2 rounded-xl cursor-pointer hover:border-cyan-500 transition">
                             <input type="radio" name="direction" value="push" class="mr-3 text-cyan-600">
                             <div>
                                 <p class="font-medium">⬆️ Push</p>
-                                <p class="text-xs text-gray-500">Gembok → Mikrotik</p>
+                                <p class="text-xs text-gray-500">Padlock → Mikrotik</p>
                             </div>
                         </label>
                         <label class="flex items-center p-4 border-2 rounded-xl cursor-pointer hover:border-cyan-500 transition">

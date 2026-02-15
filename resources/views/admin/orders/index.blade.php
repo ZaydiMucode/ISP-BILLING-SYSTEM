@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Kelola Pesanan')
+@section('title', 'Manage Orders')
 
 @section('content')
 <div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
@@ -12,8 +12,8 @@
         <div class="p-6">
             <!-- Header -->
             <div class="mb-6">
-                <h1 class="text-3xl font-bold text-gray-900">Kelola Pesanan</h1>
-                <p class="text-gray-600 mt-1">Daftar pesanan dari landing page</p>
+                <h1 class="text-3xl font-bold text-gray-900">Manage Orders</h1>
+                <p class="text-gray-600 mt-1">List of orders from the landing page</p>
             </div>
 
             <!-- Stats -->
@@ -36,7 +36,7 @@
                         </div>
                         <div class="ml-3">
                             <p class="text-2xl font-bold text-blue-600">{{ $stats['confirmed'] }}</p>
-                            <p class="text-xs text-gray-500">Dikonfirmasi</p>
+                            <p class="text-xs text-gray-500">Confirmed</p>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="ml-3">
                             <p class="text-2xl font-bold text-cyan-600">{{ $stats['installing'] }}</p>
-                            <p class="text-xs text-gray-500">Pemasangan</p>
+                            <p class="text-xs text-gray-500">Installation</p>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="ml-3">
                             <p class="text-2xl font-bold text-green-600">{{ $stats['completed'] }}</p>
-                            <p class="text-xs text-gray-500">Selesai</p>
+                            <p class="text-xs text-gray-500">Completed</p>
                         </div>
                     </div>
                 </div>
@@ -67,20 +67,20 @@
             <!-- Filter -->
             <div class="bg-white rounded-xl shadow-md p-4 mb-6">
                 <form method="GET" class="flex flex-wrap gap-4">
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari order/nama/telepon..." class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 w-64">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search order/name/phone..." class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 w-64">
                     <select name="status" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500">
-                        <option value="">Semua Status</option>
+                        <option value="">All Statuses</option>
                         <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
-                        <option value="confirmed" {{ request('status') == 'confirmed' ? 'selected' : '' }}>Dikonfirmasi</option>
-                        <option value="scheduled" {{ request('status') == 'scheduled' ? 'selected' : '' }}>Dijadwalkan</option>
-                        <option value="installing" {{ request('status') == 'installing' ? 'selected' : '' }}>Pemasangan</option>
-                        <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Selesai</option>
-                        <option value="cancelled" {{ request('status') == 'cancelled' ? 'selected' : '' }}>Dibatalkan</option>
+                        <option value="confirmed" {{ request('status') == 'confirmed' ? 'selected' : '' }}>Confirmed</option>
+                        <option value="scheduled" {{ request('status') == 'scheduled' ? 'selected' : '' }}>Scheduled</option>
+                        <option value="installing" {{ request('status') == 'installing' ? 'selected' : '' }}>Installing</option>
+                        <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
+                        <option value="cancelled" {{ request('status') == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
                     </select>
                     <select name="payment_status" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500">
-                        <option value="">Semua Pembayaran</option>
-                        <option value="pending" {{ request('payment_status') == 'pending' ? 'selected' : '' }}>Belum Bayar</option>
-                        <option value="paid" {{ request('payment_status') == 'paid' ? 'selected' : '' }}>Lunas</option>
+                        <option value="">All Payments</option>
+                        <option value="pending" {{ request('payment_status') == 'pending' ? 'selected' : '' }}>Unpaid</option>
+                        <option value="paid" {{ request('payment_status') == 'paid' ? 'selected' : '' }}>Paid</option>
                     </select>
                     <button type="submit" class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700">
                         <i class="fas fa-search mr-1"></i>Filter
@@ -96,12 +96,12 @@
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Order</th>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Pelanggan</th>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Paket</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Customer</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Package</th>
                                 <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Total</th>
-                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Pembayaran</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Payment</th>
                                 <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
-                                <th class="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Aksi</th>
+                                <th class="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -123,7 +123,7 @@
                                     <p class="text-gray-900">{{ $order->package->name }}</p>
                                     <p class="text-xs text-gray-500">{{ strtoupper($order->connection_type) }}</p>
                                 </td>
-                                <td class="px-4 py-3 font-medium">Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
+                                <td class="px-4 py-3 font-medium"> ₱ {{ number_format($order->total_amount, 0, ',', '.') }}</td>
                                 <td class="px-4 py-3">
                                     <span class="px-2 py-1 text-xs rounded-full bg-{{ $payBadge['color'] }}-100 text-{{ $payBadge['color'] }}-800">{{ $payBadge['label'] }}</span>
                                 </td>
@@ -136,7 +136,7 @@
                                             <i class="fas fa-eye"></i>
                                         </a>
                                         @if($order->payment_status === 'pending')
-                                        <button onclick="confirmPayment({{ $order->id }})" class="text-green-600 hover:text-green-800" title="Konfirmasi Bayar">
+                                        <button onclick="confirmPayment({{ $order->id }})" class="text-green-600 hover:text-green-800" title="Confirm Payment">
                                             <i class="fas fa-check-circle"></i>
                                         </button>
                                         @endif
@@ -147,7 +147,7 @@
                             <tr>
                                 <td colspan="7" class="px-4 py-8 text-center text-gray-500">
                                     <i class="fas fa-inbox text-4xl mb-2"></i>
-                                    <p>Belum ada pesanan</p>
+                                    <p>No orders found</p>
                                 </td>
                             </tr>
                             @endforelse
@@ -166,18 +166,18 @@
 <script>
 function confirmPayment(orderId) {
     Swal.fire({
-        title: 'Konfirmasi Pembayaran?',
-        text: 'Apakah Anda yakin ingin mengkonfirmasi pembayaran pesanan ini?',
+        title: 'Confirm Payment?',
+        text: 'Are you sure you want to confirm the payment for this order?',
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#0891b2',
         cancelButtonColor: '#6b7280',
-        confirmButtonText: 'Ya, Konfirmasi!',
-        cancelButtonText: 'Batal',
+        confirmButtonText: 'Yes, Confirm!',
+        cancelButtonText: 'Cancel',
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            showLoading('Memproses...');
+            showLoading('Processing...');
             fetch(`/admin/orders/${orderId}/confirm-payment`, {
                 method: 'POST',
                 headers: {
@@ -191,18 +191,18 @@ function confirmPayment(orderId) {
                 if (data.success) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Berhasil!',
+                        title: 'Success!',
                         text: data.message,
                         showConfirmButton: false,
                         timer: 2000
                     }).then(() => location.reload());
                 } else {
-                    showError(data.message || 'Terjadi kesalahan');
+                    showError(data.message || 'An error occurred');
                 }
             })
             .catch(err => {
                 Swal.close();
-                showError('Terjadi kesalahan jaringan');
+                showError('Network error occurred');
             });
         }
     });

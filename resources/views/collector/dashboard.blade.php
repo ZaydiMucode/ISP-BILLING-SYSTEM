@@ -8,8 +8,8 @@
     <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 text-white">
         <div class="flex items-center justify-between">
             <div>
-                <h1 class="text-2xl font-bold">Selamat Datang, {{ $collector->name ?? 'Collector' }}!</h1>
-                <p class="text-blue-100 mt-1">Area: {{ $collector->area ?? 'Semua Area' }}</p>
+                <h1 class="text-2xl font-bold">Welcome, {{ $collector->name ?? 'Collector' }}!</h1>
+                <p class="text-blue-100 mt-1">Area: {{ $collector->area ?? 'All Areas' }}</p>
             </div>
             <div class="hidden md:block">
                 <i class="fas fa-hand-holding-dollar text-6xl text-white/20"></i>
@@ -22,7 +22,7 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Target Hari Ini</p>
+                    <p class="text-gray-500 text-sm">Today's Target</p>
                     <p class="text-2xl font-bold text-blue-600">{{ $todayTarget ?? 0 }}</p>
                 </div>
                 <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
@@ -34,8 +34,8 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Terkumpul Hari Ini</p>
-                    <p class="text-2xl font-bold text-green-600">Rp {{ number_format($todayCollected ?? 0, 0, ',', '.') }}</p>
+                    <p class="text-gray-500 text-sm">Collected Today</p>
+                    <p class="text-2xl font-bold text-green-600">₱ {{ number_format($todayCollected ?? 0, 0, ',', '.') }}</p>
                 </div>
                 <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                     <i class="fas fa-check-circle text-green-600 text-xl"></i>
@@ -46,8 +46,8 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Komisi Bulan Ini</p>
-                    <p class="text-2xl font-bold text-purple-600">Rp {{ number_format($monthCommission ?? 0, 0, ',', '.') }}</p>
+                    <p class="text-gray-500 text-sm">Monthly Commission</p>
+                    <p class="text-2xl font-bold text-purple-600">₱ {{ number_format($monthCommission ?? 0, 0, ',', '.') }}</p>
                 </div>
                 <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                     <i class="fas fa-coins text-purple-600 text-xl"></i>
@@ -58,7 +58,7 @@
         <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-gray-500 text-sm">Belum Bayar</p>
+                    <p class="text-gray-500 text-sm">Unpaid Invoices</p>
                     <p class="text-2xl font-bold text-red-600">{{ $unpaidCount ?? 0 }}</p>
                 </div>
                 <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
@@ -74,33 +74,33 @@
             <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-file-invoice-dollar text-blue-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Tagihan</p>
+            <p class="font-medium text-gray-800">Invoices</p>
         </a>
         <a href="{{ route('collector.collect') }}" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md transition text-center">
             <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-money-bill-wave text-green-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Terima Bayar</p>
+            <p class="font-medium text-gray-800">Accept Payment</p>
         </a>
         <a href="{{ route('collector.history') }}" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md transition text-center">
             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-history text-purple-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Riwayat</p>
+            <p class="font-medium text-gray-800">History</p>
         </a>
         <a href="{{ route('collector.profile') }}" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md transition text-center">
             <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-user-cog text-gray-600 text-xl"></i>
             </div>
-            <p class="font-medium text-gray-800">Profil</p>
+            <p class="font-medium text-gray-800">Profile</p>
         </a>
     </div>
 
     <!-- Pending Invoices -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-            <h2 class="text-lg font-semibold text-gray-800">Tagihan Belum Bayar</h2>
-            <a href="{{ route('collector.invoices') }}" class="text-blue-600 hover:text-blue-700 text-sm">Lihat Semua</a>
+            <h2 class="text-lg font-semibold text-gray-800">Unpaid Invoices</h2>
+            <a href="{{ route('collector.invoices') }}" class="text-blue-600 hover:text-blue-700 text-sm">View All</a>
         </div>
         <div class="divide-y divide-gray-100">
             @forelse($pendingInvoices ?? [] as $invoice)
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <p class="font-semibold text-gray-800">Rp {{ number_format($invoice->total, 0, ',', '.') }}</p>
+                    <p class="font-semibold text-gray-800">₱  {{ number_format($invoice->total, 0, ',', '.') }}</p>
                     <span class="inline-flex px-2 py-1 text-xs rounded-full {{ $invoice->isOverdue() ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700' }}">
                         {{ $invoice->isOverdue() ? 'Jatuh Tempo' : 'Belum Bayar' }}
                     </span>
@@ -127,7 +127,7 @@
             @empty
             <div class="p-8 text-center text-gray-500">
                 <i class="fas fa-check-circle text-4xl mb-2 text-green-500"></i>
-                <p>Semua tagihan sudah terbayar!</p>
+                <p>All invoices have been paid!</p>
             </div>
             @endforelse
         </div>
@@ -136,7 +136,7 @@
     <!-- Today's Collection -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="p-6 border-b border-gray-100">
-            <h2 class="text-lg font-semibold text-gray-800">Penagihan Hari Ini</h2>
+            <h2 class="text-lg font-semibold text-gray-800">Today's Collection</h2>
         </div>
         <div class="divide-y divide-gray-100">
             @forelse($todayCollections ?? [] as $collection)
@@ -150,12 +150,12 @@
                         <p class="text-sm text-gray-500">{{ $collection->created_at->format('H:i') }}</p>
                     </div>
                 </div>
-                <p class="font-semibold text-green-600">Rp {{ number_format($collection->amount, 0, ',', '.') }}</p>
+                <p class="font-semibold text-green-600">₱  {{ number_format($collection->amount, 0, ',', '.') }}</p>
             </div>
             @empty
             <div class="p-8 text-center text-gray-500">
                 <i class="fas fa-inbox text-4xl mb-2"></i>
-                <p>Belum ada penagihan hari ini</p>
+                <p>No collections recorded today</p>
             </div>
             @endforelse
         </div>

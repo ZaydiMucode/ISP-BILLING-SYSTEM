@@ -12,8 +12,8 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <div>
-                    <h1 class="text-2xl font-bold text-white">Konfigurasi Midtrans</h1>
-                    <p class="text-gray-400 mt-1">Pengaturan Payment Gateway Midtrans</p>
+                    <h1 class="text-2xl font-bold text-white">Midtrans Configuration</h1>
+                    <p class="text-gray-400 mt-1">Midtrans Payment Gateway Settings</p>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                                 <label class="flex items-center space-x-3 cursor-pointer">
                                     <input type="checkbox" name="is_production" value="1" {{ $setting->getConfig('is_production') ? 'checked' : '' }}
                                            class="w-5 h-5 rounded border-white/20 bg-white/5 text-cyan-500">
-                                    <span class="text-gray-300">Mode Production (uncheck untuk Sandbox)</span>
+                                    <span class="text-gray-300">Production Mode (uncheck for Sandbox)</span>
                                 </label>
                             </div>
                             
@@ -60,14 +60,14 @@
                                 <label class="flex items-center space-x-3 cursor-pointer">
                                     <input type="checkbox" name="enabled" value="1" {{ $setting->enabled ? 'checked' : '' }}
                                            class="w-5 h-5 rounded border-white/20 bg-white/5 text-cyan-500">
-                                    <span class="text-gray-300">Aktifkan Midtrans</span>
+                                    <span class="text-gray-300">Enable Midtrans</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="mt-6">
-                            <button type="submit" class="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg">
-                                <i class="fas fa-save mr-2"></i>Simpan
+                            <button type="submit" class="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition">
+                                <i class="fas fa-save mr-2"></i>Save Settings
                             </button>
                         </div>
                     </form>
@@ -76,19 +76,19 @@
             
             <div>
                 <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
-                    <h4 class="text-yellow-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>Cara Mendapatkan Key</h4>
+                    <h4 class="text-yellow-400 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>How to Get Keys</h4>
                     <ol class="text-sm text-yellow-300 space-y-1 list-decimal list-inside">
-                        <li>Login ke dashboard.midtrans.com</li>
-                        <li>Pilih Environment (Sandbox/Production)</li>
+                        <li>Login to dashboard.midtrans.com</li>
+                        <li>Select Environment (Sandbox/Production)</li>
                         <li>Settings → Access Keys</li>
-                        <li>Copy Server Key dan Client Key</li>
+                        <li>Copy Server Key and Client Key</li>
                     </ol>
                 </div>
                 
                 <div class="mt-4 bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
                     <h4 class="text-blue-400 font-semibold mb-2"><i class="fas fa-link mr-2"></i>Callback URL</h4>
                     <p class="text-sm text-blue-300 break-all">{{ url('/api/payment/midtrans/callback') }}</p>
-                    <p class="text-xs text-gray-500 mt-2">Set URL ini di dashboard Midtrans</p>
+                    <p class="text-xs text-gray-500 mt-2">Set this URL in your Midtrans dashboard</p>
                 </div>
             </div>
         </div>

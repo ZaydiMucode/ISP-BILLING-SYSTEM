@@ -56,7 +56,7 @@
                     <div class="py-1">
                         <a href="{{ route('admin.change-password') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                             <i class="fas fa-key w-5 mr-3 text-gray-400"></i>
-                            Ganti Password
+                            Change Password
                         </a>
                         <a href="{{ route('admin.settings') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                             <i class="fas fa-cog w-5 mr-3 text-gray-400"></i>

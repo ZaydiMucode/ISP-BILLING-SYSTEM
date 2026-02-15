@@ -14,7 +14,7 @@
             <div class="mb-6 flex justify-between items-center">
                 <div>
                     <h1 class="text-3xl font-bold text-gray-900">WhatsApp Gateway</h1>
-                    <p class="text-gray-600 mt-1">Kelola notifikasi WhatsApp</p>
+                    <p class="text-gray-600 mt-1">Manage WhatsApp notifications</p>
                 </div>
                 <div>
                     <span id="connection-status" class="px-4 py-2 rounded-lg text-sm font-medium {{ $connected ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
@@ -29,27 +29,27 @@
                 <div class="bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
                         <h5 class="text-white font-bold text-lg">
-                            <i class="fab fa-whatsapp mr-2"></i>Kirim Pesan
+                            <i class="fab fa-whatsapp mr-2"></i>Send Message
                         </h5>
                     </div>
                     <div class="p-6">
                         <form action="{{ route('admin.whatsapp.send') }}" method="POST">
                             @csrf
                             <div class="mb-4">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
                                 <div class="flex">
                                     <span class="inline-flex items-center px-3 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg text-gray-600">+62</span>
                                     <input type="text" name="phone" class="flex-1 px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-green-500" placeholder="8123456789" required>
                                 </div>
-                                <p class="text-xs text-gray-500 mt-1">Contoh: 81234567890</p>
+                                <p class="text-xs text-gray-500 mt-1">Example: 09120206452</p>
                             </div>
                             <div class="mb-4">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
-                                <textarea name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Tulis pesan..." required></textarea>
-                                <p class="text-xs text-gray-500 mt-1">Gunakan *text* untuk bold, _text_ untuk italic</p>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Write message..." required></textarea>
+                                <p class="text-xs text-gray-500 mt-1">Use *text* for bold, _text_ for italic</p>
                             </div>
                             <button type="submit" class="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition {{ !$connected ? 'opacity-50 cursor-not-allowed' : '' }}" {{ !$connected ? 'disabled' : '' }}>
-                                <i class="fab fa-whatsapp mr-2"></i>Kirim Pesan
+                                <i class="fab fa-whatsapp mr-2"></i>Send Message
                             </button>
                         </form>
                     </div>
@@ -67,8 +67,8 @@
                             <div class="flex items-center">
                                 <i class="fas fa-vial text-green-500 mr-3 w-5"></i>
                                 <div>
-                                    <p class="font-medium text-gray-900">Test Notifikasi</p>
-                                    <p class="text-xs text-gray-500">Kirim test ke pelanggan tertentu</p>
+                                    <p class="font-medium text-gray-900">Test Notification</p>
+                                    <p class="text-xs text-gray-500">Send a test to a specific customer</p>
                                 </div>
                             </div>
                         </a>
@@ -77,8 +77,8 @@
                             <div class="flex items-center">
                                 <i class="fas fa-file-invoice text-blue-500 mr-3 w-5"></i>
                                 <div>
-                                    <p class="font-medium text-gray-900">Kirim Notifikasi Invoice Baru</p>
-                                    <p class="text-xs text-gray-500">Kirim ke semua invoice yang belum dikirim</p>
+                                    <p class="font-medium text-gray-900">Send New Invoice Notification</p>
+                                    <p class="text-xs text-gray-500">Send to all unsent invoices</p>
                                 </div>
                             </div>
                         </button>
@@ -87,8 +87,8 @@
                             <div class="flex items-center">
                                 <i class="fas fa-bell text-yellow-500 mr-3 w-5"></i>
                                 <div>
-                                    <p class="font-medium text-gray-900">Kirim Pengingat Pembayaran</p>
-                                    <p class="text-xs text-gray-500">Kirim ke invoice yang belum dibayar</p>
+                                    <p class="font-medium text-gray-900">Send Payment Reminder</p>
+                                    <p class="text-xs text-gray-500">Send to all unpaid invoices</p>
                                 </div>
                             </div>
                         </button>
@@ -97,8 +97,8 @@
                             <div class="flex items-center">
                                 <i class="fas fa-ban text-red-500 mr-3 w-5"></i>
                                 <div>
-                                    <p class="font-medium text-gray-900">Kirim Notifikasi Penangguhan</p>
-                                    <p class="text-xs text-gray-500">Kirim ke pelanggan yang ditangguhkan</p>
+                                    <p class="font-medium text-gray-900">Send Suspension Notice</p>
+                                    <p class="text-xs text-gray-500">Send to suspended customers</p>
                                 </div>
                             </div>
                         </button>
@@ -107,8 +107,8 @@
                             <div class="flex items-center">
                                 <i class="fas fa-sync text-green-500 mr-3 w-5"></i>
                                 <div>
-                                    <p class="font-medium text-gray-900">Cek Status Koneksi</p>
-                                    <p class="text-xs text-gray-500">Periksa koneksi WhatsApp Gateway</p>
+                                    <p class="font-medium text-gray-900">Check Connection Status</p>
+                                    <p class="text-xs text-gray-500">Verify WhatsApp Gateway connection</p>
                                 </div>
                             </div>
                         </button>
@@ -119,9 +119,9 @@
             <!-- Notification Stats & Recent Logs -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden mb-6">
                 <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                    <h5 class="font-bold text-gray-900"><i class="fas fa-history mr-2 text-cyan-600"></i>Riwayat Notifikasi</h5>
+                    <h5 class="font-bold text-gray-900"><i class="fas fa-history mr-2 text-cyan-600"></i>Notification History</h5>
                     <a href="{{ route('admin.whatsapp.logs') }}" class="text-cyan-600 hover:text-cyan-800 text-sm">
-                        Lihat Semua <i class="fas fa-arrow-right ml-1"></i>
+                        View All <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
                 <div class="p-6">
@@ -133,15 +133,15 @@
                         </div>
                         <div class="text-center p-3 bg-green-50 rounded-lg">
                             <p class="text-2xl font-bold text-green-600">{{ number_format($stats['sent'] ?? 0) }}</p>
-                            <p class="text-xs text-gray-500">Terkirim</p>
+                            <p class="text-xs text-gray-500">Sent</p>
                         </div>
                         <div class="text-center p-3 bg-red-50 rounded-lg">
                             <p class="text-2xl font-bold text-red-600">{{ number_format($stats['failed'] ?? 0) }}</p>
-                            <p class="text-xs text-gray-500">Gagal</p>
+                            <p class="text-xs text-gray-500">Failed</p>
                         </div>
                         <div class="text-center p-3 bg-cyan-50 rounded-lg">
                             <p class="text-2xl font-bold text-cyan-600">{{ number_format($stats['today'] ?? 0) }}</p>
-                            <p class="text-xs text-gray-500">Hari Ini</p>
+                            <p class="text-xs text-gray-500">Today</p>
                         </div>
                     </div>
                     
@@ -151,9 +151,9 @@
                         <table class="w-full text-sm">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">Waktu</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">Penerima</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">Tipe</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">Time</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">Recipient</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">Type</th>
                                     <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">Status</th>
                                 </tr>
                             </thead>
@@ -182,9 +182,9 @@
                                     </td>
                                     <td class="px-3 py-2 whitespace-nowrap">
                                         @if($log->status == 'sent')
-                                            <span class="text-green-600"><i class="fas fa-check-circle"></i> Terkirim</span>
+                                            <span class="text-green-600"><i class="fas fa-check-circle"></i> Sent</span>
                                         @else
-                                            <span class="text-red-600"><i class="fas fa-times-circle"></i> Gagal</span>
+                                            <span class="text-red-600"><i class="fas fa-times-circle"></i> Failed</span>
                                         @endif
                                     </td>
                                 </tr>
@@ -195,7 +195,7 @@
                     @else
                     <div class="text-center py-4 text-gray-500">
                         <i class="fas fa-inbox text-2xl mb-2"></i>
-                        <p class="text-sm">Belum ada riwayat notifikasi</p>
+                        <p class="text-sm">No notification history yet</p>
                     </div>
                     @endif
                 </div>
@@ -204,48 +204,48 @@
             <!-- Message Templates -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden mb-6">
                 <div class="px-6 py-4 border-b border-gray-200">
-                    <h5 class="font-bold text-gray-900"><i class="fas fa-file-alt mr-2 text-cyan-600"></i>Template Pesan</h5>
+                    <h5 class="font-bold text-gray-900"><i class="fas fa-file-alt mr-2 text-cyan-600"></i>Message Templates</h5>
                 </div>
                 <div class="p-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h6 class="font-semibold text-gray-900 mb-2">Invoice Notification</h6>
-                            <pre class="text-xs text-gray-600 whitespace-pre-wrap">Halo *{nama}*,
+                            <pre class="text-xs text-gray-600 whitespace-pre-wrap">Hello *{name}*,
 
-Tagihan internet Anda telah terbit:
+Your internet bill has been issued:
 
 📋 Invoice: {invoice}
-📦 Paket: {paket}
-💰 Total: Rp {amount}
-📅 Jatuh Tempo: {due_date}
+📦 Package: {package}
+💰 Total: ₱  {amount}
+📅 Due Date: {due_date}
 
-Terima kasih,
+Thank you,
 *{app_name}*</pre>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h6 class="font-semibold text-gray-900 mb-2">Payment Confirmation</h6>
-                            <pre class="text-xs text-gray-600 whitespace-pre-wrap">Halo *{nama}*,
+                            <pre class="text-xs text-gray-600 whitespace-pre-wrap">Hello *{name}*,
 
-✅ Pembayaran diterima!
+✅ Payment received!
 
 📋 Invoice: {invoice}
-💰 Jumlah: Rp {amount}
-📅 Tanggal: {paid_date}
+💰 Amount: ₱  {amount}
+📅 Date: {paid_date}
 
-Terima kasih,
+Thank you,
 *{app_name}*</pre>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h6 class="font-semibold text-gray-900 mb-2">Payment Reminder</h6>
-                            <pre class="text-xs text-gray-600 whitespace-pre-wrap">⚠️ *Pengingat Pembayaran*
+                            <pre class="text-xs text-gray-600 whitespace-pre-wrap">⚠️ *Payment Reminder*
 
-Halo *{nama}*,
+Hello *{name}*,
 
-Tagihan belum dibayar:
+Unpaid bill notice:
 
 📋 Invoice: {invoice}
-💰 Total: Rp {amount}
-📅 Jatuh Tempo: {due_date}
+💰 Total: ₱  {amount}
+📅 Due Date: {due_date}
 
 *{app_name}*</pre>
                         </div>
@@ -256,7 +256,7 @@ Tagihan belum dibayar:
             <!-- Configuration Info -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="px-6 py-4 border-b border-gray-200">
-                    <h5 class="font-bold text-gray-900"><i class="fas fa-cog mr-2 text-cyan-600"></i>Konfigurasi</h5>
+                    <h5 class="font-bold text-gray-900"><i class="fas fa-cog mr-2 text-cyan-600"></i>Configuration</h5>
                 </div>
                 <div class="p-6">
                     <div class="overflow-x-auto">
@@ -286,7 +286,7 @@ Tagihan belum dibayar:
                     <div class="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
                         <p class="text-sm text-blue-800">
                             <i class="fas fa-info-circle mr-2"></i>
-                            Konfigurasi WhatsApp Gateway dapat diubah di file <code class="bg-blue-100 px-1 rounded">.env</code>
+                            WhatsApp Gateway configuration can be modified in the <code class="bg-blue-100 px-1 rounded">.env</code> file
                         </p>
                     </div>
                 </div>
@@ -298,7 +298,7 @@ Tagihan belum dibayar:
 @push('scripts')
 <script>
 function checkStatus() {
-    showLoading('Memeriksa koneksi...');
+    showLoading('Checking connection...');
     fetch('{{ route("admin.whatsapp.status") }}')
         .then(response => response.json())
         .then(data => {
@@ -307,11 +307,11 @@ function checkStatus() {
             if (data.connected) {
                 badge.className = 'px-4 py-2 rounded-lg text-sm font-medium bg-green-100 text-green-800';
                 badge.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Connected';
-                showToast('success', 'WhatsApp Gateway terhubung!');
+                showToast('success', 'WhatsApp Gateway connected!');
             } else {
                 badge.className = 'px-4 py-2 rounded-lg text-sm font-medium bg-red-100 text-red-800';
                 badge.innerHTML = '<i class="fas fa-times-circle mr-2"></i> Disconnected';
-                showToast('error', 'WhatsApp Gateway tidak terhubung!');
+                showToast('error', 'WhatsApp Gateway not connected!');
             }
         })
         .catch(error => {
@@ -321,20 +321,20 @@ function checkStatus() {
 }
 
 function sendBulkInvoice() {
-    confirmAction('Kirim notifikasi invoice ke semua pelanggan?', () => {
-        showToast('info', 'Fitur ini akan mengirim notifikasi ke semua invoice baru');
+    confirmAction('Send invoice notifications to all customers?', () => {
+        showToast('info', 'This feature will send notifications for all new invoices');
     });
 }
 
 function sendBulkReminder() {
-    confirmAction('Kirim pengingat pembayaran ke semua invoice yang belum dibayar?', () => {
-        showToast('info', 'Fitur ini akan mengirim pengingat ke semua invoice yang belum dibayar');
+    confirmAction('Send payment reminders for all unpaid invoices?', () => {
+        showToast('info', 'This feature will send reminders for all unpaid invoices');
     });
 }
 
 function sendSuspensionNotice() {
-    confirmAction('Kirim notifikasi penangguhan ke pelanggan yang ditangguhkan?', () => {
-        showToast('info', 'Fitur ini akan mengirim notifikasi penangguhan');
+    confirmAction('Send suspension notices to suspended customers?', () => {
+        showToast('info', 'This feature will send suspension notifications');
     });
 }
 </script>

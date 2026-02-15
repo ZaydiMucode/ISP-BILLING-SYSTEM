@@ -49,7 +49,7 @@
                                 <p class="font-medium text-gray-900">{{ $customer->phone ?? '-' }}</p>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-600 mb-1">Email</p>
+                                <p class="text-sm text-gray-600 mb-1">Email Address</p>
                                 <p class="font-medium text-gray-900">{{ $customer->email ?? '-' }}</p>
                             </div>
                             <div class="col-span-2">
@@ -82,7 +82,7 @@
                                 <p class="text-sm text-gray-600">{{ $customer->package->speed }} Mbps</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-2xl font-bold text-cyan-600">Rp {{ number_format($customer->package->price, 0, ',', '.') }}</p>
+                                <p class="text-2xl font-bold text-cyan-600"> ₱ {{ number_format($customer->package->price, 0, ',', '.') }}</p>
                                 <p class="text-sm text-gray-600">per month</p>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                         <p class="text-sm text-gray-600">{{ $invoice->created_at->format('d M Y') }}</p>
                                     </div>
                                     <div class="text-right">
-                                        <p class="font-bold text-gray-900">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</p>
+                                        <p class="font-bold text-gray-900"> ₱ {{ number_format($invoice->amount, 0, ',', '.') }}</p>
                                         <span class="text-xs px-2 py-1 rounded-full {{ $invoice->status === 'paid' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' }}">
                                             {{ ucfirst($invoice->status) }}
                                         </span>
@@ -137,14 +137,14 @@
                             <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                                 <div class="flex items-center">
                                     <i class="fas fa-check-circle text-green-600 mr-3"></i>
-                                    <span class="text-sm text-gray-700">Paid</span>
+                                    <span class="text-sm text-gray-700">Paid Invoices</span>
                                 </div>
                                 <span class="font-bold text-gray-900">{{ $stats['paid_invoices'] }}</span>
                             </div>
                             <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
                                 <div class="flex items-center">
                                     <i class="fas fa-clock text-yellow-600 mr-3"></i>
-                                    <span class="text-sm text-gray-700">Unpaid</span>
+                                    <span class="text-sm text-gray-700">Unpaid Invoices</span>
                                 </div>
                                 <span class="font-bold text-gray-900">{{ $stats['unpaid_invoices'] }}</span>
                             </div>
@@ -156,12 +156,12 @@
                         <h3 class="text-lg font-bold text-gray-900 mb-4">Financial Summary</h3>
                         <div class="space-y-4">
                             <div>
-                                <p class="text-sm text-gray-600 mb-1">Total Paid</p>
-                                <p class="text-2xl font-bold text-green-600">Rp {{ number_format($stats['total_paid'], 0, ',', '.') }}</p>
+                                <p class="text-sm text-gray-600 mb-1">Total Amount Paid</p>
+                                <p class="text-2xl font-bold text-green-600">₱ {{ number_format($stats['total_paid'], 0, ',', '.') }}</p>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-600 mb-1">Total Unpaid</p>
-                                <p class="text-2xl font-bold text-yellow-600">Rp {{ number_format($stats['total_unpaid'], 0, ',', '.') }}</p>
+                                <p class="text-sm text-gray-600 mb-1">Total Outstanding Balance</p>
+                                <p class="text-2xl font-bold text-yellow-600">₱ {{ number_format($stats['total_unpaid'], 0, ',', '.') }}</p>
                             </div>
                         </div>
                     </div>

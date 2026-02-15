@@ -98,7 +98,7 @@
                                 <option value="">Select Package</option>
                                 @foreach($packages as $package)
                                     <option value="{{ $package->id }}" {{ old('package_id') == $package->id ? 'selected' : '' }}>
-                                        {{ $package->name }} - Rp {{ number_format($package->price, 0, ',', '.') }}
+                                        {{ $package->name }} -  ₱ {{ number_format($package->price, 0, ',', '.') }}
                                     </option>
                                 @endforeach
                             </select>
@@ -137,7 +137,7 @@
                             </label>
                             <input type="text" name="pppoe_username" id="pppoe_username" value="{{ old('pppoe_username') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent @error('pppoe_username') border-red-500 @enderror"
-                                placeholder="Contoh: pppoe-customer001">
+                                placeholder="Example: pppoe-customer001">
                             @error('pppoe_username')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -150,11 +150,11 @@
                             </label>
                             <input type="text" name="pppoe_password" id="pppoe_password" value="{{ old('pppoe_password') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent @error('pppoe_password') border-red-500 @enderror"
-                                placeholder="Password untuk koneksi PPPoE">
+                                placeholder="Password for PPPoE connection">
                             @error('pppoe_password')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
-                            <p class="mt-1 text-xs text-gray-500">Kosongkan jika tidak menggunakan Mikrotik</p>
+                            <p class="mt-1 text-xs text-gray-500">Leave blank if not using Mikrotik</p>
                         </div>
                     </div>
 

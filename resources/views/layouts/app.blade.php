@@ -29,7 +29,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
                 icon: 'success',
-                title: 'Berhasil!',
+                title: 'Success!',
                 text: '{{ session('success') }}',
                 showConfirmButton: false,
                 timer: 3000,
@@ -60,7 +60,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
                 icon: 'warning',
-                title: 'Perhatian!',
+                title: 'Warning!',
                 text: '{{ session('warning') }}',
                 showConfirmButton: true,
                 confirmButtonColor: '#0891b2'
@@ -74,7 +74,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
                 icon: 'info',
-                title: 'Informasi',
+                title: 'Information',
                 text: '{{ session('info') }}',
                 showConfirmButton: false,
                 timer: 3000,
@@ -88,16 +88,16 @@
 
     <!-- Global Delete Confirmation Script -->
     <script>
-        function confirmDelete(formId, itemName = 'item ini') {
+        function confirmDelete(formId, itemName = 'this item') {
             Swal.fire({
-                title: 'Hapus Data?',
-                text: 'Apakah Anda yakin ingin menghapus ' + itemName + '?',
+                title: 'Delete Data?',
+                text: 'Are you sure you want to delete ' + itemName + '?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#ef4444',
                 cancelButtonColor: '#6b7280',
-                confirmButtonText: 'Ya, Hapus!',
-                cancelButtonText: 'Batal',
+                confirmButtonText: 'Yes, Delete!',
+                cancelButtonText: 'Cancel',
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -108,14 +108,14 @@
 
         function confirmAction(message, callback) {
             Swal.fire({
-                title: 'Konfirmasi',
+                title: 'Confirmation',
                 text: message,
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#0891b2',
                 cancelButtonColor: '#6b7280',
-                confirmButtonText: 'Ya, Lanjutkan',
-                cancelButtonText: 'Batal',
+                confirmButtonText: 'Yes, Continue',
+                cancelButtonText: 'Cancel',
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed && typeof callback === 'function') {
@@ -124,7 +124,7 @@
             });
         }
 
-        function showLoading(message = 'Memproses...') {
+        function showLoading(message = 'Processing...') {
             Swal.fire({
                 title: message,
                 allowOutsideClick: false,
@@ -138,7 +138,7 @@
         function showSuccess(message, redirect = null) {
             Swal.fire({
                 icon: 'success',
-                title: 'Berhasil!',
+                title: 'Success!',
                 text: message,
                 showConfirmButton: false,
                 timer: 2000,

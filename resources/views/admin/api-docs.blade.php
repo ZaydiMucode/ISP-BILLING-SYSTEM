@@ -12,7 +12,7 @@
         <div class="p-6">
             <div class="mb-6">
                 <h1 class="text-2xl font-bold text-gray-800">API Documentation</h1>
-                <p class="text-gray-600">REST API untuk integrasi dengan sistem eksternal</p>
+                <p class="text-gray-600">REST API for integration with external systems</p>
             </div>
 
             <!-- Tabs -->
@@ -70,10 +70,10 @@
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">POST</span>
                                     <code class="text-sm">/api/customer/login</code>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-3">Login pelanggan untuk mendapatkan access token</p>
+                                <p class="text-gray-600 text-sm mb-3">Customer login to obtain access token</p>
                                 <h4 class="font-semibold text-sm mb-2">Request Body:</h4>
                                 <pre class="bg-gray-100 p-3 rounded text-sm">{
-    "username": "pppoe_username atau phone atau email",
+    "username": "pppoe_username, phone, or email",
     "password": "password"
 }</pre>
                                 <h4 class="font-semibold text-sm mt-3 mb-2">Response:</h4>
@@ -90,7 +90,7 @@
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">POST</span>
                                     <code class="text-sm">/api/admin/login</code>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-3">Login admin untuk mendapatkan access token</p>
+                                <p class="text-gray-600 text-sm mb-3">Admin login to obtain access token</p>
                                 <pre class="bg-gray-100 p-3 rounded text-sm">{
     "email": "admin@example.com",
     "password": "password"
@@ -99,8 +99,8 @@
 
                             <!-- Using Token -->
                             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                                <h4 class="font-semibold text-blue-800 mb-2">Menggunakan Token</h4>
-                                <p class="text-sm text-blue-700 mb-2">Sertakan token di header untuk endpoint yang memerlukan autentikasi:</p>
+                                <h4 class="font-semibold text-blue-800 mb-2">Using the Token</h4>
+                                <p class="text-sm text-blue-700 mb-2">Include the token in the header for endpoints requiring authentication:</p>
                                 <pre class="bg-white p-3 rounded text-sm">Authorization: Bearer YOUR_TOKEN_HERE</pre>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                                     <code class="text-sm">/api/customer/profile</code>
                                     <span class="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Auth Required</span>
                                 </div>
-                                <p class="text-gray-600 text-sm">Mendapatkan profil pelanggan yang sedang login</p>
+                                <p class="text-gray-600 text-sm">Retrieve the currently logged-in customer's profile</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -127,7 +127,7 @@
                                     <code class="text-sm">/api/customer/profile</code>
                                     <span class="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Auth Required</span>
                                 </div>
-                                <p class="text-gray-600 text-sm">Update profil pelanggan (phone, email, password)</p>
+                                <p class="text-gray-600 text-sm">Update customer profile (phone, email, password)</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -136,7 +136,7 @@
                                     <code class="text-sm">/api/customer/invoices</code>
                                     <span class="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Auth Required</span>
                                 </div>
-                                <p class="text-gray-600 text-sm">Daftar invoice pelanggan. Query: ?status=paid|unpaid&per_page=10</p>
+                                <p class="text-gray-600 text-sm">List customer invoices. Query: ?status=paid|unpaid&per_page=10</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -145,7 +145,7 @@
                                     <code class="text-sm">/api/customer/invoices/{id}</code>
                                     <span class="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Auth Required</span>
                                 </div>
-                                <p class="text-gray-600 text-sm">Detail invoice tertentu</p>
+                                <p class="text-gray-600 text-sm">Retrieve details for a specific invoice</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -154,7 +154,7 @@
                                     <code class="text-sm">/api/customer/tickets</code>
                                     <span class="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Auth Required</span>
                                 </div>
-                                <p class="text-gray-600 text-sm">Daftar tiket support pelanggan</p>
+                                <p class="text-gray-600 text-sm">List customer support tickets</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -163,12 +163,12 @@
                                     <code class="text-sm">/api/customer/tickets</code>
                                     <span class="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Auth Required</span>
                                 </div>
-                                <p class="text-gray-600 text-sm">Buat tiket support baru</p>
+                                <p class="text-gray-600 text-sm">Create a new support ticket</p>
                                 <pre class="bg-gray-100 p-2 rounded text-xs mt-2">{
-    "subject": "Koneksi lambat",
-    "category": "technical", // billing, technical, general, complaint
-    "priority": "medium", // low, medium, high
-    "message": "Deskripsi masalah..."
+    "subject": "Slow connection",
+    "category": "technical", // options: billing, technical, general, complaint
+    "priority": "medium", // options: low, medium, high
+    "message": "Problem description..."
 }</pre>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                     <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">GET</span>
                                     <code class="text-sm">/api/admin/dashboard</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Statistik dashboard (total customers, revenue, invoices)</p>
+                                <p class="text-gray-600 text-sm">Dashboard statistics (total customers, revenue, invoices)</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -192,7 +192,7 @@
                                     <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">GET</span>
                                     <code class="text-sm">/api/admin/customers</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Daftar pelanggan. Query: ?status=active&search=nama&per_page=15</p>
+                                <p class="text-gray-600 text-sm">Customer list. Query: ?status=active&search=name&per_page=15</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -200,7 +200,7 @@
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">POST</span>
                                     <code class="text-sm">/api/admin/customers</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Buat pelanggan baru</p>
+                                <p class="text-gray-600 text-sm">Create a new customer</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -208,7 +208,7 @@
                                     <span class="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">PUT</span>
                                     <code class="text-sm">/api/admin/customers/{id}</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Update data pelanggan</p>
+                                <p class="text-gray-600 text-sm">Update customer information</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -216,7 +216,7 @@
                                     <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">GET</span>
                                     <code class="text-sm">/api/admin/invoices</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Daftar invoice. Query: ?status=unpaid&customer_id=1</p>
+                                <p class="text-gray-600 text-sm">Invoice list. Query: ?status=unpaid&customer_id=1</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -224,7 +224,7 @@
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">POST</span>
                                     <code class="text-sm">/api/admin/invoices/{id}/pay</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Tandai invoice sebagai lunas</p>
+                                <p class="text-gray-600 text-sm">Mark an invoice as paid</p>
                             </div>
                         </div>
                     </div>
@@ -239,7 +239,7 @@
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">POST</span>
                                     <code class="text-sm">/api/webhooks/midtrans</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Webhook untuk notifikasi pembayaran Midtrans</p>
+                                <p class="text-gray-600 text-sm">Webhook for Midtrans payment notifications</p>
                             </div>
 
                             <div class="border rounded-lg p-4">
@@ -247,7 +247,7 @@
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">POST</span>
                                     <code class="text-sm">/api/webhooks/xendit</code>
                                 </div>
-                                <p class="text-gray-600 text-sm">Webhook untuk notifikasi pembayaran Xendit</p>
+                                <p class="text-gray-600 text-sm">Webhook for Xendit payment notifications</p>
                             </div>
 
                             <div class="bg-gray-50 border rounded-lg p-4 mt-6">
@@ -256,7 +256,7 @@
                                     <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold mr-3">GET</span>
                                     <code class="text-sm">/api/health</code>
                                 </div>
-                                <p class="text-gray-600 text-sm mt-2">Cek status API server</p>
+                                <p class="text-gray-600 text-sm mt-2">Check API server status</p>
                             </div>
                         </div>
                     </div>

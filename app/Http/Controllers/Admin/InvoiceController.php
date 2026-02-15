@@ -225,7 +225,7 @@ class InvoiceController extends Controller
         $message = "Halo *{$customer->name}*,\n\n";
         $message .= "Berikut link pembayaran untuk tagihan Anda:\n\n";
         $message .= "📋 *Invoice:* {$invoice->invoice_number}\n";
-        $message .= "💰 *Total:* Rp " . number_format($invoice->amount, 0, ',', '.') . "\n\n";
+        $message .= "💰 *Total:*  ₱ " . number_format($invoice->amount, 0, ',', '.') . "\n\n";
         $message .= "🔗 *Link Pembayaran:*\n{$paymentResult['payment_url']}\n\n";
         $message .= "Link ini berlaku selama 24 jam.\n\n";
         $message .= "Terima kasih,\n";

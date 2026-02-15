@@ -17,7 +17,7 @@
                         <p class="text-gray-600">{{ $olt->name }}</p>
                     </div>
                     <a href="{{ route('admin.olt.show', $olt) }}" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        <i class="fas fa-arrow-left mr-2"></i>Back
                     </a>
                 </div>
 
@@ -28,7 +28,7 @@
 
                         <div class="grid grid-cols-2 gap-6">
                             <div class="col-span-2">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama OLT</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">OLT Name</label>
                                 <input type="text" name="name" value="{{ old('name', $olt->name) }}" required
                                     class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
                             </div>
@@ -91,35 +91,35 @@
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Telnet Password</label>
-                                <input type="password" name="telnet_password" placeholder="Kosongkan jika tidak diubah"
+                                <input type="password" name="telnet_password" placeholder="Leave blank if not changing"
                                     class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
                             </div>
 
                             <div class="col-span-2">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Lokasi</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
                                 <input type="text" name="location" value="{{ old('location', $olt->location) }}"
                                     class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
                             </div>
 
                             <div class="col-span-2">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
                                 <textarea name="description" rows="2"
                                     class="w-full rounded-lg border-gray-300 shadow-sm focus:ring-cyan-500 focus:border-cyan-500">{{ old('description', $olt->description) }}</textarea>
                             </div>
                         </div>
 
                         <div class="flex justify-between mt-6 pt-6 border-t">
-                            <form action="{{ route('admin.olt.destroy', $olt) }}" method="POST" onsubmit="return confirm('Yakin hapus OLT ini?')">
+                            <form action="{{ route('admin.olt.destroy', $olt) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this OLT?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">
-                                    <i class="fas fa-trash mr-2"></i>Hapus
-                                </button>
-                            </form>
+                                <i class="fas fa-trash mr-2"></i>Delete
+                            </button>
+                            
                             <div class="flex space-x-3">
-                                <a href="{{ route('admin.olt.show', $olt) }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Batal</a>
+                                <a href="{{ route('admin.olt.show', $olt) }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Cancel</a>
                                 <button type="submit" class="px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700">
-                                    <i class="fas fa-save mr-2"></i>Simpan
+                                    <i class="fas fa-save mr-2"></i>Save
                                 </button>
                             </div>
                         </div>
