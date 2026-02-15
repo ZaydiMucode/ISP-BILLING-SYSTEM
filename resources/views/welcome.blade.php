@@ -120,7 +120,7 @@
                         <h3 class="text-xl font-semibold text-white mb-2">{{ $package->name }}</h3>
                         <p class="text-gray-400 mb-4">{{ $package->description ?? 'Fast & stable internet' }}</p>
                         <div class="mb-6">
-                            <span class="text-4xl font-bold text-white">Rp {{ number_format($package->price / 1000, 0) }}K</span>
+                            <span class="text-4xl font-bold text-white"> ₱ {{ number_format($package->price / 1000, 0) }}K</span>
                             <span class="text-gray-400">/month</span>
                         </div>
                         <ul class="space-y-3 mb-8">
