@@ -66,11 +66,11 @@ class BillingReport extends Command
         $this->table(
             ['Metrik', 'Nilai'],
             [
-                ['Total Pendapatan', 'Rp ' . number_format($totalRevenue, 0, ',', '.')],
+                ['Total Pendapatan', ' ₱ ' . number_format($totalRevenue, 0, ',', '.')],
                 ['Invoice Terbayar', $paidInvoices],
                 ['Invoice Belum Bayar', $unpaidInvoices],
                 ['Invoice Overdue', $overdueInvoices],
-                ['Total Piutang Overdue', 'Rp ' . number_format($overdueAmount, 0, ',', '.')],
+                ['Total Piutang Overdue', ' ₱ ' . number_format($overdueAmount, 0, ',', '.')],
                 ['Pelanggan Baru', $newCustomers],
                 ['Pelanggan Aktif', $activeCustomers],
                 ['Pelanggan Suspended', $suspendedCustomers],
@@ -84,11 +84,11 @@ class BillingReport extends Command
             if ($adminPhone) {
                 $message = "📊 *LAPORAN BILLING " . strtoupper($period) . "*\n";
                 $message .= "Periode: {$startDate->format('d/m/Y')} - {$endDate->format('d/m/Y')}\n\n";
-                $message .= "💰 Pendapatan: Rp " . number_format($totalRevenue, 0, ',', '.') . "\n";
+                $message .= "💰 Pendapatan:  ₱ " . number_format($totalRevenue, 0, ',', '.') . "\n";
                 $message .= "✅ Invoice Terbayar: {$paidInvoices}\n";
                 $message .= "⏳ Invoice Belum Bayar: {$unpaidInvoices}\n";
                 $message .= "⚠️ Invoice Overdue: {$overdueInvoices}\n";
-                $message .= "💸 Piutang Overdue: Rp " . number_format($overdueAmount, 0, ',', '.') . "\n\n";
+                $message .= "💸 Piutang Overdue:  ₱ " . number_format($overdueAmount, 0, ',', '.') . "\n\n";
                 $message .= "👥 Pelanggan Aktif: {$activeCustomers}\n";
                 $message .= "🚫 Pelanggan Suspended: {$suspendedCustomers}\n";
                 $message .= "🆕 Pelanggan Baru: {$newCustomers}\n\n";

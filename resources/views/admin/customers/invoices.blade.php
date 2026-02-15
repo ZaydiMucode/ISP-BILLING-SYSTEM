@@ -65,7 +65,7 @@
                         </div>
                         <div class="ml-4">
                             <p class="text-sm text-gray-500">Total Arrears or Obligation</p>
-                            <p class="text-xl font-bold text-red-600">Rp {{ number_format($customer->invoices()->where('status', 'unpaid')->sum('amount'), 0, ',', '.') }}</p>
+                            <p class="text-xl font-bold text-red-600"> ₱ {{ number_format($customer->invoices()->where('status', 'unpaid')->sum('amount'), 0, ',', '.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                                     {{ $invoice->period_start ? $invoice->period_start->format('d M') : '' }} - {{ $invoice->period_end ? $invoice->period_end->format('d M Y') : '' }}
                                 </td>
                                 <td class="px-4 py-3 text-gray-600">{{ $invoice->package->name ?? '-' }}</td>
-                                <td class="px-4 py-3 font-medium text-gray-900">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</td>
+                                <td class="px-4 py-3 font-medium text-gray-900"> ₱ {{ number_format($invoice->amount, 0, ',', '.') }}</td>
                                 <td class="px-4 py-3 text-gray-600">{{ $invoice->due_date ? $invoice->due_date->format('d M Y') : '-' }}</td>
                                 <td class="px-4 py-3">
                                     @if($invoice->status == 'paid')

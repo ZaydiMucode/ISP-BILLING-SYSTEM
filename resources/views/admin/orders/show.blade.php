@@ -83,7 +83,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Package Price</p>
-                                <p class="font-medium">Rp {{ number_format($order->package_price, 0, ',', '.') }}/month</p>
+                                <p class="font-medium"> ₱ {{ number_format($order->package_price, 0, ',', '.') }}/month</p>
                             </div>
                         </div>
                     </div>

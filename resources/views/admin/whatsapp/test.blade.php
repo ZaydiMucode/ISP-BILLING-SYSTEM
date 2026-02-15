@@ -120,7 +120,7 @@ Your internet bill has been issued:
 
 📋 *Invoice:* INV-XXXXX
 📦 *Package:* {package}
-💰 *Total:* Rp {amount}
+💰 *Total:* ₱  {amount}
 📅 *Due Date:* {due_date}
 
 Please make payment before the due date.
@@ -137,7 +137,7 @@ Hello *{name}*,
 Your bill remains unpaid:
 
 📋 *Invoice:* INV-XXXXX
-💰 *Total:* Rp {amount}
+💰 *Total:* ₱  {amount}
 📅 *Due Date:* {due_date}
 
 Please complete payment immediately to avoid service interruption.

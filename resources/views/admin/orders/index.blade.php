@@ -123,7 +123,7 @@
                                     <p class="text-gray-900">{{ $order->package->name }}</p>
                                     <p class="text-xs text-gray-500">{{ strtoupper($order->connection_type) }}</p>
                                 </td>
-                                <td class="px-4 py-3 font-medium">Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
+                                <td class="px-4 py-3 font-medium"> ₱ {{ number_format($order->total_amount, 0, ',', '.') }}</td>
                                 <td class="px-4 py-3">
                                     <span class="px-2 py-1 text-xs rounded-full bg-{{ $payBadge['color'] }}-100 text-{{ $payBadge['color'] }}-800">{{ $payBadge['label'] }}</span>
                                 </td>

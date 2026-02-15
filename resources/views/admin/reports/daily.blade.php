@@ -31,7 +31,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm text-gray-500">Today's Revenue</p>
-                                <p class="text-2xl font-bold text-gray-900">Rp {{ number_format($revenue, 0, ',', '.') }}</p>
+                                <p class="text-2xl font-bold text-gray-900"> ₱ {{ number_format($revenue, 0, ',', '.') }}</p>
                             </div>
                             <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                                 <i class="fas fa-money-bill-wave text-green-600 text-xl"></i>
@@ -95,7 +95,7 @@
                                         {{ $payment->package?->name ?? '-' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600">
-                                        Rp {{ number_format($payment->amount, 0, ',', '.') }}
+                                         ₱ {{ number_format($payment->amount, 0, ',', '.') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800">

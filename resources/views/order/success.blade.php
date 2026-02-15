@@ -55,7 +55,7 @@
                         <p><strong>Bank BCA</strong></p>
                         <p>Acc. No: 1234567890</p>
                         <p>A/N: {{ companyName() }}</p>
-                        <p class="mt-2 font-bold">Amount: Rp {{ number_format($order->total_amount, 0, ',', '.') }}</p>
+                        <p class="mt-2 font-bold">Amount: ₱  {{ number_format($order->total_amount, 0, ',', '.') }}</p>
                     </div>
                     <p class="text-xs text-yellow-600 mt-2">
                         After transferring, please confirm via WhatsApp by attaching your proof of transfer.

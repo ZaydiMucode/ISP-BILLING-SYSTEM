@@ -34,7 +34,7 @@
         <div class="p-4">
             <div class="bg-gradient-to-r from-emerald-600 to-green-600 rounded-lg p-4 text-white">
                 <p class="text-emerald-100 text-sm">Your Balance</p>
-                <p class="text-2xl font-bold">Rp {{ number_format(Auth::user()->balance ?? 0, 0, ',', '.') }}</p>
+                <p class="text-2xl font-bold">₱  {{ number_format(Auth::user()->balance ?? 0, 0, ',', '.') }}</p>
             </div>
         </div>
 

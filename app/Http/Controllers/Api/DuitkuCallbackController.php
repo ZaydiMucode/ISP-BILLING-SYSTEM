@@ -106,7 +106,7 @@ class DuitkuCallbackController extends Controller
             $message .= "Halo {$customer->name},\n\n";
             $message .= "Pembayaran untuk invoice *{$invoice->invoice_number}* telah berhasil.\n\n";
             $message .= "Detail:\n";
-            $message .= "• Total: Rp " . number_format($invoice->total_amount, 0, ',', '.') . "\n";
+            $message .= "• Total:  ₱ " . number_format($invoice->total_amount, 0, ',', '.') . "\n";
             $message .= "• Tanggal: " . now()->format('d/m/Y H:i') . "\n";
             $message .= "• Ref: {$invoice->payment_reference}\n\n";
             $message .= "Terima kasih telah melakukan pembayaran.\n\n";

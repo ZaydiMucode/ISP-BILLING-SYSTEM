@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <p class="font-semibold text-gray-800">Rp {{ number_format($invoice->total, 0, ',', '.') }}</p>
+                    <p class="font-semibold text-gray-800">₱  {{ number_format($invoice->total, 0, ',', '.') }}</p>
                     <span class="inline-flex px-2 py-1 text-xs rounded-full {{ $invoice->isOverdue() ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700' }}">
                         {{ $invoice->isOverdue() ? 'Jatuh Tempo' : 'Belum Bayar' }}
                     </span>
@@ -150,7 +150,7 @@
                         <p class="text-sm text-gray-500">{{ $collection->created_at->format('H:i') }}</p>
                     </div>
                 </div>
-                <p class="font-semibold text-green-600">Rp {{ number_format($collection->amount, 0, ',', '.') }}</p>
+                <p class="font-semibold text-green-600">₱  {{ number_format($collection->amount, 0, ',', '.') }}</p>
             </div>
             @empty
             <div class="p-8 text-center text-gray-500">

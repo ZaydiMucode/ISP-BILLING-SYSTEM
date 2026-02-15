@@ -216,7 +216,7 @@ Your internet bill has been issued:
 
 📋 Invoice: {invoice}
 📦 Package: {package}
-💰 Total: Rp {amount}
+💰 Total: ₱  {amount}
 📅 Due Date: {due_date}
 
 Thank you,
@@ -229,7 +229,7 @@ Thank you,
 ✅ Payment received!
 
 📋 Invoice: {invoice}
-💰 Amount: Rp {amount}
+💰 Amount: ₱  {amount}
 📅 Date: {paid_date}
 
 Thank you,
@@ -244,7 +244,7 @@ Hello *{name}*,
 Unpaid bill notice:
 
 📋 Invoice: {invoice}
-💰 Total: Rp {amount}
+💰 Total: ₱  {amount}
 📅 Due Date: {due_date}
 
 *{app_name}*</pre>

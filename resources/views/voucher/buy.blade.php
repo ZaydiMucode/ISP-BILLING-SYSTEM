@@ -45,7 +45,7 @@
                 </div>
                 <div class="p-5 text-center">
                     <div class="mb-4">
-                        <span class="text-2xl font-bold text-white">Rp {{ number_format($package->customer_price, 0, ',', '.') }}</span>
+                        <span class="text-2xl font-bold text-white">₱  {{ number_format($package->customer_price, 0, ',', '.') }}</span>
                     </div>
                     <ul class="text-cyan-200 text-sm space-y-2 mb-4">
                         <li><i class="fas fa-clock text-cyan-400 mr-2"></i>Durasi: {{ $package->duration }} Jam</li>
@@ -82,7 +82,7 @@
                         <label class="block text-cyan-200 text-sm font-medium mb-2">Paket Dipilih</label>
                         <div class="bg-white/10 rounded-lg p-3 text-white">
                             <span x-text="selectedPackageName"></span> - 
-                            <span class="font-bold">Rp <span x-text="formatPrice(selectedPrice)"></span></span>
+                            <span class="font-bold">₱  <span x-text="formatPrice(selectedPrice)"></span></span>
                         </div>
                     </div>
 

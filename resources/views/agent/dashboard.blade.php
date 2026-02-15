@@ -9,7 +9,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <h1 class="text-2xl font-bold">Welcome, {{ $agent->name ?? 'Agent' }}!</h1>
-                <p class="text-emerald-100 mt-1">Balance: Rp {{ number_format($agent->balance ?? 0, 0, ',', '.') }}</p>
+                <p class="text-emerald-100 mt-1">Balance: ₱  {{ number_format($agent->balance ?? 0, 0, ',', '.') }}</p>
             </div>
             <div class="hidden md:block">
                 <i class="fas fa-store text-6xl text-white/20"></i>
@@ -23,7 +23,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-500 text-sm">Balance</p>
-                    <p class="text-2xl font-bold text-emerald-600">Rp {{ number_format($agent->balance ?? 0, 0, ',', '.') }}</p>
+                    <p class="text-2xl font-bold text-emerald-600">₱  {{ number_format($agent->balance ?? 0, 0, ',', '.') }}</p>
                 </div>
                 <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
                     <i class="fas fa-wallet text-emerald-600 text-xl"></i>
@@ -59,7 +59,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-500 text-sm">Monthly Commission</p>
-                    <p class="text-2xl font-bold text-orange-600">Rp {{ number_format($monthCommission ?? 0, 0, ',', '.') }}</p>
+                    <p class="text-2xl font-bold text-orange-600">₱  {{ number_format($monthCommission ?? 0, 0, ',', '.') }}</p>
                 </div>
                 <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
                     <i class="fas fa-coins text-orange-600 text-xl"></i>
@@ -109,11 +109,11 @@
                 <div class="mt-3 flex justify-between items-center">
                     <div>
                         <p class="text-xs text-gray-400">Agent Price</p>
-                        <p class="font-bold text-emerald-600">Rp {{ number_format($package->agent_price, 0, ',', '.') }}</p>
+                        <p class="font-bold text-emerald-600">₱  {{ number_format($package->agent_price, 0, ',', '.') }}</p>
                     </div>
                     <div>
                         <p class="text-xs text-gray-400">Retail Price</p>
-                        <p class="font-bold text-gray-800">Rp {{ number_format($package->customer_price, 0, ',', '.') }}</p>
+                        <p class="font-bold text-gray-800">₱  {{ number_format($package->customer_price, 0, ',', '.') }}</p>
                     </div>
                 </div>
                 <a href="{{ route('agent.vouchers.sell', ['package' => $package->id]) }}" 
@@ -150,7 +150,7 @@
                 </div>
                 <div class="text-right">
                     <p class="font-semibold {{ $transaction->type == 'sale' ? 'text-green-600' : 'text-blue-600' }}">
-                        {{ $transaction->type == 'sale' ? '+' : '' }}Rp {{ number_format($transaction->amount, 0, ',', '.') }}
+                        {{ $transaction->type == 'sale' ? '+' : '' }}₱  {{ number_format($transaction->amount, 0, ',', '.') }}
                     </p>
                 </div>
             </div>

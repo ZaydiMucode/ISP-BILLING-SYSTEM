@@ -61,7 +61,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 text-sm">Total Revenue</p>
-                                <p class="text-2xl font-bold text-green-600">Rp {{ number_format($totalRevenue ?? 0, 0, ',', '.') }}</p>
+                                <p class="text-2xl font-bold text-green-600"> ₱ {{ number_format($totalRevenue ?? 0, 0, ',', '.') }}</p>
                                 <p class="text-sm {{ ($revenueGrowth ?? 0) >= 0 ? 'text-green-500' : 'text-red-500' }}">
                                     <i class="fas fa-{{ ($revenueGrowth ?? 0) >= 0 ? 'arrow-up' : 'arrow-down' }} mr-1"></i>
                                     {{ abs($revenueGrowth ?? 0) }}% from previous period
@@ -180,7 +180,7 @@
                                             <div class="text-sm text-gray-500">{{ $package->speed }}</div>
                                         </td>
                                         <td class="px-6 py-4 text-gray-600">{{ $package->customers_count }}</td>
-                                        <td class="px-6 py-4 text-green-600 font-medium">Rp {{ number_format($package->revenue, 0, ',', '.') }}</td>
+                                        <td class="px-6 py-4 text-green-600 font-medium"> ₱ {{ number_format($package->revenue, 0, ',', '.') }}</td>
                                     </tr>
                                     @empty
                                     <tr>
@@ -218,7 +218,7 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 text-gray-600">{{ $collector->collections_count }}</td>
-                                        <td class="px-6 py-4 text-green-600 font-medium">Rp {{ number_format($collector->total_collected, 0, ',', '.') }}</td>
+                                        <td class="px-6 py-4 text-green-600 font-medium"> ₱ {{ number_format($collector->total_collected, 0, ',', '.') }}</td>
                                     </tr>
                                     @empty
                                     <tr>
@@ -262,9 +262,9 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 text-gray-600">{{ $agent->vouchers_sold }}</td>
-                                    <td class="px-6 py-4 text-gray-600">Rp {{ number_format($agent->revenue, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-purple-600">Rp {{ number_format($agent->commission, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-green-600 font-medium">Rp {{ number_format($agent->balance, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-gray-600"> ₱ {{ number_format($agent->revenue, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-purple-600"> ₱ {{ number_format($agent->commission, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-green-600 font-medium">₱  {{ number_format($agent->balance, 0, ',', '.') }}</td>
                                 </tr>
                                 @empty
                                 <tr>

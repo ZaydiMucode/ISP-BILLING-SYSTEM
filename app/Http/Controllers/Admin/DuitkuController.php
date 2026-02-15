@@ -206,7 +206,7 @@ class DuitkuController extends Controller
         $whatsapp = app(\App\Services\WhatsAppService::class);
         $message = "Halo {$customer->name},\n\n";
         $message .= "Berikut link pembayaran untuk invoice {$invoice->invoice_number}:\n";
-        $message .= "Total: Rp " . number_format($invoice->total_amount, 0, ',', '.') . "\n\n";
+        $message .= "Total:  ₱ " . number_format($invoice->total_amount, 0, ',', '.') . "\n\n";
         $message .= "Link Pembayaran:\n{$invoice->payment_url}\n\n";
         $message .= "Terima kasih.\n" . companyName();
 

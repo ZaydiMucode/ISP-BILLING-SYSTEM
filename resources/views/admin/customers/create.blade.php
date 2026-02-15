@@ -98,7 +98,7 @@
                                 <option value="">Select Package</option>
                                 @foreach($packages as $package)
                                     <option value="{{ $package->id }}" {{ old('package_id') == $package->id ? 'selected' : '' }}>
-                                        {{ $package->name }} - Rp {{ number_format($package->price, 0, ',', '.') }}
+                                        {{ $package->name }} -  ₱ {{ number_format($package->price, 0, ',', '.') }}
                                     </option>
                                 @endforeach
                             </select>

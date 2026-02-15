@@ -40,7 +40,7 @@
         <div class="bg-blue-50 rounded-lg p-4">
             <div class="flex justify-between items-center">
                 <span class="text-blue-800 font-medium">Total Balance</span>
-                <span class="text-2xl font-bold text-blue-600">Rp {{ number_format($invoice->total, 0, ',', '.') }}</span>
+                <span class="text-2xl font-bold text-blue-600">₱  {{ number_format($invoice->total, 0, ',', '.') }}</span>
             </div>
         </div>
     </div>

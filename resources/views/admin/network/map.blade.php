@@ -156,7 +156,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     // Initialize map
-    const map = L.map('map').setView([-6.2088, 106.8456], 12); // Default to Jakarta
+    // Updated to center on Southern Leyte
+const map = L.map('map').setView([10.3344, 124.9925], 10);
 
     // Add tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

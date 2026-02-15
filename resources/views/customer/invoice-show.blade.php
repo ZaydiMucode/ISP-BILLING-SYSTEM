@@ -65,7 +65,7 @@
                             <p class="text-sm text-gray-500">{{ $invoice->description ?? 'Monthly bill' }}</p>
                         </td>
                         <td class="px-4 py-4 text-right font-medium text-gray-900">
-                            Rp {{ number_format($invoice->amount, 0, ',', '.') }}
+                            ₱  {{ number_format($invoice->amount, 0, ',', '.') }}
                         </td>
                     </tr>
                     @if($invoice->tax_amount > 0)

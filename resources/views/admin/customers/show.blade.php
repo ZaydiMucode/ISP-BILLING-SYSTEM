@@ -82,7 +82,7 @@
                                 <p class="text-sm text-gray-600">{{ $customer->package->speed }} Mbps</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-2xl font-bold text-cyan-600">Rp {{ number_format($customer->package->price, 0, ',', '.') }}</p>
+                                <p class="text-2xl font-bold text-cyan-600"> ₱ {{ number_format($customer->package->price, 0, ',', '.') }}</p>
                                 <p class="text-sm text-gray-600">per month</p>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                         <p class="text-sm text-gray-600">{{ $invoice->created_at->format('d M Y') }}</p>
                                     </div>
                                     <div class="text-right">
-                                        <p class="font-bold text-gray-900">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</p>
+                                        <p class="font-bold text-gray-900"> ₱ {{ number_format($invoice->amount, 0, ',', '.') }}</p>
                                         <span class="text-xs px-2 py-1 rounded-full {{ $invoice->status === 'paid' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' }}">
                                             {{ ucfirst($invoice->status) }}
                                         </span>

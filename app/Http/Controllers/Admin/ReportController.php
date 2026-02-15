@@ -202,7 +202,7 @@ class ReportController extends Controller
         fputcsv($file, ['Metrik', 'Nilai']);
         fputcsv($file, ['Total Pelanggan Aktif', Customer::where('status', 'active')->count()]);
         fputcsv($file, ['Total Pelanggan Suspended', Customer::where('status', 'suspended')->count()]);
-        fputcsv($file, ['Total Pendapatan Periode', 'Rp ' . number_format(Invoice::where('status', 'paid')->whereBetween('paid_date', [$startDate, $endDate])->sum('amount'), 0, ',', '.')]);
+        fputcsv($file, ['Total Pendapatan Periode', ' ₱ ' . number_format(Invoice::where('status', 'paid')->whereBetween('paid_date', [$startDate, $endDate])->sum('amount'), 0, ',', '.')]);
         fputcsv($file, ['Invoice Terbayar', Invoice::where('status', 'paid')->whereBetween('paid_date', [$startDate, $endDate])->count()]);
         fputcsv($file, ['Invoice Belum Bayar', Invoice::where('status', 'unpaid')->count()]);
         fputcsv($file, ['Invoice Overdue', Invoice::where('status', 'unpaid')->where('due_date', '<', Carbon::now())->count()]);
@@ -212,7 +212,7 @@ class ReportController extends Controller
         fputcsv($file, ['DISTRIBUSI PAKET']);
         fputcsv($file, ['Nama Paket', 'Jumlah Pelanggan', 'Harga']);
         foreach (Package::withCount('customers')->get() as $package) {
-            fputcsv($file, [$package->name, $package->customers_count, 'Rp ' . number_format($package->price, 0, ',', '.')]);
+            fputcsv($file, [$package->name, $package->customers_count, ' ₱ ' . number_format($package->price, 0, ',', '.')]);
         }
     }
 

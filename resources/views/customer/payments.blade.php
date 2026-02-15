@@ -26,7 +26,7 @@
                         </td>
                         <td class="px-6 py-4 font-medium text-gray-800">{{ $payment->invoice_number }}</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ $payment->period ?? $payment->created_at->format('F Y') }}</td>
-                        <td class="px-6 py-4 font-semibold text-green-600">Rp {{ number_format($payment->total, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 font-semibold text-green-600">₱  {{ number_format($payment->total, 0, ',', '.') }}</td>
                         <td class="px-6 py-4">
                             <span class="inline-flex px-2 py-1 text-xs rounded-full 
                                 {{ $payment->payment_method == 'cash' ? 'bg-green-100 text-green-700' : 

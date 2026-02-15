@@ -25,7 +25,7 @@
                         <td class="px-6 py-4 font-medium text-gray-800">{{ $invoice->invoice_number }}</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ $invoice->period ?? $invoice->created_at->format('F Y') }}</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ $invoice->due_date->format('d M Y') }}</td>
-                        <td class="px-6 py-4 font-semibold text-gray-800">Rp {{ number_format($invoice->total, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 font-semibold text-gray-800">₱  {{ number_format($invoice->total, 0, ',', '.') }}</td>
                         <td class="px-6 py-4">
                             @if($invoice->status == 'paid')
                                 <span class="inline-flex px-2 py-1 text-xs rounded-full bg-green-100 text-green-700">Paid</span>

@@ -85,7 +85,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <span>Monthly Revenue</span>
-                                <span class="font-bold">Rp {{ number_format($package->price * $package->customers->where('status', 'active')->count(), 0, ',', '.') }}</span>
+                                <span class="font-bold"> ₱ {{ number_format($package->price * $package->customers->where('status', 'active')->count(), 0, ',', '.') }}</span>
                             </div>
                         </div>
                     </div>

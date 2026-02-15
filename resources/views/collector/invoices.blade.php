@@ -47,7 +47,7 @@
                         <td class="px-6 py-4 text-sm {{ $invoice->due_date < now() ? 'text-red-600 font-medium' : 'text-gray-600' }}">
                             {{ $invoice->due_date->format('d M Y') }}
                         </td>
-                        <td class="px-6 py-4 font-semibold text-gray-800">Rp {{ number_format($invoice->total, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 font-semibold text-gray-800">₱  {{ number_format($invoice->total, 0, ',', '.') }}</td>
                         <td class="px-6 py-4">
                             @if($invoice->due_date < now())
                                 <span class="inline-flex px-2 py-1 text-xs rounded-full bg-red-100 text-red-700">Overdue</span>

@@ -29,15 +29,15 @@
                         <div class="space-y-1 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-500">Agent Price:</span>
-                                <span class="font-medium text-emerald-600">Rp {{ number_format($package->agent_price, 0, ',', '.') }}</span>
+                                <span class="font-medium text-emerald-600">₱  {{ number_format($package->agent_price, 0, ',', '.') }}</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-500">Retail Price:</span>
-                                <span class="font-medium text-gray-800">Rp {{ number_format($package->customer_price, 0, ',', '.') }}</span>
+                                <span class="font-medium text-gray-800">₱  {{ number_format($package->customer_price, 0, ',', '.') }}</span>
                             </div>
                             <div class="flex justify-between border-t pt-1 mt-1">
                                 <span class="text-gray-500">Profit:</span>
-                                <span class="font-bold text-green-600">Rp {{ number_format($package->customer_price - $package->agent_price, 0, ',', '.') }}</span>
+                                <span class="font-bold text-green-600">₱  {{ number_format($package->customer_price - $package->agent_price, 0, ',', '.') }}</span>
                             </div>
                         </div>
                     </div>

@@ -53,7 +53,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-500 text-sm">Next Bill</p>
-                    <p class="text-xl font-bold text-gray-800">Rp {{ number_format($nextInvoice->total ?? 0, 0, ',', '.') }}</p>
+                    <p class="text-xl font-bold text-gray-800">₱  {{ number_format($nextInvoice->total ?? 0, 0, ',', '.') }}</p>
                     <p class="text-orange-600 text-sm">Due date: {{ isset($nextInvoice) ? $nextInvoice->due_date->format('d M Y') : '-' }}</p>
                 </div>
                 <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <p class="font-semibold text-gray-800">Rp {{ number_format($invoice->total, 0, ',', '.') }}</p>
+                    <p class="font-semibold text-gray-800">₱  {{ number_format($invoice->total, 0, ',', '.') }}</p>
                     <span class="inline-flex px-2 py-1 text-xs rounded-full {{ $invoice->status == 'paid' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' }}">
                         {{ $invoice->status == 'paid' ? 'Paid' : 'Unpaid' }}
                     </span>

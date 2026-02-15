@@ -75,7 +75,7 @@ class WhatsAppService
         $message .= "Tagihan internet Anda telah terbit:\n\n";
         $message .= "📋 *Invoice:* {$invoice->invoice_number}\n";
         $message .= "📦 *Paket:* {$invoice->package->name}\n";
-        $message .= "💰 *Total:* Rp " . number_format($invoice->amount, 0, ',', '.') . "\n";
+        $message .= "💰 *Total:*  ₱ " . number_format($invoice->amount, 0, ',', '.') . "\n";
         $message .= "📅 *Jatuh Tempo:* " . ($invoice->due_date ? $invoice->due_date->format('d M Y') : '-') . "\n\n";
         $message .= "Silakan lakukan pembayaran sebelum jatuh tempo.\n\n";
         $message .= "Terima kasih,\n";
@@ -94,7 +94,7 @@ class WhatsAppService
         $message = "Halo *{$customer->name}*,\n\n";
         $message .= "✅ Pembayaran Anda telah kami terima!\n\n";
         $message .= "📋 *Invoice:* {$invoice->invoice_number}\n";
-        $message .= "💰 *Jumlah:* Rp " . number_format($invoice->amount, 0, ',', '.') . "\n";
+        $message .= "💰 *Jumlah:*  ₱ " . number_format($invoice->amount, 0, ',', '.') . "\n";
         $message .= "📅 *Tanggal Bayar:* " . ($invoice->paid_date ? $invoice->paid_date->format('d M Y') : now()->format('d M Y')) . "\n\n";
         $message .= "Terima kasih atas pembayaran Anda.\n\n";
         $message .= "*" . companyName() . "*";
@@ -135,7 +135,7 @@ class WhatsAppService
         $message .= "Halo *{$customer->name}*,\n\n";
         $message .= "Tagihan Anda belum dibayar:\n\n";
         $message .= "📋 *Invoice:* {$invoice->invoice_number}\n";
-        $message .= "💰 *Total:* Rp " . number_format($invoice->amount, 0, ',', '.') . "\n";
+        $message .= "💰 *Total:*  ₱ " . number_format($invoice->amount, 0, ',', '.') . "\n";
         $message .= "📅 *Jatuh Tempo:* " . ($invoice->due_date ? $invoice->due_date->format('d M Y') : '-') . "\n\n";
         $message .= "Mohon segera lakukan pembayaran untuk menghindari pemutusan layanan.\n\n";
         $message .= "*" . companyName() . "*";

@@ -10,15 +10,14 @@
         @include('admin.partials.topbar')
 
         <div class="p-6">
-            <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">OLT Management</h1>
-                    <p class="text-gray-600">Monitor dan kelola perangkat OLT & ONU</p>
+                    <p class="text-gray-600">Monitor and manage OLT & ONU devices</p>
                 </div>
                 <div class="flex space-x-3">
                     <a href="{{ route('admin.olt.onu.index') }}" class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700">
-                        <i class="fas fa-list mr-2"></i>Semua ONU
+                        <i class="fas fa-list mr-2"></i>All ONUs
                     </a>
                     <a href="{{ route('admin.olt.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
                         <i class="fas fa-plus mr-2"></i>Add OLT
@@ -26,7 +25,6 @@
                 </div>
             </div>
 
-            <!-- Stats Cards -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
                 <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
                     <div class="flex items-center justify-between">
@@ -100,7 +98,6 @@
                 </div>
             </div>
 
-            <!-- OLT List -->
             @foreach($olts as $olt)
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-6">
                 <div class="p-6">
@@ -138,7 +135,6 @@
                         </div>
                     </div>
 
-                    <!-- ONU Stats -->
                     <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-6">
                         <div class="text-center p-3 bg-gray-50 rounded-lg">
                             <p class="text-2xl font-bold text-gray-800">{{ $olt->total_pon_ports }}</p>
@@ -166,7 +162,6 @@
                         </div>
                     </div>
 
-                    <!-- Fans -->
                     @if($olt->fans->count() > 0)
                     <div class="flex flex-wrap gap-4 mt-4 pt-4 border-t border-gray-100">
                         @foreach($olt->fans as $fan)
